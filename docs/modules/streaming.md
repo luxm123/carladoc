@@ -1,5 +1,8 @@
-<h1><a href="#streaming">Streaming</a></h1>
-<h1><a href="#什么是-streaming">什么是 Streaming?</a></h1>
+<span id="streaming"></span>
+[什么是 Streaming？](#streaming-intro)
+
+
+
 
 - [结构化设计](#结构化设计)
 ## [架构](#架构)
@@ -30,11 +33,12 @@
 - [多端点 Streaming](#多端点-streaming)
 
 
-# [Streaming](#streaming)
 
 
+<span id="streaming-intro"></span>
+## 什么是 Streaming？
 
-# [什么是 Streaming?](#什么是-streaming)
+
 
 **Streaming** 是 **CARLA 仿真环境中的流式数据传输模块**，负责 **服务器端创建数据流、客户端订阅流，并进行高效的数据传输**。  
 该模块适用于 **实时传感器数据传输、分布式仿真、远程数据处理** 等应用场景，并支持 **TCP/UDP、同步/异步模式、多客户端订阅** 等功能，确保仿真数据能够高效传输到多个订阅客户端。
@@ -66,23 +70,11 @@ Streaming 组件采用 **结构化设计**，通过 **模块化拆分**，将数
 ## [概述](#概述)
 
 
-```mermaid
-flowchart TD
-    Client["Client - 订阅流 - 取消订阅流"]
-    Server["Server - 创建流 - 关闭流"]
-    Stream["Stream - 服务器向客户端传输数据"]
-    Token["Token - 作为流的唯一标识"]
-    EndPoint["EndPoint - 处理网络连接"]
-
-    Client -->|订阅流| Stream
-    Server -->|创建流| Stream
-    Stream -->|唯一标识| Token
-    Client -->|网络通信| EndPoint
-    Server -->|网络通信| EndPoint
+![Streaming Flowchart](img/streaming_flowchart.png)
 
 
 
-```
+
 该架构图展示了 **Client（客户端）**、**Server（服务器）**、**Stream（数据流）**、**Token（令牌）** 和 **EndPoint（端点）** 之间的交互关系。**服务器创建数据流（Stream），客户端通过网络端点（EndPoint）连接服务器并订阅流（使用唯一标识 Token），服务器向订阅的客户端推送数据。**
 
 
