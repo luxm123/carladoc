@@ -1,0 +1,563 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Ue commandlet - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#commandlet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ue commandlet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commandlet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commandlet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandlet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandlet_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是 Commandlet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commandlet_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 Commandlet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commandlet_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 Commandlet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commandlet_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检测 Commandlet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tick" class="md-nav__link">
+    <span class="md-ellipsis">
+      驱动 Tick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmdlet" class="md-nav__link">
+    <span class="md-ellipsis">
+      介入到某个 Cmdlet 流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Ue commandlet</h1>
+
+<h2 id="commandlet"><a href="https://imzlp.com/posts/27475/">Commandlet</a><a class="headerlink" href="#commandlet" title="Permanent link">&para;</a></h2>
+<h3 id="commandlet_1">什么是 Commandlet<a class="headerlink" href="#commandlet_1" title="Permanent link">&para;</a></h3>
+<p>UE 的 Commandlet 是一种可以用命令行的方式去驱动引擎的机制，如传统的命令行程序：
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">agrv</span><span class="p">[]){</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+则可以通过命令行的形式调用，并传递参数：
+<div class="highlight"><pre><span></span><code>./arg_printer<span class="w"> </span>-test1<span class="w"> </span>-test2
+</code></pre></div>
+Commandlet 也是提供的这样的调用形式。不过，需要调用的程序是引擎，并且要传递 uproject 文件路径、其他的参数等。
+以 Cook 的 Commandlet 为例：
+<div class="highlight"><pre><span></span><code>UE4Editor-cmd.exe<span class="w"> </span>D:<span class="se">\C</span>lient<span class="se">\F</span>Game.uproject<span class="w"> </span>-run<span class="o">=</span>cook
+</code></pre></div>
+通过这样的形式启动命令行引擎，不会启动虚幻编辑器，而是执行所定义的行为。</p>
+<h3 id="commandlet_2">创建 Commandlet<a class="headerlink" href="#commandlet_2" title="Permanent link">&para;</a></h3>
+<p>为项目或插件创建 Commandlet，通常会在模块类型为 <code>Editor</code> 的 Module 中添加，因为执行 Commandlet 的逻辑，很少会涉及到运行时，都是在引擎环境下执行的。</p>
+<p>创建自定义的 Commandlet，需要创建一个继承自 <code>UCommandlet</code> 的 UObject 类：
+<div class="highlight"><pre><span></span><code><span class="n">UGenerateTileCommandlet</span><span class="o">::</span><span class="n">UGenerateTileCommandlet</span><span class="p">()</span>
+
+<span class="n">int32</span><span class="w"> </span><span class="n">UGenerateTileCommandlet</span><span class="o">::</span><span class="n">Main</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Params</span><span class="p">)</span>
+</code></pre></div></p>
+<p>其中的 <code>Main</code> 函数，就是当通过 <code>-run=</code> 命令启动该 Commandlet 时，会执行到的逻辑，就像前面纯 C++ 的 main 函数一样。</p>
+<p>不过，需要注意的是，因为 Commandlet 其实是完整的引擎环境，所以执行时会拉起已注册模块的启动，相当于有很多的前置逻辑需要执行，等执行到 <code>Main</code> 函数时，就是完整的引擎状态了。</p>
+<p>可以在这个函数之内做自定义的操作，此时它具有完整的引擎环境，可以根据自己的需要进行数据导出或资源处理。</p>
+<h3 id="commandlet_3">运行 Commandlet<a class="headerlink" href="#commandlet_3" title="Permanent link">&para;</a></h3>
+<p>前面已经提到了，运行一个 Commandlet 需要用以下的命令形式：
+<div class="highlight"><pre><span></span><code>UE4Editor-cmd.exe<span class="w"> </span>PROJECT_NAME.uproject<span class="w"> </span>-run<span class="o">=</span>CMDLET_NAME
+</code></pre></div></p>
+<p>启动项目中的 Commandlet 时，必须要指定项目路径，因为要去加载工程及插件中的模块。</p>
+<p>参数 <code>-run=</code>，指定的是要执行的 Commandlet 的名字，这个名字和前面创建的继承自 <code>UCommandlet</code> 类名字直接相关：如 <code>UResScannerCommandlet</code> 它的 Commandlet 的名字就为 <code>ResScanner</code>，规则就是去掉头部的 <code>U</code> 以及尾部的 <code>Commandlet</code>。</p>
+<p>引擎内接收到 <code>-run=</code> 的参数，会去查找 UClass，并会自动拼接 <code>Commandlet</code> 后缀：
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>Token<span class="w"> </span>--<span class="w"> </span>XXXXCommandlet
+<span class="nv">CommandletClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>FindObject&lt;UClass&gt;<span class="o">(</span>ANY_PACKAGE,*Token,false<span class="o">)</span><span class="p">;</span>
+</code></pre></div></p>
+<p>拿到 UClass 之后，创建一个实例，然后调用它的 <code>Main</code> 函数：
+<div class="highlight"><pre><span></span><code>Unreal/CarlaUE4/Plugins/CarlaTools/Source/CarlaTools/Private/Commandlet/GenerateTileCommandlet.cpp
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">OpenDriveMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewObject</span><span class="o">&lt;</span><span class="n">UOpenDriveToMap</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">OpenDriveClass</span><span class="p">);</span>
+<span class="n">OpenDriveMap</span><span class="o">-&gt;</span><span class="n">FilePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;FilePath&quot;</span><span class="p">];</span>
+<span class="n">OpenDriveMap</span><span class="o">-&gt;</span><span class="n">BaseLevelName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;BaseLevelName&quot;</span><span class="p">];</span>
+<span class="n">OpenDriveMap</span><span class="o">-&gt;</span><span class="n">OriginGeoCoordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FVector2D</span><span class="p">(</span><span class="n">FCString</span><span class="o">::</span><span class="n">Atof</span><span class="p">(</span><span class="o">*</span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;GeoCoordsX&quot;</span><span class="p">]),</span><span class="n">FCString</span><span class="o">::</span><span class="n">Atof</span><span class="p">(</span><span class="o">*</span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;GeoCoordsY&quot;</span><span class="p">]));</span>
+<span class="n">OpenDriveMap</span><span class="o">-&gt;</span><span class="n">CurrentTilesInXY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FIntVector</span><span class="p">(</span><span class="n">FCString</span><span class="o">::</span><span class="n">Atof</span><span class="p">(</span><span class="o">*</span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;CTileX&quot;</span><span class="p">]),</span><span class="n">FCString</span><span class="o">::</span><span class="n">Atof</span><span class="p">(</span><span class="o">*</span><span class="n">ParamsMap</span><span class="p">[</span><span class="s">&quot;CTileY&quot;</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// Parse Params</span>
+<span class="n">OpenDriveMap</span><span class="o">-&gt;</span><span class="n">GenerateTile</span><span class="p">();</span>
+</code></pre></div>
+<p>!!! 注意
+    是启动了所有模块之后才会进入到 Commandlet 的 <code>Main</code> 中，意味着模块的 <code>StartupModule</code> 在 Main 之前。</p>
+<p>引擎执行 Commandlet Main 函数的调用栈：
+<img alt="LidarPointCloud" src="../../img/tuto_D_windows_debug/commandlet_call_stack.jpg" /></p>
+<h3 id="commandlet_4">检测 Commandlet<a class="headerlink" href="#commandlet_4" title="Permanent link">&para;</a></h3>
+<p>根据上面的内容，需要记住以下两个关键点：</p>
+<ol>
+<li>Commandlet 位于 Editor 模块内</li>
+<li>Commandlet 进入到 Main 之后就是完整的引擎环境
+因为 Commandlet 是位于 Editor 模块内的，有可能会调用到模块内的其他函数，为了区分 Editor 启动还是 Commandlet 启动，可以用以下函数进行检测：
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="o">::</span><span class="n">IsRunningCommandlet</span><span class="p">())</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// do something</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p>传递进来的是不包含引擎路径和项目路径的参数。</p>
+<p>如，运行命令：
+<div class="highlight"><pre><span></span><code>UE4Editor-cmd.exe<span class="w"> </span>G:<span class="se">\C</span>lient<span class="se">\F</span>Game.uproject<span class="w"> </span>-skipcompile<span class="w"> </span>-run<span class="o">=</span>HotChunker<span class="w"> </span>-TargetPlatform<span class="o">=</span>IOS
+</code></pre></div></p>
+<p>则接收到的参数为：
+<div class="highlight"><pre><span></span><code>-skipcompile<span class="w"> </span>-run<span class="o">=</span>HotChunker<span class="w"> </span>-TargetPlatform<span class="o">=</span>IOS
+</code></pre></div>
+<img alt="LidarPointCloud" src="../../img/tuto_D_windows_debug/commandlet_received_param.jpg" /></p>
+<p>可以通过解析该命令行参数，在 Commandlet 执行特殊行为。以 HotPatcher 为例，可以通过 <code>-config=</code> 指定配置文件，在 Commandlet 中就会读取并根据配置文件执行。</p>
+<h3 id="tick">驱动 Tick<a class="headerlink" href="#tick" title="Permanent link">&para;</a></h3>
+<p>Commandlet 默认是一个独立过程行为，不会驱动引擎 Tick，就像一个普通的函数，所有代码执行完毕之后，离开当前的作用域，就请求退出引擎了。</p>
+<h3 id="cmdlet">介入到某个 Cmdlet 流程<a class="headerlink" href="#cmdlet" title="Permanent link">&para;</a></h3>
+<p>以 Cook 为例，它是拉起来了一个 CookCommandlet 去执行。默认情况下，引擎并没有给我们留口子，去介入到 Cook 的各个阶段，如果想要在打包的过程中去做一些操作，就需要自己操纵 UAT 把构建过程拆开，自己维护各个流程。</p>
+<p>但这么做的代价比较高，考虑以下这些需求：</p>
+<ul>
+<li>在 Cook 完毕之后去训练 Shader 的字典，并把用字典压缩的 ShaderLibrary 替换原始的。</li>
+</ul>
+<p>在默认情况下，要实现它，就需要把打包过程在 Cook 之后停掉，处理完自定义流程之后，再进入的 UnrealPak 阶段，接着执行。</p>
+<p>整个过程都比较的繁琐，如果我们想要在 Cook 之后自动执行，还可以用另一种方式，介入到 Commandlet 的执行进程中。</p>
+<p>根据前文的介绍我们知道，Commandlet 在执行中，也是会执行模块的 StartupModule 及 ShutdownModule 的，而我们想要介入到 Cmdlet 中执行，就是要利用这个特性。</p>
+<p>同样以 Cook 之后，让引擎拉起我们的自定义处理流程为例，可以拆解这个需求：</p>
+<ol>
+<li>确定是否运行在 CookCommandlet 中</li>
+<li>在 Cook 执行完毕后，引擎退出之前的时机执行</li>
+</ol>
+<p>关于第一点，我们可以解析启动的命令行参数，并检查 <code>-run=</code> 的 Token 是不是 <code>Cook</code>，就能确定是否是在 <code>CookCommandlet</code> 中：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

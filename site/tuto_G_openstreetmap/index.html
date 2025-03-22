@@ -1,0 +1,665 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>使用 OpenStreetMap 生成地图 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openstreetmap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              使用 OpenStreetMap 生成地图
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#openstreetmap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 OpenStreetMap 导出地图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla-openstreetmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Carla 中使用 OpenStreetMaps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openstreetmap-opendrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      将 OpenStreetMap 格式转换为 OpenDRIVE 格式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="将 OpenStreetMap 格式转换为 OpenDRIVE 格式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成交通灯
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入 Carla
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="导入 Carla">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      A) 使用您自己的脚本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-xodr-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      B) 将 .xodr 传递给 config.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-osm-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) 将 .osm 传递给 config.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="openstreetmap">使用 OpenStreetMap 生成地图<a class="headerlink" href="#openstreetmap" title="Permanent link">&para;</a></h1>
+<p>在本指南中，您将学习：</p>
+<ul>
+<li>如何从 OpenStreetMaps 导出地图。</li>
+<li>Carla 中可以使用的不同格式的地图以及每种格式的限制。</li>
+<li>如何将本机<code>.osm</code>格式转换为<code>.xodr</code>。</li>
+<li>如何在<code>.xodr</code>文件中包含交通灯信息。</li>
+<li>如何在 Carla 模拟中运行最终地图。</li>
+</ul>
+<p><a href="https://www.openstreetmap.org">OpenStreetMap</a> 是由数千名贡献者开发的开放数据世界地图，并根据<a href="https://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> 获得许可。地图的各个部分可以导出为 XML 格式的<code>.osm</code>文件。Carla 可以将此文件转换为 OpenDRIVE 格式并使用 <a href="#adv_opendrive.md">OpenDRIVE Standalone Mode</a> 导入它。</p>
+<ul>
+<li><a href="#export-a-map-with-openstreetmap"><strong>使用 OpenStreetMap 导出地图</strong></a></li>
+<li><a href="#using-openstreetmaps-in-carla"><strong>在 Carla 中使用 OpenStreetMaps</strong></a></li>
+<li><a href="#convert-openstreetmap-format-to-opendrive-format"><strong>将 OpenStreetMap 格式转换为 OpenDRIVE 格式</strong></a><ul>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#generate-traffic-lights">生成交通灯</a></li>
+</ul>
+</li>
+<li><a href="#ingest-into-carla"><strong>导入 Carla</strong></a></li>
+</ul>
+<hr />
+<h2 id="openstreetmap_1">使用 OpenStreetMap 导出地图 <span id="export-a-map-with-openstreetmap"></span><a class="headerlink" href="#openstreetmap_1" title="Permanent link">&para;</a></h2>
+<p>本节介绍如何从 Open Street Map 导出所需的地图信息：</p>
+<p><strong>1.</strong> 导航至 <a href="https://www.openstreetmap.org">Open Street Map 网站</a> 。您将在窗口右侧看到地图视图和一个面板，您可以在其中配置不同的地图图层、查询不同的要素、切换图例等。</p>
+<p><strong>2.</strong> 搜索您想要的位置并放大到特定区域。</p>
+<p><img alt="openstreetmap_view" src="../img/tuto_g_osm_web.jpg" /></p>
+<p>!!! 笔记
+    如果您想使用大范围的地图，例如巴黎，您可以考虑使用 Carla 的 <a href="../large_map_overview/"><strong>大地图功能</strong> </a> 。</p>
+<p><strong>3.</strong> 单击窗口左上角的“导出( <em>Export</em> )”以打开“导出(<em>Export</em>)”面板。</p>
+<p><strong>4.</strong> 单击“<em>导出</em>”面板中的“_手动_选择不同区域”。</p>
+<p><strong>5.</strong> 通过拖动视口中方形区域的角来选择自定义区域。</p>
+<p><strong>6.</strong> 单击导出面板中的 <em>导出</em> 按钮，将所选区域的地图信息保存为<code>.osm</code>文件。</p>
+<p><img alt="openstreetmap_area" src="../img/tuto_g_osm_area.jpg" /></p>
+<hr />
+<h2 id="carla-openstreetmaps">在 Carla 中使用 OpenStreetMaps <span id="using-openstreetmaps-in-carla"></span><a class="headerlink" href="#carla-openstreetmaps" title="Permanent link">&para;</a></h2>
+<p>开放街道地图数据可以通过三种不同的方法在 Carla 中使用。您使用的方法取决于数据是否为原始格式，或者您是否使用以下部分中说明的转换方法来转换<code>.osm</code>文件。<code>.osm</code>保留文件是最受限制的方法，因为它不允许自定义设置。</p>
+<p><strong>可用 <code>.xodr</code> 格式选项：</strong></p>
+<ul>
+<li>在您自己的脚本中生成地图。 <strong>该方法允许参数化。</strong></li>
+<li>将文件作为参数传递给 Carla 的 <code>config.py</code>。 <strong>此方法不允许参数化。</strong></li>
+</ul>
+<p><strong>可用 <code>.osm</code> 格式选项：</strong></p>
+<ul>
+<li>将文件作为参数传递给 Carla 的 <code>config.py</code>。 <strong>此方法不允许参数化。</strong></li>
+</ul>
+<p>以下部分将提供有关上面列出的选项的更多详细信息。</p>
+<hr />
+<h2 id="openstreetmap-opendrive">将 OpenStreetMap 格式转换为 OpenDRIVE 格式 <span id="convert-openstreetmap-format-to-opendrive-format"></span><a class="headerlink" href="#openstreetmap-opendrive" title="Permanent link">&para;</a></h2>
+<p>本节演示如何使用 Python API 将我们在上一节中导出的 <code>.osm</code> 文件转换为<code>.xodr</code>格式，以便可以在 Carla 中使用。</p>
+<p><a href="../python_api/#carla.Osm2OdrSettings">carla.Osm2OdrSettings</a>类用于配置转换设置，例如偏移值、交通灯生成、原点坐标等。可配置参数的完整列表可以在 Python API <a href="../python_api/#carla.Osm2OdrSettings">文档</a> 中找到。<a href="../python_api/#carla.Osm2Odr">carla.Osm2Odr</a> 类使用这些设置来解析<code>.osm</code>数据并以 <code>.xodr</code> 格式输出。</p>
+<p>在 Windows 中，<code>.osm</code>文件必须编码为<code>UTF-8</code>. 这在 Linux 中是不必要的。以下是示例代码片段，显示如何根据您的操作系统执行文件转换：</p>
+<h5 id="linux">Linux <span id="linux"></span><a class="headerlink" href="#linux" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="c1"># 读取 .osm 数据</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/osm/file&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">osm_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 定义想要的设置。在该案例中为默认值。values.</span>
+<span class="n">settings</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2OdrSettings</span><span class="p">()</span>
+<span class="c1"># 设置导出到 OpenDRIVE 的 OSM 道路类型。</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">set_osm_way_types</span><span class="p">([</span><span class="s2">&quot;motorway&quot;</span><span class="p">,</span> <span class="s2">&quot;motorway_link&quot;</span><span class="p">,</span> <span class="s2">&quot;trunk&quot;</span><span class="p">,</span> <span class="s2">&quot;trunk_link&quot;</span><span class="p">,</span> <span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="s2">&quot;primary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;secondary&quot;</span><span class="p">,</span> <span class="s2">&quot;secondary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;tertiary&quot;</span><span class="p">,</span> <span class="s2">&quot;tertiary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;unclassified&quot;</span><span class="p">,</span> <span class="s2">&quot;residential&quot;</span><span class="p">])</span>
+<span class="c1"># 转为 .xodr</span>
+<span class="n">xodr_data</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2Odr</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">osm_data</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
+
+<span class="c1"># 保存为 opendrive 文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/output/file&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xodr_data</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="windows">Windows <span id="windows"></span><a class="headerlink" href="#windows" title="Permanent link">&para;</a></h5>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+<span class="c1"># 读取 .osm 数据</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">osm_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 定义想要的设置。在该案例中为默认值。</span>
+<span class="n">settings</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2OdrSettings</span><span class="p">()</span>
+<span class="c1"># 设置导出成 OpenDRIVE 的 OSM 道路类型</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">set_osm_way_types</span><span class="p">([</span><span class="s2">&quot;motorway&quot;</span><span class="p">,</span> <span class="s2">&quot;motorway_link&quot;</span><span class="p">,</span> <span class="s2">&quot;trunk&quot;</span><span class="p">,</span> <span class="s2">&quot;trunk_link&quot;</span><span class="p">,</span> <span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="s2">&quot;primary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;secondary&quot;</span><span class="p">,</span> <span class="s2">&quot;secondary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;tertiary&quot;</span><span class="p">,</span> <span class="s2">&quot;tertiary_link&quot;</span><span class="p">,</span> <span class="s2">&quot;unclassified&quot;</span><span class="p">,</span> <span class="s2">&quot;residential&quot;</span><span class="p">])</span>
+<span class="c1"># 转为 .xodr</span>
+<span class="n">xodr_data</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2Odr</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">osm_data</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
+
+<span class="c1"># 保存成 opendrive 文件</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/output/file&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xodr_data</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<br></p>
+<hr />
+<h3 id="_1">生成交通灯 <span id="generate-traffic-lights"></span><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Open Street Map 数据可以定义哪些路口受交通灯控制。要在 Carla 中使用此交通灯数据，您需要在将<code>.osm</code>文件转换为<code>.xodr</code>格式之前通过 Python API 在 OSM 地图设置中启用它：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 定义想要的设置。在该案例中为默认值。</span>
+<span class="n">settings</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2OdrSettings</span><span class="p">()</span>
+<span class="c1"># 启用从 OSM 数据中生成交通灯</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">generate_traffic_lights</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># 转为 .xodr</span>
+<span class="n">xodr_data</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Osm2Odr</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">osm_data</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
+</code></pre></div>
+<p>交通灯数据质量可能因提取数据的区域而异。一些交通灯信息可能完全丢失。要克服这些限制，您可以使用 Python API 将所有路口配置为由交通灯控制：</p>
+<div class="highlight"><pre><span></span><code><span class="n">settings</span><span class="o">.</span><span class="n">all_junctions_with_traffic_lights</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<p>您还可以排除某些道路（例如高速公路链接）生成交通信号灯：</p>
+<div class="highlight"><pre><span></span><code>settings.set_traffic_light_excluded_way_types([&quot;motorway_link&quot;])
+</code></pre></div>
+<hr />
+<h2 id="carla">导入 Carla <span id="ingest-into-carla"></span><a class="headerlink" href="#carla" title="Permanent link">&para;</a></h2>
+<p>本节介绍如何使用可用的不同选项，通过 <a href="../adv_opendrive/">OpenDRIVE 独立模式</a>将 Open Street Map 信息提取到 Carla 中。</p>
+<p>有以下三个选项可供选择：</p>
+<p><a href="#a-use-your-own-script"><strong>A)</strong></a> 使用您自己的自定义 Python 脚本中的转换 <code>.xodr</code> 文件 <strong>生成地图该方法允许参数化</strong>。 
+<a href="#b-pass-xodr-to-configpy"><strong>B)</strong></a> 将转换后的<code>.xodr</code>文件作为参数传递给 Carla <code>config.py</code> 脚本。<strong>此方法不允许参数化。</strong>
+<a href="#c-pass-osm-to-configpy"><strong>C)</strong></a> 将原始<code>.osm</code>文件作为参数传递给 Carla <code>config.py</code> 脚本。<strong>此方法不允许参数化。</strong></p>
+<h6 id="a">A) 使用您自己的脚本<a class="headerlink" href="#a" title="Permanent link">&para;</a></h6>
+<p>生成新地图并阻止模拟，直到通过调用 <a href="../python_api/#carla.Client.generate_opendrive_world"><code>client.generate_opendrive_world()</code></a> 准备就绪。使用<a href="../python_api/#carla.OpendriveGenerationParameters">carla.OpendriveGenerationParameters</a>类配置网格生成。请参阅下面的示例：</p>
+<div class="highlight"><pre><span></span><code><span class="n">vertex_distance</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># 以米为单位</span>
+<span class="n">max_road_length</span> <span class="o">=</span> <span class="mf">500.0</span> <span class="c1"># 以米为单位</span>
+<span class="n">wall_height</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># 以米为单位</span>
+<span class="n">extra_width</span> <span class="o">=</span> <span class="mf">0.6</span>      <span class="c1"># 以米为单位</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate_opendrive_world</span><span class="p">(</span>
+    <span class="n">xodr_xml</span><span class="p">,</span> <span class="n">carla</span><span class="o">.</span><span class="n">OpendriveGenerationParameters</span><span class="p">(</span>
+        <span class="n">vertex_distance</span><span class="o">=</span><span class="n">vertex_distance</span><span class="p">,</span>
+        <span class="n">max_road_length</span><span class="o">=</span><span class="n">max_road_length</span><span class="p">,</span>
+        <span class="n">wall_height</span><span class="o">=</span><span class="n">wall_height</span><span class="p">,</span>
+        <span class="n">additional_width</span><span class="o">=</span><span class="n">extra_width</span><span class="p">,</span>
+        <span class="n">smooth_junctions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">enable_mesh_visibility</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</code></pre></div>
+<p>!!! 笔记
+    强烈推荐<code>wall_height = 0.0</code>。OpenStreetMap 将相反方向的车道定义为不同的道路。如果生成墙壁，这将导致墙壁重叠和意外的碰撞。</p>
+<h6 id="b-xodr-configpy">B) 将 <code>.xodr</code> 传递给 <code>config.py</code><a class="headerlink" href="#b-xodr-configpy" title="Permanent link">&para;</a></h6>
+<p>启动 Carla 服务器后，在单独的终端中运行以下命令来加载 Open Street Map：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>PythonAPI/util
+
+python3<span class="w"> </span>config.py<span class="w"> </span>-x<span class="o">=</span>/path/to/xodr/file
+</code></pre></div>
+<p>将使用 <a href="../python_api/#carla.OpendriveGenerationParameters">默认参数</a> 。</p>
+<h6 id="c-osm-configpy">C) 将 <code>.osm</code> 传递给 <code>config.py</code><a class="headerlink" href="#c-osm-configpy" title="Permanent link">&para;</a></h6>
+<p>启动 Carla 服务器后，在单独的终端中运行以下命令来加载 Open Street Map：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>PythonAPI/util
+
+python3<span class="w"> </span>config.py<span class="w"> </span>--osm-path<span class="o">=</span>/path/to/OSM/file
+</code></pre></div>
+<p>将使用<a href="../python_api/#carla.OpendriveGenerationParameters">默认参数</a>。 </p>
+<p>无论使用哪种方法，地图都将被导入到 Carla 中，结果应类似于下图：</p>
+<p><img alt="opendrive_meshissue" src="../img/tuto_g_osm_carla.jpg" />
+<center> 使用 OpenStreetMap 生成 Carla 地图的结果。 </center></p>
+<p><br>
+!!! 警告
+    生成的道路在地图的边界处突然结束。当车辆无法找到下一个路径点时，这将导致交通管理器崩溃。为了避免这种情况，交通管理器中的 OSM 模式默认设置为True ( <a href="../python_api/#carlatrafficmanager"><code>set_osm_mode()</code></a> )。这将在必要时显示警告并销毁车辆。</p>
+<hr />
+<p>与此主题相关的任何问题和疑问都可以在 Carla 论坛中发布。</p>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions/" target="_blank" class="btn btn-neutral" title="Go to the CARLA forum">
+Carla 论坛</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

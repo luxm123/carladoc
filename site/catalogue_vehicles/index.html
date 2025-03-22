@@ -1,0 +1,1895 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Catalogue vehicles - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Catalogue vehicles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 代
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一代
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查模拟器中的车辆
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      车
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="车">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-a2" class="md-nav__link">
+    <span class="md-ellipsis">
+      奥迪 - A2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-e-tron" class="md-nav__link">
+    <span class="md-ellipsis">
+      奥迪 - E-Tron
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-tt" class="md-nav__link">
+    <span class="md-ellipsis">
+      奥迪 - TT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      宝马 - 多功能旅行车
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-impala" class="md-nav__link">
+    <span class="md-ellipsis">
+      雪佛兰 - Impala
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-c3" class="md-nav__link">
+    <span class="md-ellipsis">
+      雪铁龙 - C3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-charger-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      道奇 - Charger 2020
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-police-charger" class="md-nav__link">
+    <span class="md-ellipsis">
+      道奇 - Police Charger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-police-charger-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      道奇 - Police Charger 2020
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      福特 - 皇冠（出租车）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mustang" class="md-nav__link">
+    <span class="md-ellipsis">
+      福特 - Mustang
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-wrangler-rubicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      吉普车 - Wrangler Rubicon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mkz-2017" class="md-nav__link">
+    <span class="md-ellipsis">
+      林肯 - MKZ 2017
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mkz-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      林肯 - MKZ 2020
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-coupe" class="md-nav__link">
+    <span class="md-ellipsis">
+      梅赛德斯 - Coupe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-coupe-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      梅赛德斯 - Coupe 2020
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-microlino" class="md-nav__link">
+    <span class="md-ellipsis">
+      微型车 - Microlino
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cooper-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      迷你 - Cooper S
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cooper-s-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      迷你 - Cooper S 2021
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-micra" class="md-nav__link">
+    <span class="md-ellipsis">
+      尼桑 - Micra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-patrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      尼桑 - Patrol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-patrol-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      尼桑 - Patrol 2021
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seat-leon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seat - Leon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-model-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      特斯拉 - Model 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toyota-prius" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toyota - Prius
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      卡车
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="卡车">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla-motors-carlacola" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carla Motors - CarlaCola
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla-motors-hgv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carla Motors - 欧洲 HGV（驾驶室位于发动机上方）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla-motors-firetruck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carla Motors - Firetruck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cybertruck" class="md-nav__link">
+    <span class="md-ellipsis">
+      特斯拉 - Cybertruck
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      面包车
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="面包车">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      福特 - 救护车
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-sprinter" class="md-nav__link">
+    <span class="md-ellipsis">
+      梅赛德斯 - Sprinter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t2" class="md-nav__link">
+    <span class="md-ellipsis">
+      大众 - T2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-t2-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      大众 - T2 2021
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      巴士
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="巴士">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-fusorosa" class="md-nav__link">
+    <span class="md-ellipsis">
+      三菱 - Fusorosa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      摩托车
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="摩托车">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-low-rider" class="md-nav__link">
+    <span class="md-ellipsis">
+      哈雷戴维森 - Low Rider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kawasaki-ninja" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kawasaki - Ninja
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vespa-zx-125" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vespa - ZX 125
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamaha-yzf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yamaha - YZF
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      自行车
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自行车">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bh-" class="md-nav__link">
+    <span class="md-ellipsis">
+      BH - 越野自行车
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-century" class="md-nav__link">
+    <span class="md-ellipsis">
+      大名自行车 - Century
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gazelle-omafiets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gazelle - Omafiets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!--- 
+
+The images in this document were captured using the following settings in Carla:
+
+Town: Town 10
+
+Vehicle location: Transform(Location(x=-46.885479, y=20.083447, z=-0.002633), Rotation(pitch=-0.000034, yaw=141.974243, roll=0.000000))
+
+Camera location, small vehicles: Transform(Location(x=-47.696186, y=24.049326, z=1.471929), Rotation(pitch=-10.843717, yaw=-77.215683, roll=0.000139))
+Camera location, standard vehicles: Transform(Location(x=-48.672256, y=24.830288, z=1.722733), Rotation(pitch=-13.396630, yaw=-75.692039, roll=0.000119))
+Camera location, large vehicles: Transform(Location(x=-49.470921, y=27.835310, z=2.931721), Rotation(pitch=-13.396630, yaw=-75.691978, roll=0.000119))
+
+The weather settings are: 
+
+weather.sun_altitude_angle = 50
+weather.sun_azimuth_angle = 260
+weather.wetness = 10
+weather.precipitation = 10
+weather.scattering_intensity = 5
+weather.mie_scattering_scale = 0.5
+weather.rayleigh_scattering_scale = 0.1
+
+Camera settings:
+
+camera_bp = bp_lib.find('sensor.camera.rgb')
+camera_bp.set_attribute('image_size_x', '1920')
+camera_bp.set_attribute('image_size_y', '1080')
+camera_bp.set_attribute('fstop', '6.0')
+
+Vehicle settings:
+
+control = vehicle.get_control()
+control.steer = -0.25
+vehicle.apply_control(control)
+
+--->
+
+<h1 id="_1">车辆目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="2">第 2 代<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>车</strong><ul>
+<li><a href="#dodge-charger-2020"><strong>道奇</strong> - Charger 2020</a></li>
+<li><a href="#dodge-police-charger-2020"><strong>道奇</strong> - Police Charger 2020</a></li>
+<li><a href="#ford-crown-taxi"><strong>福特</strong> - 皇冠（出租车）</a></li>
+<li><a href="#lincoln-mkz-2020"><strong>林肯</strong> - MKZ 2020</a></li>
+<li><a href="#mercedes-coupe-2020"><strong>梅赛德斯</strong> - Coupe 2020</a></li>
+<li><a href="#mini-cooper-s-2021"><strong>迷你</strong> - Cooper S 2021</a></li>
+<li><a href="#nissan-patrol-2021"><strong>尼桑</strong> - Patrol 2021</a></li>
+</ul>
+</li>
+<li><strong>卡车</strong><ul>
+<li><a href="#carla-motors-european-hgv-cab-over-engine-type"><strong>Carla Motors</strong> - 欧洲 HGV（驾驶室位于发动机上方）</a></li>
+<li><a href="#carla-motors-firetruck"><strong>Carla Motors</strong> - 消防车</a></li>
+<li><a href="#tesla-cybertruck"><strong>特斯拉</strong> - Cybertruck</a></li>
+</ul>
+</li>
+<li><strong>面包车</strong><ul>
+<li><a href="#ford-ambulance"><strong>福特</strong> - 救护车</a></li>
+<li><a href="#mercedes-sprinter"><strong>梅赛德斯</strong> - Sprinter</a></li>
+<li><a href="#volkswagen-t2-2021"><strong>大众</strong> - T2 2021</a></li>
+</ul>
+</li>
+<li><strong>巴士</strong><ul>
+<li><a href="#mitsubishi-fusorosa"><strong>三菱</strong> - Fusorosa</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">第一代<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>车</strong><ul>
+<li><a href="#audi-a2"><strong>奥迪</strong> - A2</a></li>
+<li><a href="#audi-e-tron"><strong>奥迪</strong> - E-Tron</a></li>
+<li><a href="#audi-tt"><strong>奥迪</strong> - TT</a></li>
+<li><a href="#bmw-gran-tourer"><strong>宝马</strong> - 多功能旅行车</a></li>
+<li><a href="#chevrolet-impala"><strong>雪佛兰</strong> - Impala</a></li>
+<li><a href="#citroen-c3"><strong>雪铁龙</strong> - C3</a></li>
+<li><a href="#dodge-police-charger"><strong>道奇</strong> - Police Charger</a></li>
+<li><a href="#ford-mustang"><strong>福特</strong> - Mustang</a></li>
+<li><a href="#jeep-wrangler-rubicon"><strong>吉普车</strong> - Wrangler Rubicon</a></li>
+<li><a href="#lincoln-mkz-2017"><strong>林肯</strong> - MKZ 2017</a></li>
+<li><a href="#mercedes-coupe"><strong>梅赛德斯</strong> - Coupe</a></li>
+<li><a href="#micro-microlino"><strong>微型车</strong> - Microlino</a></li>
+<li><a href="#mini-cooper-s"><strong>迷你</strong> - Cooper S</a></li>
+<li><a href="#nissan-micra"><strong>尼桑</strong> - Micra</a></li>
+<li><a href="#nissan-patrol"><strong>尼桑</strong> - Patrol</a></li>
+<li><a href="#seat-leon"><strong>Seat</strong> - Leon</a></li>
+<li><a href="#tesla-model-3"><strong>特斯拉</strong> - Model 3</a></li>
+<li><a href="#toyota-prius"><strong>Toyota</strong> - Prius</a></li>
+</ul>
+</li>
+<li><strong>卡车</strong><ul>
+<li><a href="#carla-motors-carlacola"><strong>Carla Motors</strong> - CarlaCola</a></li>
+</ul>
+</li>
+<li><strong>面包车</strong><ul>
+<li><a href="#volkswagen-t2"><strong>大众</strong> - T2</a></li>
+</ul>
+</li>
+<li><strong>摩托车</strong><ul>
+<li><a href="#harley-davidson-low-rider"><strong>哈雷戴维森</strong> - Low Rider</a></li>
+<li><a href="#kawasaki-ninja"><strong>Kawasaki</strong> - Ninja</a></li>
+<li><a href="#vespa-zx-125"><strong>Vespa</strong> - ZX 125</a></li>
+<li><a href="#yamaha-yzf"><strong>Yamaha</strong> - YZF</a></li>
+</ul>
+</li>
+<li><strong>自行车</strong><ul>
+<li><a href="#bh-crossbike"><strong>BH</strong> - 越野自行车</a></li>
+<li><a href="#diamondback-century"><strong>大名自行车</strong> - Century</a></li>
+<li><a href="#gazelle-omafiets"><strong>Gazelle</strong> - Omafiets</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_3">检查模拟器中的车辆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>要检查目录中的车辆，请使用以下代码，从下面的车辆详细信息中检索蓝图 ID 并将其粘贴到行中<code>bp_lib.find('blueprint.id.goes_here')</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_world</span><span class="p">()</span>
+<span class="n">bp_lib</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_blueprint_library</span><span class="p">()</span>
+<span class="n">spectator</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_spectator</span><span class="p">()</span>
+
+<span class="c1"># 设置车辆变换</span>
+<span class="n">vehicle_loc</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Location</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">46.9</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">vehicle_rot</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Rotation</span><span class="p">(</span><span class="n">pitch</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">142.0</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">vehicle_trans</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">vehicle_loc</span><span class="p">,</span><span class="n">vehicle_rot</span><span class="p">)</span>
+
+<span class="c1"># 在这里粘贴蓝图 ID</span>
+<span class="n">vehicle_bp</span> <span class="o">=</span> <span class="n">bp_lib</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;vehicle.lincoln.mkz_2020&#39;</span><span class="p">)</span> 
+
+<span class="c1"># 设置视角变换</span>
+<span class="n">camera_loc</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Location</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">48.7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">24.8</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.7</span><span class="p">)</span>
+<span class="n">camera_rot</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Rotation</span><span class="p">(</span><span class="n">pitch</span><span class="o">=-</span><span class="mf">13.4</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=-</span><span class="mf">75.7</span><span class="p">,</span> <span class="n">roll</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">camera_trans</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">camera_loc</span><span class="p">,</span><span class="n">camera_rot</span><span class="p">)</span>
+
+<span class="c1"># 生成车辆</span>
+<span class="n">vehicle</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">spawn_actor</span><span class="p">(</span><span class="n">vehicle_bp</span><span class="p">,</span> <span class="n">vehicle_trans</span><span class="p">)</span>
+
+<span class="c1"># 移动观察者</span>
+<span class="n">spectator</span><span class="o">.</span><span class="n">set_transform</span><span class="p">(</span><span class="n">camera_trans</span><span class="p">)</span>
+</code></pre></div>
+<p>在尝试生成另一辆车之前，不要忘记销毁该车辆以避免碰撞：</p>
+<div class="highlight"><pre><span></span><code><span class="n">vehicle</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h2 id="_4">车<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="-a2">奥迪 - A2<a class="headerlink" href="#-a2" title="Permanent link">&para;</a></h3>
+<p><img alt="audi_a2" src="../img/catalogue/vehicles/audi_a2.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 奥迪</li>
+<li><strong>型号</strong>: A2</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.audi.a2<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-e-tron">奥迪 - E-Tron<a class="headerlink" href="#-e-tron" title="Permanent link">&para;</a></h3>
+<p><img alt="audi_etron" src="../img/catalogue/vehicles/audi_etron.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 奥迪</li>
+<li><strong>型号</strong>: E-Tron</li>
+<li><strong>类别</strong>: SUV</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.audi.etron<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 电动</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-tt">奥迪 - TT<a class="headerlink" href="#-tt" title="Permanent link">&para;</a></h3>
+<p><img alt="audi_tt" src="../img/catalogue/vehicles/audi_tt.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 奥迪</li>
+<li><strong>型号</strong>: TT</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.audi.tt<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-">宝马 - 多功能旅行车<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p><img alt="bmw_grandtourer" src="../img/catalogue/vehicles/bmw_grandtourer.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 宝马</li>
+<li><strong>型号</strong>: 多功能旅行车</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.bmw.grandtourer<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-impala">雪佛兰 - Impala<a class="headerlink" href="#-impala" title="Permanent link">&para;</a></h3>
+<p><img alt="chevrolet_impala" src="../img/catalogue/vehicles/chevrolet_impala.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 雪佛兰</li>
+<li><strong>型号</strong>: Impala</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.chevrolet.impala<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-c3">雪铁龙 - C3<a class="headerlink" href="#-c3" title="Permanent link">&para;</a></h3>
+<p><img alt="citroen_c3" src="../img/catalogue/vehicles/citroen_c3.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 雪铁龙</li>
+<li><strong>型号</strong>: C3</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.citroen.c3<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-charger-2020">道奇 - Charger 2020<a class="headerlink" href="#-charger-2020" title="Permanent link">&para;</a></h3>
+<p><img alt="dodge_charger_2020" src="../img/catalogue/vehicles/dodge_charger_2020.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 道奇</li>
+<li><strong>型号</strong>: Charger 2020</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.dodge.charger_2020<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-police-charger">道奇 - Police Charger<a class="headerlink" href="#-police-charger" title="Permanent link">&para;</a></h3>
+<p><img alt="dodge_charger_police" src="../img/catalogue/vehicles/dodge_charger_police.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 道奇</li>
+<li><strong>型号</strong>: Police Charger</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.dodge.charger_police<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 救险车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-police-charger-2020">道奇 - Police Charger 2020<a class="headerlink" href="#-police-charger-2020" title="Permanent link">&para;</a></h3>
+<p><img alt="dodge_charger_police_2020" src="../img/catalogue/vehicles/dodge_charger_police_2020.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 道奇</li>
+<li><strong>型号</strong>: Police Charger 2020</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.dodge.charger_police_2020<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 救险车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-_1">福特 - 皇冠（出租车）<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<p><img alt="ford_crown" src="../img/catalogue/vehicles/ford_crown.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 福特</li>
+<li><strong>型号</strong>: 皇冠（出租车）</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.ford.crown<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: taxi</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-mustang">福特 - Mustang<a class="headerlink" href="#-mustang" title="Permanent link">&para;</a></h3>
+<p><img alt="ford_mustang" src="../img/catalogue/vehicles/ford_mustang.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 福特</li>
+<li><strong>型号</strong>: Mustang</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.ford.mustang<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-wrangler-rubicon">吉普车 - Wrangler Rubicon<a class="headerlink" href="#-wrangler-rubicon" title="Permanent link">&para;</a></h3>
+<p><img alt="jeep_wrangler_rubicon" src="../img/catalogue/vehicles/jeep_wrangler_rubicon.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 吉普车</li>
+<li><strong>型号</strong>: Wrangler Rubicon</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.jeep.wrangler_rubicon<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-mkz-2017">林肯 - MKZ 2017<a class="headerlink" href="#-mkz-2017" title="Permanent link">&para;</a></h3>
+<p><img alt="lincoln_mkz_2017" src="../img/catalogue/vehicles/lincoln_mkz_2017.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 林肯</li>
+<li><strong>型号</strong>: MKZ 2017</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.lincoln.mkz_2017<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-mkz-2020">林肯 - MKZ 2020<a class="headerlink" href="#-mkz-2020" title="Permanent link">&para;</a></h3>
+<p><img alt="lincoln_mkz_2020" src="../img/catalogue/vehicles/lincoln_mkz_2020.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 林肯</li>
+<li><strong>型号</strong>: MKZ 2020</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.lincoln.mkz_2020<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-coupe">梅赛德斯 - Coupe<a class="headerlink" href="#-coupe" title="Permanent link">&para;</a></h3>
+<p><img alt="mercedes_coupe" src="../img/catalogue/vehicles/mercedes_coupe.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 梅赛德斯</li>
+<li><strong>型号</strong>: Coupe</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mercedes.coupe<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-coupe-2020">梅赛德斯 - Coupe 2020<a class="headerlink" href="#-coupe-2020" title="Permanent link">&para;</a></h3>
+<p><img alt="mercedes_coupe_2020" src="../img/catalogue/vehicles/mercedes_coupe_2020.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 梅赛德斯</li>
+<li><strong>型号</strong>: Coupe 2020</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mercedes.coupe_2020<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-microlino">微型车 - Microlino<a class="headerlink" href="#-microlino" title="Permanent link">&para;</a></h3>
+<p><img alt="micro_microlino" src="../img/catalogue/vehicles/micro_microlino.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 微型车</li>
+<li><strong>型号</strong>: Microlino</li>
+<li><strong>类别</strong>: 微型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.micro.microlino<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 电动</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-cooper-s">迷你 - Cooper S<a class="headerlink" href="#-cooper-s" title="Permanent link">&para;</a></h3>
+<p><img alt="mini_cooper_s" src="../img/catalogue/vehicles/mini_cooper_s.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 迷你</li>
+<li><strong>型号</strong>: Cooper S</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mini.cooper_s<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-cooper-s-2021">迷你 - Cooper S 2021<a class="headerlink" href="#-cooper-s-2021" title="Permanent link">&para;</a></h3>
+<p><img alt="mini_cooper_s_2021" src="../img/catalogue/vehicles/mini_cooper_s_2021.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 迷你</li>
+<li><strong>型号</strong>: Cooper S 2021</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mini.cooper_s_2021<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-micra">尼桑 - Micra<a class="headerlink" href="#-micra" title="Permanent link">&para;</a></h3>
+<p><img alt="nissan_micra" src="../img/catalogue/vehicles/nissan_micra.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 尼桑</li>
+<li><strong>型号</strong>: Micra</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.nissan.micra<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-patrol">尼桑 - Patrol<a class="headerlink" href="#-patrol" title="Permanent link">&para;</a></h3>
+<p><img alt="nissan_patrol" src="../img/catalogue/vehicles/nissan_patrol.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 尼桑</li>
+<li><strong>型号</strong>: Patrol</li>
+<li><strong>类别</strong>: SUV</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.nissan.patrol<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-patrol-2021">尼桑 - Patrol 2021<a class="headerlink" href="#-patrol-2021" title="Permanent link">&para;</a></h3>
+<p><img alt="nissan_patrol_2021" src="../img/catalogue/vehicles/nissan_patrol_2021.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 尼桑</li>
+<li><strong>型号</strong>: Patrol 2021</li>
+<li><strong>类别</strong>: SUV</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.nissan.patrol_2021<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="seat-leon">Seat - Leon<a class="headerlink" href="#seat-leon" title="Permanent link">&para;</a></h3>
+<p><img alt="seat_leon" src="../img/catalogue/vehicles/seat_leon.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Seat</li>
+<li><strong>型号</strong>: Leon</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.seat.leon<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-model-3">特斯拉 - Model 3<a class="headerlink" href="#-model-3" title="Permanent link">&para;</a></h3>
+<p><img alt="tesla_model3" src="../img/catalogue/vehicles/tesla_model3.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 特斯拉</li>
+<li><strong>型号</strong>: Model 3</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.tesla.model3<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 电动</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="toyota-prius">Toyota - Prius<a class="headerlink" href="#toyota-prius" title="Permanent link">&para;</a></h3>
+<p><img alt="toyota_prius" src="../img/catalogue/vehicles/toyota_prius.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Toyota</li>
+<li><strong>型号</strong>: Prius</li>
+<li><strong>类别</strong>: 紧凑型车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.toyota.prius<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 小汽车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 电动</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<hr />
+<h2 id="_5">卡车<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="carla-motors-carlacola">Carla Motors - CarlaCola<a class="headerlink" href="#carla-motors-carlacola" title="Permanent link">&para;</a></h3>
+<p><img alt="carlamotors_carlacola" src="../img/catalogue/vehicles/carlamotors_carlacola.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Carla Motors</li>
+<li><strong>型号</strong>: CarlaCola</li>
+<li><strong>类别</strong>: 卡车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.carlamotors.carlacola<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 卡车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="carla-motors-hgv">Carla Motors - 欧洲 HGV（驾驶室位于发动机上方）<a class="headerlink" href="#carla-motors-hgv" title="Permanent link">&para;</a></h3>
+<p><img alt="carlamotors_european_hgv" src="../img/catalogue/vehicles/carlamotors_european_hgv.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Carla Motors</li>
+<li><strong>型号</strong>: 欧洲 HGV（驾驶室位于发动机上方）</li>
+<li><strong>类别</strong>: 卡车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.carlamotors.european_hgv<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 卡车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="carla-motors-firetruck">Carla Motors - Firetruck<a class="headerlink" href="#carla-motors-firetruck" title="Permanent link">&para;</a></h3>
+<p><img alt="carlamotors_firetruck" src="../img/catalogue/vehicles/carlamotors_firetruck.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Carla Motors</li>
+<li><strong>型号</strong>: Firetruck</li>
+<li><strong>类别</strong>: 卡车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.carlamotors.firetruck<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 卡车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 救险车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-cybertruck">特斯拉 - Cybertruck<a class="headerlink" href="#-cybertruck" title="Permanent link">&para;</a></h3>
+<p><img alt="tesla_cybertruck" src="../img/catalogue/vehicles/tesla_cybertruck.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 特斯拉</li>
+<li><strong>型号</strong>: Cybertruck</li>
+<li><strong>类别</strong>: 卡车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.tesla.cybertruck<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 卡车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 电动</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<hr />
+<h2 id="_6">面包车<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="-_2">福特 - 救护车<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h3>
+<p><img alt="ford_ambulance" src="../img/catalogue/vehicles/ford_ambulance.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 福特</li>
+<li><strong>型号</strong>: 救护车</li>
+<li><strong>类别</strong>: 面包车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.ford.ambulance<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 面包车</p>
+</li>
+<li>
+<p><strong>特殊类型</strong>: 救险车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-sprinter">梅赛德斯 - Sprinter<a class="headerlink" href="#-sprinter" title="Permanent link">&para;</a></h3>
+<p><img alt="mercedes_sprinter" src="../img/catalogue/vehicles/mercedes_sprinter.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 梅赛德斯</li>
+<li><strong>型号</strong>: Sprinter</li>
+<li><strong>类别</strong>: 面包车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mercedes.sprinter<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 面包车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<h3 id="-t2">大众 - T2<a class="headerlink" href="#-t2" title="Permanent link">&para;</a></h3>
+<p><img alt="volkswagen_t2" src="../img/catalogue/vehicles/volkswagen_t2.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 大众</li>
+<li><strong>型号</strong>: T2</li>
+<li><strong>类别</strong>: 标准</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.volkswagen.t2<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 面包车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-t2-2021">大众 - T2 2021<a class="headerlink" href="#-t2-2021" title="Permanent link">&para;</a></h3>
+<p><img alt="volkswagen_t2_2021" src="../img/catalogue/vehicles/volkswagen_t2_2021.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 大众</li>
+<li><strong>型号</strong>: T2 2021</li>
+<li><strong>类别</strong>: 面包车</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.volkswagen.t2_2021<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 面包车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+</ul>
+<hr />
+<h2 id="_7">巴士<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="-fusorosa">三菱 - Fusorosa<a class="headerlink" href="#-fusorosa" title="Permanent link">&para;</a></h3>
+<p><img alt="mitsubishi_fusorosa" src="../img/catalogue/vehicles/mitsubishi_fusorosa.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 三菱</li>
+<li><strong>型号</strong>: Fusorosa</li>
+<li><strong>类别</strong>: 巴士</li>
+<li><strong>世代</strong>: 2</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.mitsubishi.fusorosa<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 巴士</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#99c635;">True<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<hr />
+<h2 id="_8">摩托车<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="-low-rider">哈雷戴维森 - Low Rider<a class="headerlink" href="#-low-rider" title="Permanent link">&para;</a></h3>
+<p><img alt="harley-davidson_low_rider" src="../img/catalogue/vehicles/harley-davidson_low_rider.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 哈雷戴维森</li>
+<li><strong>型号</strong>: Low Rider</li>
+<li><strong>类别</strong>: 摩托车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.harley-davidson.low_rider<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 摩托车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="kawasaki-ninja">Kawasaki - Ninja<a class="headerlink" href="#kawasaki-ninja" title="Permanent link">&para;</a></h3>
+<p><img alt="kawasaki_ninja" src="../img/catalogue/vehicles/kawasaki_ninja.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Kawasaki</li>
+<li><strong>型号</strong>: Ninja</li>
+<li><strong>类别</strong>: 摩托车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.kawasaki.ninja<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 摩托车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="vespa-zx-125">Vespa - ZX 125<a class="headerlink" href="#vespa-zx-125" title="Permanent link">&para;</a></h3>
+<p><img alt="vespa_zx125" src="../img/catalogue/vehicles/vespa_zx125.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Vespa</li>
+<li><strong>型号</strong>: ZX 125</li>
+<li><strong>类别</strong>: 摩托车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.vespa.zx125<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 摩托车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="yamaha-yzf">Yamaha - YZF<a class="headerlink" href="#yamaha-yzf" title="Permanent link">&para;</a></h3>
+<p><img alt="yamaha_yzf" src="../img/catalogue/vehicles/yamaha_yzf.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Yamaha</li>
+<li><strong>型号</strong>: YZF</li>
+<li><strong>类别</strong>: 摩托车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.yamaha.yzf<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 摩托车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<hr />
+<h2 id="_9">自行车<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="bh-">BH - 越野自行车<a class="headerlink" href="#bh-" title="Permanent link">&para;</a></h3>
+<p><img alt="bh_crossbike" src="../img/catalogue/vehicles/bh_crossbike.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: BH</li>
+<li><strong>型号</strong>: 越野自行车</li>
+<li><strong>类别</strong>: 自行车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.bh.crossbike<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 自行车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="-century">大名自行车 - Century<a class="headerlink" href="#-century" title="Permanent link">&para;</a></h3>
+<p><img alt="diamondback_century" src="../img/catalogue/vehicles/diamondback_century.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: 大名自行车</li>
+<li><strong>型号</strong>: Century</li>
+<li><strong>类别</strong>: 自行车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.diamondback.century<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 自行车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<h3 id="gazelle-omafiets">Gazelle - Omafiets<a class="headerlink" href="#gazelle-omafiets" title="Permanent link">&para;</a></h3>
+<p><img alt="gazelle_omafiets" src="../img/catalogue/vehicles/gazelle_omafiets.webp" /></p>
+<ul>
+<li><strong>制造商</strong>: Gazelle</li>
+<li><strong>型号</strong>: Omafiets</li>
+<li><strong>类别</strong>: 自行车</li>
+<li><strong>世代</strong>: 1</li>
+<li>
+<p><strong>蓝图 ID</strong>: <span style="color:#00a6ed;">vehicle.gazelle.omafiets<span></p>
+</li>
+<li>
+<p><strong>基本类型</strong>: 自行车</p>
+</li>
+<li>
+<p><strong>有灯</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+<li>
+<p><strong>有打开的门</strong>: <span style="color:#f16c6c;">False<span></p>
+</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

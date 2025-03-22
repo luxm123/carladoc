@@ -1,0 +1,557 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>为排行榜2.0版提交代理 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#20" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              为排行榜2.0版提交代理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般步骤
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      将您的代理构建到 docker 镜像中
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      在Eval AI注册新用户
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建新团队
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      申请加入 Carla 排行榜
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交您的意见
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查您提交的数据
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="20">为排行榜2.0版提交代理<a class="headerlink" href="#20" title="Permanent link">&para;</a></h1>
+<p>!!! 笔记
+    将您的代理提交给 Carla 自动驾驶排行榜，即表示您接受了使用条款。本页介绍了提交Leaderboard 2.0 版本的代理，如果您使用的是Leaderboard1.0版本，请参阅本提交指南。</p>
+<h2 id="_1">一般步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>为了创建并提交您的代理，您应该拥有排行榜项目和 scenario_runner 的副本。如果不是这种情况，请先访问“入门”部分。</p>
+<ol>
+<li>创建一个 dockerfile 来构建您的代理</li>
+</ol>
+<p>为了让 Carla 排行榜评估您的代理，需要将其封装在 Docker 镜像中。要想成功，您必须能够在 docker 内运行带有排行榜的代理。您可以从头开始创建图像，也可以遵循以下准则：</p>
+<ul>
+<li>将您的代码托管在 <code>${LEADERBOARD_ROOT}</code>外面。我们将该目录称为<code>${TEAM_CODE_ROOT}</code>对于基于 ROS 的代理，这应该是您的 ROS 工作区。</li>
+<li>利用存储库中提供的示例 Docker 文件之一，其中场景运行器和排行榜所需的所有依赖项均已设置。基于 Python 的代理可以使用此示例 Docker，而基于 ROS 的代理可以在此处使用其 Docker 。包括代理所需的依赖项和附加包。我们建议您在由标签“<em>BEGINNING OF USER COMMANDS</em>”和“<em>END OF USER COMMANDS</em>”分隔的区域中添加新命令。</li>
+<li>更新变量<code>TEAM_AGENT</code>以设置代理文件和<code>TEAM_CONFIG</code>，如果需要配置文件进行初始化。不要更改路径“<code>/workspace/team_code</code>”的其余部分。</li>
+<li>确保您想要获取的任何内容都在内部，<code>${HOME}/agent_sources.sh</code>因为在其他任何地方添加的源都不会被调用。在云中运行代理之前会自动获取此文件。</li>
+</ul>
+<p>!!! 注意
+    请注意，当您将条目提交到云时，您对排行榜或场景运行程序存储库所做的任何更改都将被覆盖。</p>
+<h2 id="docker">将您的代理构建到 docker 镜像中<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
+<p>dockerfile 准备就绪后，您现在可以通过运行<code>make_docker.sh</code>脚本来创建它，该脚本会在该名称下生成 docker 映像<code>leaderboard-user</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">LEADERBOARD_ROOT</span><span class="si">}</span>/scripts/make_docker.sh<span class="w"> </span><span class="o">[</span>--ros-distro<span class="p">|</span>-r<span class="w"> </span>ROS_DISTRO<span class="o">]</span>
+</code></pre></div>
+<p>该脚本确保正确定义所有所需的环境变量，然后将其内容复制到创建的 Dockerfile 中。建议将这些环境变量作为您的<code>${HOME}/.bashrc</code>文件的一部分，并包含以下内容：</p>
+<ul>
+<li><code>${CARLA_ROOT}</code></li>
+<li><code>${SCENARIO_RUNNER_ROOT}</code></li>
+<li><code>${LEADERBOARD_ROOT}</code></li>
+<li><code>${TEAM_CODE_ROOT}</code></li>
+<li><code>${ROS_DISTRO}</code> （仅 ROS 代理需要）</li>
+</ul>
+<p>请随意调整此脚本以复制您认为合适的其他文件和资源。</p>
+<p>!!! 注意
+    您可以通过在计算机上本地运行排行榜来测试您的 docker 映像</p>
+<p>我们还想重点介绍 <a href="https://github.com/carla-simulator/leaderboard-agents">排行榜代理</a> 存储库，其中包含多个旨在与 Leaderboard 2.0 配合使用的代理，以及将它们封装在 Docker 中所需的文件。</p>
+<h2 id="eval-ai">在Eval AI注册新用户<a class="headerlink" href="#eval-ai" title="Permanent link">&para;</a></h2>
+<p>我们Eval AI的合作伙伴开发了排行榜的用户界面。要提交内容，您需要在网站上注册用户。</p>
+<p>!!! 注意
+    请务必填写您的用户隶属关系，否则您可能不会被接受参加挑战。</p>
+<h2 id="_2">创建新团队<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在 Eval AI 注册用户后，通过单击“参与者团队”部分创建一个新团队（已创建团队OpenHUTB），如下所示。所有参与者都需要在 Carla 排行榜 2.0 中注册一个团队。</p>
+<p><img alt="" src="../img/leaderboard/carla_team_added.png" />
+AlphaDrive UI 中的团队创建屏幕。</p>
+<h2 id="carla">申请加入 Carla 排行榜<a class="headerlink" href="#carla" title="Permanent link">&para;</a></h2>
+<p>转至“所有挑战”部分并找到 Carla 排行榜挑战，或使用 <a href="https://eval.ai/web/challenges/challenge-page/2098/overview">Carla AD Challenge 2.0 链接</a> 。选择“参与”，然后选择一个参与团队来申请挑战。您需要等待 Carla 排行榜管理员验证您的团队。一旦您的团队通过验证，您就可以开始提交。</p>
+<p><img alt="" src="../img/leaderboard/benchmark.png" />
+基准部分。</p>
+<h2 id="_3">提交您的意见<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>一旦您的团队经过验证，您就可以提交。在“概述”选项卡中，您将找到有关 Carla 排行榜的一般信息，请前往“提交”部分进行提交。您将在那里找到提交说明。</p>
+<p>您需要使用 pip 安装 EvalAI CLI：</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>evalai
+</code></pre></div>
+<p>接下来，您需要使用以下命令通过令牌来识别您的用户：</p>
+<p><div class="highlight"><pre><span></span><code>evalai<span class="w"> </span>set_token<span class="w"> </span>&lt;token&gt;
+</code></pre></div>
+您可以从 EvalAI 网站的“提交”部分检索您的令牌。您可以直接从提交说明中复制并粘贴命令：</p>
+<p><img alt="" src="../img/leaderboard/cli_settoken.png" /></p>
+<p>CLI 提交说明。</p>
+<p>!!! 注意
+    该令牌是特定于您的用户的，每个用户都会在网站的此部分中看到不同的令牌。不要共享令牌，否则提交作者将会产生混淆。</p>
+<p>使用以下命令推送 Docker 镜像：</p>
+<div class="highlight"><pre><span></span><code>evalai<span class="w"> </span>push<span class="w"> </span>&lt;image&gt;:&lt;tag&gt;<span class="w"> </span>--phase<span class="w"> </span>&lt;phase_name&gt;
+</code></pre></div>
+<p>您可以在四个轨迹之间进行选择（在 EvalAI 网站中称为阶段）：</p>
+<ul>
+<li>排行榜 2.0 - 传感器</li>
+<li>
+<p>排行榜2.0 - 地图</p>
+</li>
+<li>
+<p>排行榜 1.0 - 传感器</p>
+</li>
+<li>排行榜 1.0 - 地图</li>
+</ul>
+<p>对于排行榜 2.0 赛道，您必须首先完成相应的资格任务：</p>
+<ul>
+<li>排行榜 2.0 - SENSORS 预选赛赛道</li>
+<li>排行榜 2.0 - MAP 预选赛赛道</li>
+</ul>
+<p>!!! 注意
+    在涉及排行榜的年度比赛期间，某些赛道可能会暂时关闭。请密切关注排行榜网站和 Discord 论坛，了解赛道何时可能关闭提交。</p>
+<p>您可以直接从以下部分复制并粘贴，以确保提交到正确的轨道，并将<code>&lt;image&gt;</code>和替换<code>&lt;tag&gt;</code>为适合您的 Docker 映像的值：</p>
+<p><img alt="" src="../img/leaderboard/challenge_phases.png" /></p>
+<p>要提交到每个轨迹的 CLI 命令。</p>
+<h2 id="_4">检查您提交的数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>创建提交后，您可以转到此<code>My Submissions</code>部分查看所有提交的详细信息。</p>
+<p>状态显示提交状态的高级说明。所有提交都从状态开始，一旦在后端开始运行，<code>SUBMITTED</code>就会更改为。完成后，如果模拟过程中一切顺利，它将更改为<code>PARTIALLY_EVALUATED</code>，或者如果发生意外情况，则更改为 <code>FINISHEDFAILED</code> 。</p>
+<p>失败的提交可以恢复，这将继续提交，而不重复已经完成的路线。这些将具有<code>RESUMED</code>状态，而不是<code>SUBMITTED</code>直到它们开始运行。</p>
+<p>用户可以随时取消提交、停止提交并将其状态更改为<code>CANCELLED</code>。</p>
+<p>任何提交都可以重新启动，使用相同提交的 docker 创建一个新的提交。如果提交正在运行，它将自动取消。</p>
+<p>为了获得提交的结果，请访问 <code>Stdout file</code> 提供的链接。该文件包含有关提交的一些一般信息，包括使用的传感器、路线进度和最终结果，以及每条路线的状态和性能的术语表。</p>
+<p>最后，如果您想公开提交的内容，请选中该<code>Show on Leaderboard</code>框，它现在将显示在<code>Leaderboard</code>挑战部分中。请随意编辑提交内容，其中包含有关方法名称、描述以及项目或出版物的 URL 的任何信息。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

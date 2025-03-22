@@ -1,0 +1,615 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>CarSim 集成 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#carsim" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CarSim 集成
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在你开始之前
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carsim_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置 CarSim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="设置 CarSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sim" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成.sim 文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成.sim 文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Windows 上
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      在Ubuntu上
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      车辆尺寸
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行模拟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="carsim">CarSim 集成<a class="headerlink" href="#carsim" title="Permanent link">&para;</a></h1>
+<p>Carla 与 CarSim 的集成允许将 Carla 中的车辆控制转发到 CarSim。CarSim 将对车辆进行所有必需的物理计算，并将新状态返回给 Carla。</p>
+<p>本页向您展示如何生成<code>.sim</code>文件，解释 Carla 和 CarSim 之间的车辆尺寸如何关联，以及如何使用 CarSim 集成在 Carla 上运行模拟。</p>
+<ul>
+<li><a href="#before_you_begin"><strong>在你开始之前</strong></a>  </li>
+<li><a href="#set_up_carsim"><strong>设置 CarSim</strong></a>  <ul>
+<li><a href="#generate_the_sim_file"><strong>生成 .sim 文件</strong></a>  <ul>
+<li><a href="#on_windows"><strong>在 Windows 上</strong></a></li>
+<li><a href="#on_ubuntu"><strong>在 Ubuntu 上</strong></a></li>
+</ul>
+</li>
+<li><a href="#vehicle_sizes"><strong>车辆尺寸</strong></a>  </li>
+</ul>
+</li>
+<li><a href="#run_the_simulation"><strong>运行模拟</strong></a>  </li>
+</ul>
+<hr />
+<h2 id="_1">在你开始之前 <span id="before_you_begin"></span><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>您需要 CarSim 许可证才能启动并运行该软件。如果您目前没有 CarSim 许可证，您可以在 <a href="https://www.carsim.com/forms/additional_information.php">此处</a> 联系团队以获取信息。</li>
+<li>
+<p>要允许与虚幻引擎通信，您需要安装适用于虚幻引擎 4.24 的 VehicleSim Dynamics 插件（版本 2020.0）。有关查找插件特定版本的信息，请检查此 <a href="https://www.carsim.com/products/supporting/unreal/index.php">链接</a> 。插件的安装取决于您的操作系统： </p>
+<p><strong>对于 Windows</strong>:</p>
+<p>在 <a href="https://www.unrealengine.com/marketplace/en-US/product/carsim-vehicle-dynamics">这里</a> 获取插件。</p>
+<p><strong>对于 Ubuntu</strong>:</p>
+<ol>
+<li>在 <a href="https://www.carsim.com/users/unreal_plugin/unreal_plugin_2020_0.php">这里</a> 下载插件。</li>
+<li>
+<p>将文件 <code>CarSim.Build.cs</code> 替换为 <a href="https://carla-releases.s3.eu-west-3.amazonaws.com/Backup/CarSim.Build.cs">此处</a> 找到的文件（或者 <a href="https://github.com/OpenHUTB/carla_doc/blob/master/src/vehicle/CarSim.Build.cs">CarSim.Build.cs</a> ），以便为 Ubuntu 使用正确的求解器。</p>
+</li>
+<li>
+<p>如果您使用的是 Carla 的打包版本，则可以跳过此步骤。打包版本已使用此标志编译，但如果您从源代码构建 Carla，则需要使用<code>--carsim</code>标志编译服务器。</p>
+</li>
+</ol>
+<p>如果您从源代码构建 Carla，请在根文件夹中运行以下命令以使用<code>--carsim</code>标志编译服务器：</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>launch<span class="w"> </span><span class="nv">ARGS</span><span class="o">=</span><span class="s2">&quot;--carsim&quot;</span>
+</code></pre></div>
+<h2 id="carsim_1">设置 CarSim <span id="set_up_carsim"></span><a class="headerlink" href="#carsim_1" title="Permanent link">&para;</a></h2>
+<p>以下部分详细介绍了如何生成运行模拟所需的 <code>.sim</code> 文件。还有关于 Carla 和 CarSim 之间车辆尺寸关系的详细重要信息。</p>
+<h4 id="sim">生成.sim 文件 <span id="generate_the_sim_file"></span><a class="headerlink" href="#sim" title="Permanent link">&para;</a></h4>
+<p>该<code>.sim</code> 文件描述了要在 Carla 和 CarSim 中运行的模拟。插件需要此文件才能运行模拟。目前无法在 Ubuntu 上生成此文件，但是我们将在下面介绍如何使用之前生成的文件在 Ubuntu 上运行模拟。</p>
+<h5 id="windows">在 Windows 上 <span id="on_windows"></span><a class="headerlink" href="#windows" title="Permanent link">&para;</a></h5>
+<p>在 CarSim 上配置完所有参数后，使用 GUI 生成 <code>.sim</code> 文件，如下所示：</p>
+<p><img alt="generate .sim file" src="../img/carsim_generate.jpg" /></p>
+<p>生成的<code>.sim</code>文件应如下所示：</p>
+<div class="highlight"><pre><span></span><code>SIMFILE
+
+SET_MACRO $(ROOT_FILE_NAME)$ Run_dd7a828d-4b14-4c77-9d09-1974401d6b25
+SET_MACRO $(OUTPUT_PATH)$ D:\carsim\Data\Results
+SET_MACRO $(WORK_DIR)$ D:\carsim\Data\
+SET_MACRO $(OUTPUT_FILE_PREFIX)$ $(WORK_DIR)$Results\Run_dd7a828d-4b14-4c77-9d09-1974401d6b25\LastRun
+
+FILEBASE $(OUTPUT_FILE_PREFIX)$
+INPUT $(WORK_DIR)$Results\$(ROOT_FILE_NAME)$\Run_all.par
+INPUTARCHIVE $(OUTPUT_FILE_PREFIX)$_all.par
+ECHO $(OUTPUT_FILE_PREFIX)$_echo.par
+FINAL $(OUTPUT_FILE_PREFIX)$_end.par
+LOGFILE $(OUTPUT_FILE_PREFIX)$_log.txt
+ERDFILE $(OUTPUT_FILE_PREFIX)$.vs
+PROGDIR D:\carsim\
+DATADIR D:\carsim\Data\
+GUI_REFRESH_V CarSim_RefreshEvent_7760
+RESOURCEDIR D:\carsim\\Resources\
+PRODUCT_ID CarSim
+PRODUCT_VER 2020.0
+ANIFILE D:\carsim\Data\runs\animator.par
+VEHICLE_CODE i_i
+EXT_MODEL_STEP 0.00050000
+PORTS_IMP 0
+PORTS_EXP 0
+
+DLLFILE D:\carsim\Programs\solvers\carsim_64.dll
+END
+</code></pre></div>
+<h5 id="ubuntu">在Ubuntu上 <span id="on_ubuntu"></span><a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h5>
+<p>无法在 Ubuntu 上通过 GUI 创建 <code>.sim</code> 文件。为了继续，您需要执行以下步骤：</p>
+<ol>
+<li>在 Windows 中生成 <code>.sim</code> 文件或使用下面的文件模板。</li>
+<li>修改该 <code>.sim</code> 文件，使变量 <code>INPUT</code>, <code>INPUTARCHIVE</code>, <code>LOGFILE</code> 等指向 Ubuntu 系统中的相应文件。</li>
+<li>替换 <code>DLLFILE</code> 行以指向 CarSim 解算器，在默认安装中，该解算器将为 <code>SOFILE /opt/carsim_2020.0/lib64/libcarsim.so.2020.0</code>. </li>
+</ol>
+<p>生成的文件应与此类似：</p>
+<div class="highlight"><pre><span></span><code>SIMFILE
+
+FILEBASE /path/to/LastRun
+INPUT /path/to/Run_all.par
+INPUTARCHIVE /path/to/LastRun_all.par
+ECHO /path/to/LastRun_echo.par
+FINAL /path/to/LastRun_end.par
+LOGFILE /path/to/LastRun_log.txt
+ERDFILE /path/to/LastRun.vs
+PROGDIR /opt/carsim_2020.0/lib64/
+DATADIR .
+PRODUCT_ID CarSim
+PRODUCT_VER 2020.0
+VEHICLE_CODE i_i
+
+SOFILE /opt/carsim_2020.0/lib64/libcarsim.so.2020.0
+END
+</code></pre></div>
+<h4 id="_2">车辆尺寸 <span id="vehicle_sizes"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>尽管 CarSim 允许您指定在模拟中使用的车辆尺寸，但目前 CarSim 车辆和 Carla 车辆之间没有关联。这意味着两个项目中的车辆将具有不同的尺寸。Carla 车辆的作用只是在模拟过程中充当占位符。</p>
+<p><img alt="carsim vehicle sizes" src="../img/carsim_vehicle_sizes.jpg" /></p>
+<p>!!! 笔记
+    Carla 和 CarSim 中的车辆尺寸之间没有相关性。Carla 车辆只是一个模拟占位符。</p>
+<h2 id="_3">运行模拟 <span id="run_the_simulation"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>运行模拟时所需要做的就是在生成车辆时启用 CarSim。这可以通过将<code>.sim</code> 文件路径传递给Python API 的 <a href="https://carla.readthedocs.io/en/latest/python_api/#carla.Vehicle.enable_carsim">方法</a> 来完成：</p>
+<div class="highlight"><pre><span></span><code>vehicle.enable_carsim<span class="o">(</span>&lt;path_to_ue4simfile.sim&gt;<span class="o">)</span>
+</code></pre></div>
+<p>发送到车辆的所有输入控件都将转发到 CarSim。CarSim 将更新物理并将车辆状态（变换）发送回 Carla 车辆。</p>
+<p>模拟完成后，您可以像往常一样分析 CarSim 中的所有数据。</p>
+<p><img alt="carsim analysis" src="../img/carsim_analysis.jpg" /></p>
+<h2 id="_4">参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/carla-simulator/carla/issues/8150">Issue: Link to CarSim.Build.cs broken</a></p>
+<h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><a href="https://download.csdn.net/download/weixin_42007179/10687512">Unreal Engine CarSim_Unreal_plugin手册</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

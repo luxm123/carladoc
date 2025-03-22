@@ -1,0 +1,593 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>车辆模型 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              车辆模型
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      车辆的添加和使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="车辆的添加和使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1spawning" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）选取蓝图并生成（spawning）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）操作（handling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3destruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）销毁（destruction）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">车辆模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Carla 中的车辆模型包括<strong>3D模型</strong>和<strong>动力学模型</strong>两个方面。3D模型用于实现车辆的可视化渲染，可以在3D模型开发软件中设计、开发，并导入到 <a href="https://link.zhihu.com/?target=https%3A//docs.unrealengine.com/4.26/en-US/InteractiveExperiences/Vehicles/VehicleUserGuide/">虚幻引擎</a> 中使用。动力学模型用于实现车辆逼真的动态效果，Carla 中的车辆采用中的虚幻引擎中的 AWheeledVehicle 模型（核心是 <a href="https://developer.nvidia.cn/physx-sdk">NVIDIA的PhysX模型</a> ）。</p>
+<p>PhysX 考虑了不同的车轮数量，但是为了说明的简单，本节将车辆简化为两轮模型，将车体（簧上质量）简化为前轴质量和后轴质量，并通过悬架与车轮（簧下质量）相连，如下图所示。</p>
+<p><img alt="" src="../../img/vehicle/vehicle_body.jpg" /></p>
+<p>在静止状态下，由力平衡和力矩平衡可由以下公式得到：</p>
+<p>$$
+\left{
+    \begin{array}{<strong>lr</strong>}
+    M = M_f + M_r \
+    M \times X_{cm} = M_f \times X_f + M_r \times X_r
+    \end{array}
+\right.
+$$
+其中，<span class="arithmatex"><span class="MathJax_Preview"> M </span><script type="math/tex"> M </script></span>、<span class="arithmatex"><span class="MathJax_Preview"> M_f </span><script type="math/tex"> M_f </script></span> 和 <span class="arithmatex"><span class="MathJax_Preview"> M_r </span><script type="math/tex"> M_r </script></span> 分别为总质量、前轴质量和后轴质量，<span class="arithmatex"><span class="MathJax_Preview"> X_{cm} </span><script type="math/tex"> X_{cm} </script></span>、<span class="arithmatex"><span class="MathJax_Preview"> X_f </span><script type="math/tex"> X_f </script></span>、<span class="arithmatex"><span class="MathJax_Preview"> X_r </span><script type="math/tex"> X_r </script></span> 分别为质心与几何中心的水平距离、前轴与几何中心的距离、后轴与几何中心的水平距离。</p>
+<p>仿真运行进行更新时，首先采用光线投射方法（raycast），进行悬架位置的计算，如下图。将车轮与地面的接触位置简化为一个轮胎触点，光线投射从车轮最高点开始，并沿着悬架舒张方向向下投射到车轮最低点为止，计算出车辆与地面的接触点以及车轮的位置，进而计算悬架的压缩量和弹簧力，并结合驱动力和行驶阻力计算簧上质量和簧下质量所有受到的外力。然后便可建立车辆各部件的方程，对各种状态进行求解。</p>
+<p><img alt="" src="../../img/vehicle/raycast.jpg" /></p>
+<h2 id="_2">车辆的添加和使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>车辆Vehicle作为交通参与者Actor的重要类型，其使用方式也按照交通参与者Actor的三个步骤，即：选取蓝图并生成（spawning）、操作（handling）、销毁（destruction）。</p>
+<h3 id="1spawning">（1）选取蓝图并生成（spawning）<a class="headerlink" href="#1spawning" title="Permanent link">&para;</a></h3>
+<p>生成交通参与者使用World的<code>try_spawn_actor(blueprint, spwan_point)</code>方法，该方法需要指定准备生成的交通参与者的蓝图blueprint以及生成的位置spwan_point。</p>
+<p>代码的第16行，从蓝图库中获取了 vehicle.tesla.model3 作为我们准备生成的车型。代码的第19~33行通过全局变量SPAWN_POINT可以配置两种不同的生成位置获取方法：</p>
+<p>①SPAWN_POINT为“spectator”时，在spectator当前的位置生成。观察者spectator是一个特殊的actor，用于调整CARLA渲染窗口的视角，该视角可以通过键盘上的W/A/S/D和鼠标拖动进行调整，也可以设置其位置和朝向，代码的第58~64行，设置观察者spectator跟随ego车辆的位置和朝向；</p>
+<p>②SPAWN_POINT为“random”时，在预先定义的生成点中随机选择。为方便交通参与者的生成，CARLA的地图中提供了很多预先定义的生成点，这些生成点在地图上的所有范围都有分布，可通过代码第28~31行进行可视化，效果下图所示：</p>
+<h3 id="2handling">（2）操作（handling）<a class="headerlink" href="#2handling" title="Permanent link">&para;</a></h3>
+<p>操作包含仿真运行期间所有对交通参与者的处理，如参数设置、状态获取和控制等。车辆Vehicle的属性和方法既包括交通参与者Actors公有的内容，也包含车辆Vehicle特有的内容。</p>
+<p>车辆模型的参数可参照第42~50行获取和设置。bounding_box是车辆的外接长方体，其bounding_box.extent属性中的x/y/z分别是几何中心距离三个面的距离，其实也就是长宽高的一半。<code>get_physics_control()</code>可获取车辆模型的物理参数，具体如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th><strong>序号</strong></th>
+<th><strong>参数名</strong></th>
+<th><strong>内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>torque_curve</td>
+<td>发动机转矩曲线，<span class="arithmatex"><span class="MathJax_Preview"> x </span><script type="math/tex"> x </script></span> 为发动机转速(r/min)，<span class="arithmatex"><span class="MathJax_Preview"> y </span><script type="math/tex"> y </script></span> 为相应的转矩(Nm)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>max_rpm</td>
+<td>发动机的最大转速（r/min）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>moi</td>
+<td>发动机的转动惯量（kg*m2/s）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>damping_rate_full_throttle</td>
+<td>最大油门开度的阻尼系数（kg*m2/s）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>damping_rate_zero_throttle_clutch_engaged</td>
+<td>零油门开度离合器结合的阻尼系数（kg*m2/s）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>damping_rate_zero_throttle_clutch_disengaged</td>
+<td>零油门开度离合器分离的阻尼系数（kg*m2/s）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>use_gear_autobox</td>
+<td>是否使用自动变速器</td>
+</tr>
+<tr>
+<td>8</td>
+<td>gear_switch_time</td>
+<td>换挡时的齿轮切换时间（s）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>clutch_strength</td>
+<td>离合器强度（kg*m2/s），该值乘以两个摩擦盘的速度差得到摩擦力矩</td>
+</tr>
+<tr>
+<td>10</td>
+<td>final_ratio</td>
+<td>主减速器传动比</td>
+</tr>
+<tr>
+<td>11</td>
+<td>forward_gears</td>
+<td>前进挡各挡位传动比</td>
+</tr>
+<tr>
+<td>12</td>
+<td>mass</td>
+<td>质量（kg）</td>
+</tr>
+<tr>
+<td>13</td>
+<td>drag_coefficient</td>
+<td>空气阻力系数</td>
+</tr>
+<tr>
+<td>14</td>
+<td>center_of_mass</td>
+<td>质心位置（相对于几何中心）</td>
+</tr>
+<tr>
+<td>15</td>
+<td>steering_curve</td>
+<td>转向曲线，<span class="arithmatex"><span class="MathJax_Preview"> x </span><script type="math/tex"> x </script></span> 为车速， <span class="arithmatex"><span class="MathJax_Preview"> y </span><script type="math/tex"> y </script></span> 为该车速下的最大转向角</td>
+</tr>
+<tr>
+<td>15</td>
+<td>use_sweep_wheel_collision</td>
+<td>是否采用车轮碰撞模式，默认禁用，而是采用简单的光线投射计算地点</td>
+</tr>
+</tbody>
+</table>
+<p>Carla 中旋转部件（如发动机、车轮）在只受阻尼力矩时的，新角速度的计算公式为：
+$$
+w_{new} = w_{old} - \frac{\mu_{damp} \times w_{old}}{M} dt
+$$
+其中，<span class="arithmatex"><span class="MathJax_Preview"> w_{new} </span><script type="math/tex"> w_{new} </script></span> 和 <span class="arithmatex"><span class="MathJax_Preview"> w_{old} </span><script type="math/tex"> w_{old} </script></span> 分别为当前帧的的新角速度与上一帧的旧角速度，<span class="arithmatex"><span class="MathJax_Preview"> \mu_{damp} </span><script type="math/tex"> \mu_{damp} </script></span> 为阻尼系数，<span class="arithmatex"><span class="MathJax_Preview"> M </span><script type="math/tex"> M </script></span> 为转动惯量，<span class="arithmatex"><span class="MathJax_Preview"> dt </span><script type="math/tex"> dt </script></span> 为仿真步长。
+对于发动机，其阻尼系数根据油门开度的不同进行线性插值得到，如下公式所示：
+$$
+\mu_{damp} = \mu_{zero} + (\mu_{full} - \mu_{zero}) \times \alpha
+$$
+其中，<span class="arithmatex"><span class="MathJax_Preview"> \mu_{damp} </span><script type="math/tex"> \mu_{damp} </script></span> 为插值后的阻尼系数，离合器结合时 <span class="arithmatex"><span class="MathJax_Preview"> \mu_{zero} </span><script type="math/tex"> \mu_{zero} </script></span> 为零油门开度离合器结合的阻尼系数 <code>damping_rate_zero_throttle_clutch_engaged</code>，离合器分离时 <span class="arithmatex"><span class="MathJax_Preview"> \mu_{zero} </span><script type="math/tex"> \mu_{zero} </script></span> 为零油门开度离合器分离的阻尼系数<code>damping_rate_zero_throttle_clutch_disengaged</code>，<span class="arithmatex"><span class="MathJax_Preview"> \mu_{full} </span><script type="math/tex"> \mu_{full} </script></span>  为最大油门开度的阻尼系数<code>damping_rate_full_throttle</code>，<span class="arithmatex"><span class="MathJax_Preview"> \alpha </span><script type="math/tex"> \alpha </script></span> 为油门开度。</p>
+<p>轮胎的侧向力可由下式计算得到：
+$$
+F_{Y} = K_{Y} \times S_{Y} \times F_{N}
+$$
+其中，当轮胎的实际负载 <span class="arithmatex"><span class="MathJax_Preview"> F_Z </span><script type="math/tex"> F_Z </script></span> 不小于饱和负载 <span class="arithmatex"><span class="MathJax_Preview"> K_N \times F_N </span><script type="math/tex"> K_N \times F_N </script></span> 时，<span class="arithmatex"><span class="MathJax_Preview"> K_Y </span><script type="math/tex"> K_Y </script></span> 为侧向刚度系数 lat_stiff_value，当轮胎的实际负载小于饱和负载时，<span class="arithmatex"><span class="MathJax_Preview"> K_Y </span><script type="math/tex"> K_Y </script></span> 由平滑的插值得到（暂时没搞明白是怎么插值的）。一个插值的示例如下图所示，该示例中饱和负载时，<span class="arithmatex"><span class="MathJax_Preview"> K_N=3，K_Y=18 </span><script type="math/tex"> K_N=3，K_Y=18 </script></span>。<span class="arithmatex"><span class="MathJax_Preview"> s_Y </span><script type="math/tex"> s_Y </script></span> 为弧度表示的侧向滑移角度，<span class="arithmatex"><span class="MathJax_Preview"> K_N </span><script type="math/tex"> K_N </script></span> 为饱和负载系数lat_stiff_max_load，<span class="arithmatex"><span class="MathJax_Preview"> F_N </span><script type="math/tex"> F_N </script></span> 为车辆完全静止时的车轮负载。</p>
+<p>CARLA提供了不同的方法对车辆进行控制，如：</p>
+<p>①采用Actor的方法进行控制，如通过set_target_velocity方法设置目标速度、通过set_transform方法设置位姿；</p>
+<p>②采用Vehicle的apply_ackermann_control方法设置目标转向角、速度和加速度等；</p>
+<p>③采用Vehicle的apply_control方法设置油门、制动和转向比例；</p>
+<p>④设置车辆为自动驾驶模式，由Traffic Manager模块对车辆进行控制。</p>
+<p>这四种方法在代码的66~83行进行了示例，并可通过全局变量CONTROL_MODE取值进行设置。</p>
+<p>仿真运行中可获取车辆运行状态用于计算、显示等后续处理，代码85~91行对车辆的位姿、速度和加速度进行了获取和打印。</p>
+<h3 id="3destruction">（3）销毁（destruction）<a class="headerlink" href="#3destruction" title="Permanent link">&para;</a></h3>
+<p>运行帧数大于10000后，跳出53行的while循环，在94行对车辆进行了销毁处理。</p>
+<p>需要补充说明的是，本示例中采用了 Carla 默认的异步变步长模式，仿真运行由 Carla 的服务端Server自行触发，这样的话在客户端获取信息或者进行设置时需要等待触发才能生效，这就是代码中<code>world.wait_for_tick()</code>的用处所在。</p>
+<p>实现代码位于 <a href="https://github.com/OpenHUTB/carla_doc/tree/master/src/vehicle/wheeled_vehicle_demo.py">wheeled_vehicle_demo.py</a> 。</p>
+<h1 id="_3">参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/668724369">CARLA的车辆模型</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

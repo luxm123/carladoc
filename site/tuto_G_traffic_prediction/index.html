@@ -1,0 +1,532 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>交通流量预测 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              交通流量预测
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">交通流量预测<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>!!! 注意
+    运行该脚本之前，应先运行generate_traffic.py并确保在town10中成功放置车辆。</p>
+<p>main函数中首先定义了argparser和carla模块，其中，argparse模块用于解析命令行参数，包括host（主机IP地址）、port（TCP端口号）、traffic_id（交通灯ID）、color_id（交通灯颜色ID）和color_time（交通灯时间）。</p>
+<pre><code>args= argparser.parse_arg()
+argparser = argparse.ArgumentParser(description=__doc__)
+argparser.add_argument('--host', metavar='H', default='127.0.0.1', help='IP of the host server (default: 127.0.0.1)')
+argparser.add_argument('-p', '--port', metavar='P', default=2000, type=int, help='TCP port to listen to (default: 2000)')
+argparser.add_argument('--traffic_id', metavar='I', default=1, type=int, help='traffic light id')
+argparser.add_argument('--color_id', metavar='C', default=1, type=int, help='traffic light color id')
+argparser.add_argument('--color_time', metavar='T', default=20, type=int, help='set traffic light time')
+</code></pre>
+<p>使用指定的主机IP地址和端口号连接到Carla模拟器。同时，设置与模拟器通信的超时时间。最后，代码通过获取Carla模拟器的世界对象，可以在模拟环境中进行交通灯的操作和控制。</p>
+<pre><code>client = carla.Client(args.host, args.port)
+client.set_timeout(10.0)  
+world = client.get_world()
+</code></pre>
+<p>使用world.get_settings()方法获取Carla模拟器的当前设置。将Carla模拟器的设置更改为同步模式，并将时间步长设置为0.05秒，以便以固定的时间间隔进行模拟，控制模拟的速度和精确度。</p>
+<pre><code>settings = world.get_settings()
+settings.synchronous_mode = True
+settings.fixed_delta_seconds = 0.05  #模拟环境会以0.05秒的时间前进。
+world.apply_settings(settings)
+</code></pre>
+<p>获取所有正在行驶的<strong>车辆列表</strong></p>
+<pre><code>vehicle_list = world.get_actors().filter('vehicle.*')
+</code></pre>
+<p>划定<strong>路口范围</strong></p>
+<pre><code>xmax = -11
+xmin = -77
+ymax = 57
+ymin = -13
+</code></pre>
+<p>创建多个数据结构，其中vehicle_positions用于存储车辆实时位置，traffic_data用于存储路口实时的车流量数据，timestamps用于存储时间戳，traffic_flow用于统计车流量。</p>
+<pre><code>vehicle_positions = {}
+traffic_data = []
+timestamps = []
+traffic_flow = []
+</code></pre>
+<p><strong><em>统计车流量数据</em></strong>。假设模拟时间步一共为1000。在每个时间步中，遍历所有正在行驶的车辆。对于每辆车辆，获取其位置信息，并判断其是否在目标路口的区域内。如果车辆在区域内，将计数器加1，并将车辆的位置信息存储到字典vehicle_positions中。 </p>
+<pre><code>for t in range(1000):  
+    world.tick()
+        count = 0
+    for vehicle in vehicle_list：
+        location = vehicle.get_location()
+        x = location.x
+        y = location.y
+        z = location.z
+        if x &lt;= xmax and x &gt;= xmin and y &lt;= ymax and y &gt;= ymin:
+            count += 1
+        vehicle_positions[vehicle.id] = (x, y, z)
+</code></pre>
+<p>对应的时间戳和车流量数据分别存入timestamps、traffic_flow， 而traffic_data包括这两种数据。</p>
+<pre><code>   traffic_data.append((t, count))
+    timestamps.append(t)
+    traffic_flow.append(count)
+</code></pre>
+<p>traffic_data写入csv文件</p>
+<pre><code>filename = "traffic_data.csv"
+with open(filename, "w", newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    writer.writerow(["head", "value"])  # 写入表头
+    for data in traffic_data:
+        writer.writerow([data[0], data[1]])  # 写入数据
+
+data = load_data('traffic_data.csv', 200)#读取数据
+</code></pre>
+<p>从交通流量文件中加载<strong><em>数据</em></strong>并进行<strong><em>预处理</em></strong>。首先将数据读取为DataFrame对象，并绘制原始数据的折线图。通过指定的时间步大小对数据进行切片，形成训练样本并返回。</p>
+<pre><code>def load_data(filename, time_step):
+     df = pd.read_csv(filename)
+    data = df.value
+    plt.title('original data')
+    plt.plot(data)
+    plt.show()
+    result = []
+    for index in range(len(data) - time_step):
+        result.append(data[index:index + time_step + 1])
+    return np.array(result)
+</code></pre>
+<p>使用MinMaxScaler对数据进行<em>*</em>归一化**处理，然后按照7：3的比例将数据集划分为训练集和测试集。</p>
+<pre><code>scaler = MinMaxScaler(feature_range=(0, 1))
+dataset = scaler.fit_transform(data)
+train_count = int(0.7 * len(dataset))
+x_train_set, x_test_set = dataset[:train_count, :-1], dataset[train_count:, :-1]
+y_train_set, y_test_set = dataset[:train_count, -1], dataset[train_count:, -1]
+</code></pre>
+<p>对训练集和测试集的输入和输出数据进行维度调整，其中输入数据x_train_set、x_test_set 为三维，如(样本数量, 时间步数, 特征数量），输出数据y_train_set、y_test_set为二维，如(样本数量, 1)。以满足LSTM模型的输入要求。</p>
+<pre><code>x_train_set = x_train_set.reshape(x_train_set.shape[0], 1, x_train_set.shape[1])
+x_test_set = x_test_set.reshape(x_test_set.shape[0], 1, x_test_set.shape[1])
+y_train_set = y_train_set.reshape(y_train_set.shape[0], 1)
+y_test_set = y_test_set.reshape(y_test_set.shape[0], 1)
+</code></pre>
+<p>定义并创建了层次结构为[200,500,500,1]LSTM模型，其中200，500，500，1分别表示模型的三个隐层层的神经元数量，1为输出层的神经元数量。</p>
+<pre><code>layer = [200, 500, 500, 1]
+model = build_lstm_model(layer)
+</code></pre>
+<p><strong><em>构建LST模型</em></strong>。该函数创建Sequential模型对象，用于按顺序堆叠神经网络层。添加LSTM层、Dropout层和Dense全连接层，以及设置损失函数和优化器，提供一个简洁的方式来创建和编译LSTM神经网络模型，以便进行后续的训练和预测操作。</p>
+<pre><code>def build_lstm_model(layer):
+  model = Sequential()
+  model.add(LSTM(
+    input_shape=(1, layer[0]), units=layer[1], return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(
+    units=layer[2], return_sequences=False))
+model.add(Dropout(0.2))
+model.add(Dense(units=layer[3], activation='linear'))
+model.compile(loss='mse', optimizer='adam')
+return model
+</code></pre>
+<p><strong><em>训练模型</em></strong>。将准备好的训练集数据x_train_set和对应的目标值y_train_set，对构建好的模型进行训练。其中，batch_size为每次迭代使用的样本数量，epochs为训练的迭代次数 ，validation_split: 验证集的比例。</p>
+<pre><code> model.fit(x_train_set, y_train_set, batch_size=100, epochs=25, validation_split=0.2)
+</code></pre>
+<p><strong><em>预测未来交通流量</em></strong>。使用训练好的模型对测试集数据x_test_set进行预测，得到预测结果y_predicted。</p>
+<pre><code> y_predicted = model.predict(x_test_set)
+</code></pre>
+<p><strong><em>绘制曲线</em></strong>，首先进行了数据的填充和逆标准化处理，将其转换回原始数据的范围，然后调用plot_curve函数进行曲线绘制，以便可视化对比模型的预测结果和真实的原始数据，以便进行结果评估和分析。</p>
+<pre><code>temp = np.zeros((len(y_test_set), 200))
+origin_temp = np.hstack((temp, y_test_set))
+predict_temp = np.hstack((temp, y_predicted))
+origin_test = scaler.inverse_transform(origin_temp)
+predict_test = scaler.inverse_transform(predict_temp)
+predict_test = np.round(predict_test).astype(int)
+plot_curve(origin_test[:, -1], predict_test[:, -1])
+</code></pre>
+<p>定义plot_curve函数用于绘制真实数据和预测数据的曲线图。下图基于200秒之前的历史交通流量数据，对未来时间序列的流量预测。</p>
+<pre><code>def plot_curve(true_data, predicted_data):
+    fig, ax = plt.subplots()
+    ax.plot(true_data, label='True data')
+    ax.plot(predicted_data, label='Predicted data')
+    ax.legend()
+    # 设置y轴的格式化为整数
+    ax.yaxis.set_major_formatter(ticker.ScalarFormatter(useOffset=False, useMathText=True))
+    ax.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+    plt.show()
+</code></pre>
+<p>下图基于200秒的历史交通流量数据，对未来时间序列的流量预测。
+<img alt="image" src="../img/traffic_prediction.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

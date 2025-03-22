@@ -1,0 +1,1857 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>use OpenRadioss linux - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-openradioss" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              use OpenRadioss linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux-openradioss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 下 OpenRadioss 的编译
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 下 OpenRadioss 的编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译指令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取源码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openradioss-starter" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenRadioss Starter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openradioss-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenRadioss Engine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      自动化脚本（待定）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openradioss" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenRadioss 的使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenRadioss 的使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      前处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      后处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsdyna" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 LSDYNA 格式输入
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 LSDYNA 格式输入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试实例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      bash 脚本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行结果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      To Do
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openradioss_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在服务器上运行 OpenRadioss
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openradioss_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenRadioss 二次开发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenRadioss 二次开发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read_material_modelsf" class="md-nav__link">
+    <span class="md-ellipsis">
+      READ_MATERIAL_MODELS.F
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hm_read_matf" class="md-nav__link">
+    <span class="md-ellipsis">
+      HM_READ_MAT.F
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radioss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radioss 中材料本构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radioss 中材料本构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      各向同性弹性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>use OpenRadioss linux</h1>
+
+<h2 id="linux-openradioss">Linux 下 OpenRadioss 的编译<a class="headerlink" href="#linux-openradioss" title="Permanent link">&para;</a></h2>
+<h3 id="_1">环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Ubuntu 20.0.4 or higher</p>
+<pre><code>   apt-get update
+   apt-get upgrade
+   apt-get install build-essential
+   apt-get install gfortran
+   apt-get install cmake
+   apt-get install perl
+   apt-get install python3
+   apt-get install python-is-python3
+   apt-get install git-lfs
+   apt-get install openmpi-bin openmpi-doc libopenmpi-dev
+   apt-get install paraview
+</code></pre>
+<p>推荐版本为gcc-11, g++-11, gfortran-11。paraview 用于后期可视化。</p>
+</li>
+</ul>
+<h3 id="_2">编译指令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">获取源码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>LFS: <code>git lfs install</code></li>
+<li>运行(这里需要先绑定SSH key) <code>git clone git@github.com:OpenRadioss/OpenRadioss.git</code>. </li>
+</ul>
+<h4 id="openradioss-starter">OpenRadioss Starter<a class="headerlink" href="#openradioss-starter" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>进入 OpenRadioss/starter 目录</p>
+<pre><code>    cd OpenRadioss/starter
+</code></pre>
+</li>
+<li>
+<p>运行 <code>build_script.sh</code> </p>
+<pre><code>    ./build_script.sh -arch=linux64_gf
+</code></pre>
+</li>
+<li>
+<p><code>./build_script.sh</code> 参数:</p>
+<pre><code>[]$ ./build_script.sh
+
+ build_script
+ ------------
+
+ Use with arguments : 
+ -arch=[build architecture]
+     -arch=linux64_gf  (SMP executable / Gfortran compiler)
+ -prec=[dp|sp]                        : set precision - dp (default) |sp 
+ -static-link                         : Fortran, C &amp; C++ runtime are linked in binary
+ -debug=[0|1]                         : debug version 0 no debug flags (default), 1 usual debug flag 
+ -addflag="list of additionnal flags" : add compiler flags to usual set
+
+ Execution control 
+ -nt=[threads]      : number of threads for build 
+ -verbose           : Verbose build
+ -clean             : clean build directory
+</code></pre>
+</li>
+</ul>
+<h4 id="openradioss-engine">OpenRadioss Engine<a class="headerlink" href="#openradioss-engine" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>进入 OpenRadioss/engine 目录</p>
+</li>
+<li>
+<p>运行<code>build_script.sh</code> </p>
+<pre><code>    ./build_script.sh -arch=linux64_gf -mpi=ompi
+</code></pre>
+</li>
+<li>
+<p><code>./build_script.sh</code> 参数:</p>
+<pre><code>[]$ ./build_script.sh
+
+ build_script
+ ------------
+
+ Use with arguments : 
+ -arch=[build architecture]
+
+         -arch=linux64_gf               (SMP executable / Gfortran compiler)
+         -arch=linux64_gf -mpi=ompi     (OpenMPI executable / Gfortran compiler)
+
+ MPI libraries
+ -mpi=[mpi]
+         not set   : SMP (default)
+         -mpi=ompi : OpenMPI
+
+          Controling MPI Libraries - if need choose one of the 3 Option Set
+                                     If no options set, recommended OpenMPI directories are uses (default)
+            1. -mpi-os                             : link with default MPI version installed on system
+                                            libraries are in default installation 
+            2. -mpi-root=[directory]               : set rootname to link with specific MPI installation
+            3. -mpi-include=[directory]            : set include directory where to find mpif.h and mpi.h
+               -mpi-libdir=[directory]             : set library directory where to find mpi libraries
+
+ Other control
+ -prec=[dp|sp]                        : set precision - dp (default) |sp 
+ -static-link                         : Fortran, C &amp; C++ runtime are linked in binary
+ -debug=[0|1]                         : debug version 0 no debug flags (default), 1 usual debug flag 
+ -addflag="list of additionnal flags" : add compiler flags to usual set
+
+ Build control 
+ -nt=[threads]      : number of threads for build 
+ -verbose           : Verbose build
+ -clean             : clean build directory
+        MUMPS linear solver: available only for dp, with mpi" 
+ -mumps_root=[path_to_mumps]          : path_to_mumps/lib/libdmumps.a must exist
+ -scalapack_root=[path to scalapack]  : path_to_scalapack/libscalapack.a must exist
+ -lapack_root=[path to lapack]  : path_to_lapack/liblapack.a must exist
+</code></pre>
+</li>
+</ul>
+<h3 id="_4">自动化脚本（待定）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<pre><code>    cd starter
+    ./build_script.sh -arch=linux64_gf
+    cd ../engine
+    ./build_script.sh -arch=linux64_gf -mpi=ompi
+</code></pre>
+<h2 id="openradioss">OpenRadioss 的使用<a class="headerlink" href="#openradioss" title="Permanent link">&para;</a></h2>
+<h3 id="_5">前处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://gitlab.onelab.info/gmsh/gmsh">gmsh</a> </p>
+</li>
+<li>
+<p><a href="https://openradioss.atlassian.net/wiki/spaces/OPENRADIOSS/pages/54624257/Tubes+Contact+Tutorial+Using+Gmsh">使用 Gmsh 的管子接触教程</a></p>
+</li>
+<li>
+<p><a href="https://openradioss.atlassian.net/wiki/spaces/OPENRADIOSS/pages/24444938/Tensile+Test+Example+Tutorial+Using+Gmsh">使用 Gmsh 的拉伸测试示例教程</a> </p>
+</li>
+<li>
+<p>Hypermesh</p>
+</li>
+<li>lsprepost (*)</li>
+</ul>
+<h3 id="_6">计算<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">后处理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://www.paraview.org/">ParaView</a></li>
+<li><a href="https://imagetostl.com/cn/convert/file/vtk/to/fbx">vtk转fbx</a> ，然后导入到 Carla 中。</li>
+</ol>
+<h3 id="lsdyna">使用 LSDYNA 格式输入<a class="headerlink" href="#lsdyna" title="Permanent link">&para;</a></h3>
+<h4 id="_8">测试实例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>测试例子是<a href="https://openradioss.atlassian.net/wiki/spaces/OPENRADIOSS/pages/21364914/Tensile+Test+Model+in+LS-DYNA+format" title="拉伸-LSDYNA">拉伸模拟</a>。</p>
+<h4 id="bash">bash 脚本<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h4>
+<pre><code>    myjobname=$(echo "$1" )
+    echo $myjobname "running in OpenRadioss"
+    export OMP_STACKSIZE=400m
+    export OMP_NUM_THREADS=8
+    ./starter_linux64_gf -i "../source/"$myjobname".k" -np $2 -outfile="../output"
+    #./starter_linux64_gf -i $myjobname".k" -np $2 -nt 4
+    # 这里是找到source文件夹下的，LS-DYNA 格式文件（.k）并将其传递给starter 进行计算。
+    mpiexec -n $2  --map-by socket:PE=$OMP_NUM_THREADS --bind-to core ./engine_linux64_gf_ompi -i "../bin/"$myjobname"_0001.rad" -outfile="../output"
+    #mpiexec -n $2 .engine_linux64_gf_ompi -i $myjobname"_0001.rad" -nt 1
+    # 在处理.k文件时，starter 会在其目录下生成"_0001.rad"文件，需要将其传递给 engine
+
+    BASEDIR=$(dirname "$0")
+    for file in ../output/*; 
+    do   
+        if [ -n "${file: -3}" ] &amp;&amp; [ "${file: -3}" -eq "${file: -3}" ] 2&gt;/dev/null &amp;&amp; [[ "${file: -4:1}" == "A" ]]; then
+            ./anim_to_vtk_linux64_gf $file &gt; "$file.vtk"
+            echo "$file is converted"       
+            # anim 文件转化为 vtk 文件
+        elif  [[ "${file: -3}" == "T01" ]] ;then
+            ./th_to_csv_linux64_gf $file
+            CSV="$file.csv"
+            # T01 文件转化为 csv 文件
+        fi
+    done
+    cd ../output/
+    #paraview $myjobname"A..vtk" $CSV 
+    paraview $myjobname"A..vtk" $CSV 
+    exit
+</code></pre>
+<p>在命令行输入 <code>bash process_k.sh zug_test3_RS 1</code>即可。其中<code>process_k.sh</code>是脚本名字，<code>zug_test3_RS</code>是模型名字，<code>1</code>是并行进程数。</p>
+<h4 id="_9">运行结果<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><img alt="弹性LS-DYNA" src="../figure/image.png" /></p>
+<h4 id="_10">总结<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>在使用Openadioss 处理LS-DYNA 格式的文件时，需要 .k 文件。这个文件其实是可以直接放在LS-DYNA 上进行计算的。这里提供了一种其他的计算方式——使用OpenRadioss。</p>
+<h4 id="to-do">To Do<a class="headerlink" href="#to-do" title="Permanent link">&para;</a></h4>
+<p>需要验证计算的正确性：也就是使用LS-DYNA计算同样的例子，观察计算结果是否有出入。</p>
+<ul>
+<li>LS-DYNA 是商业软件，能找到的软件不支持 Ubuntu 系统。<ul>
+<li>可以在windows 下模拟，将结果和进行对比。</li>
+</ul>
+</li>
+<li>如何衡量误差<ul>
+<li>这一部分有很多需要考虑的，比如毁伤面积、毁伤深度。</li>
+</ul>
+</li>
+</ul>
+<h2 id="openradioss_1">在服务器上运行 OpenRadioss<a class="headerlink" href="#openradioss_1" title="Permanent link">&para;</a></h2>
+<p>没有权限。。。 =  = </p>
+<h2 id="openradioss_2">OpenRadioss 二次开发<a class="headerlink" href="#openradioss_2" title="Permanent link">&para;</a></h2>
+<h3 id="read_material_modelsf">READ_MATERIAL_MODELS.F<a class="headerlink" href="#read_material_modelsf" title="Permanent link">&para;</a></h3>
+<p>这段代码定义了一个 Fortran 的子程序 READ_MATERIAL_MODELS，其主要功能是管理与材料模型相关的读取器，包括以下内容：</p>
+<pre><code>材料本构定律（Constitutive Laws）：/MAT
+状态方程（Equations of State）：/EOS
+失效模型（Failure models）：/FAIL
+粘性模型（Viscosity）：/VISC
+热参数（Thermal parameters）：/HEAT
+</code></pre>
+<p>该子程序的输入包括：</p>
+<pre><code>MAT_ELEM：材料元素的参数
+MLAW_TAG：材料本构定律的标签
+FAIL_TAG：失效模型的标签
+VISC_TAG：粘性模型的标签
+EOS_TAG：状态方程的标签
+BUFMAT：材料数据的缓存区
+BUFLEN：缓存区的长度
+IPM：材料参数的整型数组
+PM：材料参数的实型数组
+UNITAB：单位制表
+MULTI_FVM：多重有限体积法的数据结构
+MAXEOS：最大状态方程数
+FAILWAVE：失效波的数据结构
+NLOC_DMG：非局部损伤的数据结构
+LSUBMODEL：子模型的数据结构
+TABLE：表的数据结构
+NPC：数组 NPC
+</code></pre>
+<p>该子程序的输出包括：</p>
+<pre><code>MAT_ELEM：材料元素的参数
+MLAW_TAG：材料本构定律的标签
+FAIL_TAG：失效模型的标签
+VISC_TAG：粘性模型的标签
+EOS_TAG：状态方程的标签
+</code></pre>
+<p>该子程序还调用了其他一些子程序，例如 HM_READ_MAT、HM_READ_EOS、HM_READ_FAIL、HM_READ_VISC、HM_READ_LEAK、READ_ALE_MAT、READ_EULER_MAT、FILL_BUFFER_51_0、HM_READ_THERM、HM_READ_THERM_STRESS 和 HM_READ_NONLOCAL 等，用于读取不同类型的材料模型数据。</p>
+<p>接下来考虑分析 <code>HM_READ_MAT</code> 程序，分析软件是如何作的。</p>
+<h3 id="hm_read_matf">HM_READ_MAT.F<a class="headerlink" href="#hm_read_matf" title="Permanent link">&para;</a></h3>
+<p>这是用于读取有限元分析软件中的材料模型定义的代码。</p>
+<pre><code>它定义了阅读材料模型所需的各种模块、参数和公共块。其中包括材料定律标签、材料参数、单位等。
+主例程是HM_READ_MAT。它循环遍历模型中定义的每种材料 (HM_NUMMAT)。
+对于每种材料，它根据材料定律关键字（MAT00、MAT01 等）调用特定的读取例程。这些读取例程位于 mat 子目录中的单独文件中。
+读取例程解析输入、填充材料参数数组、设置材料所需数据的标志，并存储材料 ID、定律类型、应变率设置等内容。
+读取材料后，它会进行一些后处理，例如计算派生值（剪切模量）、检查重复 ID 以及计算输出所需数量的平方根。
+每种材料的属性存储在 MAT_PARAM 数组和各种其他公共块中。
+</code></pre>
+<p>总之，它循环遍历材料，调用特定于定律的读取器，并将所有材料数据收集到参数数组和通用块中，以便稍后在 FEA 分析中使用。关键部分是模块化法则读取器和用于保存材料道具的中央 MAT_PARAM 数据结构。</p>
+<ul>
+<li>因此，想要定义全新的材料，所要做的事情是自定义MATxxx文件。</li>
+</ul>
+<h3 id="radioss">Radioss 中材料本构<a class="headerlink" href="#radioss" title="Permanent link">&para;</a></h3>
+<h4 id="_11">各向同性弹性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Model Name</th>
+<th>Keyword/MAT</th>
+<th>Law#</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空材料</td>
+<td>Void</td>
+<td>/VOID</td>
+<td>0</td>
+</tr>
+<tr>
+<td>线弹性</td>
+<td>Elastic (Hooke)</td>
+<td>/ELAST</td>
+<td>1</td>
+</tr>
+<tr>
+<td>超弹性</td>
+<td>Tabulated Hyperelastic</td>
+<td>n/a</td>
+<td>69</td>
+</tr>
+<tr>
+<td>超弹性</td>
+<td>Ogden Formulation</td>
+<td>n/a</td>
+<td>82</td>
+</tr>
+<tr>
+<td>#### 各项同性弹塑性</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LAW 2 / 36</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### 其他</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### 爆炸</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Model Name</td>
+<td>Keyword/MAT</td>
+<td>Law#</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>-----------</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>Detonation driven</td>
+<td>Jones Wilkins Lee</td>
+<td>/JEL</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Hydrodynamics</td>
+<td>Lee-Tarver</td>
+<td>/LEE-TARVER</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Multi-materials</td>
+<td>Soild, liquid,gas and explosives</td>
+<td>/MULTIMAT</td>
+<td>51</td>
+</tr>
+<tr>
+<td>#### 失效模型——/FAIL</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/Tuler-Butcher 高速碰撞失效</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>### 例子——/MAT/LAW1或/MAT/ELAST: 弹性材料</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* LAW1 使用胡克定律对各向同性，线弹性材料进行建模</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* 可用于杆，梁，壳以及实体solids</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* 适用于连接刚体</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>* 不适用形变大的构件</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>弹塑性应力——应变曲线
+<img alt="弹性LS-DYNA" src="../figure/yingli.png" /></p>
+<p>真实应力形变
+* 真实应力：考虑当前或真实横截面积<span class="arithmatex"><span class="MathJax_Preview">A_{true}</span><script type="math/tex">A_{true}</script></span>的应力
+  <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\sigma_{true}=\frac{P_x}{A_{true}}</span><script type="math/tex">\sigma_{true}=\frac{P_x}{A_{true}}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\sigma_{true}=\frac{P_x}{A_{true}}</span><script type="math/tex">\sigma_{true}=\frac{P_x}{A_{true}}</script></span></script></span>
+* 在塑性变形范围内，塑性变形横截面积永久减小
+* 继续使用工程应力不再准确
+ <img alt="弹性LS-DYN" src="../figure/tanxing.png" /></p>
+<p>#### MAT1 定义方式
+ 这个关键词用胡克定律定义了一种各向同性的线弹性材料。这个定律表示应力和应变之间的线性关系。它可用于桁架，梁(仅3型)，壳和实体元件。
+ 格式
+ <img alt="弹性LS-DYNA" src="../figure/MAT1geshi.png" />
+ 定义
+ <img alt="Alt text" src="../figure/MAT1dingyi.png" />
+ 例子
+ <img alt="Alt text" src="../figure/MAT1lizi.png" /></p>
+<p>原理：</p>
+<ul>
+<li>该材料适用于纯粹的弹性材料。材料的性能只取决于两个因素：</li>
+<li>杨氏模量: <span class="arithmatex"><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span></li>
+<li>泊松比: <span class="arithmatex"><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span></li>
+<li>剪切模量: (可计算) <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">G=\frac{E}{2(1+\nu)}</span><script type="math/tex">G=\frac{E}{2(1+\nu)}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">G=\frac{E}{2(1+\nu)}</span><script type="math/tex">G=\frac{E}{2(1+\nu)}</script></span></script></span></li>
+<li>应力应变关系
+  <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\begin{bmatrix}
+  \epsilon_{11}\\
+  \epsilon_{22}\\
+  \epsilon_{33}\\
+  \gamma_{23}\\
+  \gamma_{31}\\
+  \gamma_{12}
+  \end{bmatrix}=\frac{1}{E}
+  \begin{bmatrix}
+    1&amp;-\nu&amp;-\nu&amp;0&amp;0&amp;0\\
+    -\nu&amp;1&amp;-\nu&amp;0&amp;0&amp;0\\
+    -\nu&amp;-\nu&amp;1&amp;0&amp;0&amp;0\\
+    0&amp;0&amp;0&amp;2(1+\nu)&amp;0&amp;0\\
+    0&amp;0&amp;0&amp;0&amp;2(1+\nu)&amp;0\\
+    0&amp;0&amp;0&amp;0&amp;0&amp;2(1+\nu)
+  \end{bmatrix}
+  \begin{bmatrix}
+    \sigma_{11}\\
+    \sigma_{22}\\
+    \sigma_{33}\\
+    \sigma_{23}\\
+    \sigma_{31}\\
+    \sigma_{12}
+  \end{bmatrix}</span><script type="math/tex">\begin{bmatrix}
+  \epsilon_{11}\\
+  \epsilon_{22}\\
+  \epsilon_{33}\\
+  \gamma_{23}\\
+  \gamma_{31}\\
+  \gamma_{12}
+  \end{bmatrix}=\frac{1}{E}
+  \begin{bmatrix}
+    1&-\nu&-\nu&0&0&0\\
+    -\nu&1&-\nu&0&0&0\\
+    -\nu&-\nu&1&0&0&0\\
+    0&0&0&2(1+\nu)&0&0\\
+    0&0&0&0&2(1+\nu)&0\\
+    0&0&0&0&0&2(1+\nu)
+  \end{bmatrix}
+  \begin{bmatrix}
+    \sigma_{11}\\
+    \sigma_{22}\\
+    \sigma_{33}\\
+    \sigma_{23}\\
+    \sigma_{31}\\
+    \sigma_{12}
+  \end{bmatrix}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\begin{bmatrix}
+  \epsilon_{11}\\
+  \epsilon_{22}\\
+  \epsilon_{33}\\
+  \gamma_{23}\\
+  \gamma_{31}\\
+  \gamma_{12}
+  \end{bmatrix}=\frac{1}{E}
+  \begin{bmatrix}
+    1&amp;-\nu&amp;-\nu&amp;0&amp;0&amp;0\\
+    -\nu&amp;1&amp;-\nu&amp;0&amp;0&amp;0\\
+    -\nu&amp;-\nu&amp;1&amp;0&amp;0&amp;0\\
+    0&amp;0&amp;0&amp;2(1+\nu)&amp;0&amp;0\\
+    0&amp;0&amp;0&amp;0&amp;2(1+\nu)&amp;0\\
+    0&amp;0&amp;0&amp;0&amp;0&amp;2(1+\nu)
+  \end{bmatrix}
+  \begin{bmatrix}
+    \sigma_{11}\\
+    \sigma_{22}\\
+    \sigma_{33}\\
+    \sigma_{23}\\
+    \sigma_{31}\\
+    \sigma_{12}
+  \end{bmatrix}</span><script type="math/tex">\begin{bmatrix}
+  \epsilon_{11}\\
+  \epsilon_{22}\\
+  \epsilon_{33}\\
+  \gamma_{23}\\
+  \gamma_{31}\\
+  \gamma_{12}
+  \end{bmatrix}=\frac{1}{E}
+  \begin{bmatrix}
+    1&-\nu&-\nu&0&0&0\\
+    -\nu&1&-\nu&0&0&0\\
+    -\nu&-\nu&1&0&0&0\\
+    0&0&0&2(1+\nu)&0&0\\
+    0&0&0&0&2(1+\nu)&0\\
+    0&0&0&0&0&2(1+\nu)
+  \end{bmatrix}
+  \begin{bmatrix}
+    \sigma_{11}\\
+    \sigma_{22}\\
+    \sigma_{33}\\
+    \sigma_{23}\\
+    \sigma_{31}\\
+    \sigma_{12}
+  \end{bmatrix}</script></span></script></span></li>
+<li>密度值通常用于显式模拟，也可以用于静态隐式模拟，以便在拟静态分析中达到更好的收敛性。</li>
+<li>当通过壳体厚度的积分点个数不同于NP=1(膜)时，对LAW1和壳单元(/PROP/TYPE1 (shell))采用全局积分法。</li>
+<li>失效模型在全局集成的情况下不可用。在这些情况下，具有很高屈服应力的LAW2和LAW27可以作为LAW1的替代品。
+ #### MAT1 代码解读
+ 总体框架是</li>
+<li>
+<p>获取输入</p>
+<pre><code>CALL HM_OPTION_IS_ENCRYPTED(IS_ENCRYPTED)
+CALL HM_GET_FLOATV('MAT_RHO',  RHO0  ,IS_AVAILABLE,LSUBMODEL,UNITAB)
+CALL HM_GET_FLOATV('Refer_Rho',RHOR  ,IS_AVAILABLE,LSUBMODEL,UNITAB)
+CALL HM_GET_FLOATV('MAT_E',    YOUNG ,IS_AVAILABLE,LSUBMODEL,UNITAB)
+CALL HM_GET_FLOATV('MAT_NU',   ANU   ,IS_AVAILABLE,LSUBMODEL,UNITAB)
+</code></pre>
+<ul>
+<li>
+<p>计算参数</p>
+<pre><code>IF(RHOR == ZERO ) RHOR=RHO0
+</code></pre>
+<p>C
+    IF (YOUNG&lt;=ZERO) THEN
+        CALL ANCMSG(MSGID=683,
+    .                MSGTYPE=MSGERROR,
+    .                ANMODE=ANINFO,
+    .                I1=ID,
+    .                C1=TITR,
+    .                C2='YOUNG''S MODULUS')
+    ENDIF
+    IF(ANU==HALF)ANU=ZEP499                <br />
+C
+    G=YOUNG/(TWO<em>(ONE+ANU))
+    C0=ZERO
+    C1=YOUNG/(THREE</em>(ONE-TWO<em>ANU))
+    E0=ZERO
+    E1MN2=YOUNG/(ONE-ANU**2)
+    EN1N2=ANU</em>E1MN2
+    SDSP =SQRT(YOUNG/MAX(RHOR,EM20))
+    ISRATE = 0 
+ * 保存参数</p>
+<p>PM(1) =RHOR
+PM(20)=YOUNG
+PM(21)=ANU
+PM(22)=G
+PM(23)=E0
+PM(24)=E1MN2
+PM(25)=EN1N2
+PM(26)=FIVE_OVER_6
+PM(27)=SDSP
+PM(31)=C0
+PM(32)=C1
+PM(89) =RHO0</p>
+</li>
+</ul>
+</li>
+<li>
+<p>异常处理</p>
+<pre><code>c-----------------
+    CALL INIT_MAT_KEYWORD(MATPARAM,"TOTAL")
+    IF (ANU &gt; 0.49) THEN
+        CALL INIT_MAT_KEYWORD(MATPARAM,"INCOMPRESSIBLE")
+    ELSE
+        CALL INIT_MAT_KEYWORD(MATPARAM,"COMPRESSIBLE")
+    END IF
+    CALL INIT_MAT_KEYWORD(MATPARAM,"HOOK")
+c-----------------
+    WRITE(IOUT,1001) TRIM(TITR),ID,01
+    WRITE(IOUT,1000)
+    IF(IS_ENCRYPTED)THEN
+        WRITE(IOUT,'(5X,A,//)')'CONFIDENTIAL DATA'
+    ELSE
+        WRITE(IOUT,1100)RHO0
+        WRITE(IOUT,1300)YOUNG,ANU,G
+    ENDIF
+C
+    IPM(252)= 2
+    PM(105) = TWO*G/(C1+FOUR_OVER_3*G)
+C-----------
+</code></pre>
+<ul>
+<li>
+<p>控制输出</p>
+<p>C-----------
+    RETURN
+1000 FORMAT(
+    &amp; 5X,'  ELASTIC MATERIAL (/MAT/LAW01)',/,
+    &amp; 5X,'  -----------------------------')
+1001 FORMAT(
+    &amp; 5X,A,/,
+    &amp; 5X,'MATERIAL NUMBER . . . . . . . . . . . .=',I10/,
+    &amp; 5X,'MATERIAL LAW. . . . . . . . . . . . . .=',I10/)
+1100 FORMAT(
+    &amp; 5X,'INITIAL DENSITY . . . . . . . . . . . .=',1PG20.13/) 
+1300 FORMAT(
+    &amp; 5X,'YOUNG''S MODULUS . . . . . . . . . . . .=',E12.4/,
+    &amp; 5X,'POISSON''S RATIO . . . . . . . . . . . .=',E12.4/,
+    &amp; 5X,'SHEAR MODULUS . . . . . . . . . . . . .=',E12.4//)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>在数据里最重要的是 <code>PM</code> 以及 <code>IPM</code> ，分别存储了材料参数和材料 ID。但是暂时没有相关文档说明其具体内容。提取 mat 文件夹下所有 PM 变量的信息汇总如下: </p>
+<pre><code>    PM(1) = RHO0
+    PM(1)      = RHOR
+    PM(1) = RHOR
+    PM(01) = RHOR
+    PM(1)  = RHOR
+    PM(01) = RHO0
+    PM(01)=RHOR
+    PM(1) = RHO0  ! RHOR
+    PM(1)   = RHO0
+    PM(1)=RHOR
+    PM(1) =RHOR
+    PM(1)  = RHO0
+    PM(2)  = GS
+    PM(8) =ISRATE
+    PM(9) = TWO*PI *FCUT
+    PM(9) =FCUT*TWO*PI
+    PM(9)  = FCUT*TWO*PI
+    PM(9) = ASRATE
+    PM(12) = SQRT(MAX(ZERO, G0)) !done by default in lecmuser.F for law34
+    PM(17) = MU
+    PM(17) = AMU
+    PM(20)= MAX(E11,E22)/DETC
+    PM(20) = MW
+    PM(20) = STIFF        ! Stiffness contact
+    PM(20)= CMAX / TWO
+    PM(20) = YMC
+    PM(20)=NMAT+EM01
+    PM(20)= YOUNG
+    PM(20) = NBMAT + EM01
+    PM(20)= MAX(E11,E22,E33)
+    PM(20)=YOUNG
+    PM(20)=E
+    PM(20) = MAX(E11,E22)/DETC
+    PM(20) = YOUNG
+    PM(21) = ANUC
+    PM(21) = ZERO         ! NU
+    PM(21)=NU
+    PM(21)= ANU
+    PM(21)=ANU
+    PM(21)= NU
+    PM(21) = SQRT(N12*N21)
+    PM(21) = NUG
+    PM(21) = NU
+    PM(21) = CPA
+    PM(21)= THIRD*(N12+N31+N23)
+    PM(22) = G0
+    PM(22) = YMC/(TWO*(ONE+ANUC))
+    PM(22) = GS !! TWO*G
+    PM(22)=G
+    PM(22)= G
+    PM(22) = STIFF*HALF   ! GMAX
+    PM(22) = CPB
+    PM(22) = G
+    PM(22)= THIRD*(G12+G23+G31)
+    PM(22) = GS
+    PM(22) = MAX(G12,G23,G31)
+    PM(23) = YOUNG
+    PM(23)= E0
+    PM(23) = CPC
+    PM(23) = EM01*STIFFAVG  ! Hourglass stiffness for QEPH
+    PM(23) = E0
+    PM(23) = ZERO ! E0
+    PM(23)  = E0
+    PM(23)=E0
+    PM(24)= PM(20)
+    PM(24) = NU * YOUNG / (ONE-NU*NU)
+    PM(24) = YOUNG/(ONE - NU**2)
+    PM(24)= CMAX/(ONE - NU**2) / TWO
+    PM(24) = PM(25) + TWO*PM(22)
+    PM(24) = E1MN2
+    PM(24) = STIFF        ! Stiffness for time step computation
+    PM(24)=D2
+    PM(24) = YOUNG/(ONE - NUG**2)
+    PM(24)=E1MN2
+    PM(24)=VIS
+    PM(24) = PM(20)
+    PM(24) = CPD
+    PM(25)  = GAM
+    PM(25)=D3
+    PM(25)=NR
+    PM(25)=EN1N2
+    PM(25) = CPE
+    PM(25) = YMC*ANUC/(ONE+ANUC)/(ONE-TWO*ANUC)
+    PM(25)= 1.
+    PM(25) = EN1N2
+    PM(25) = PM(21)*PM(24)
+    PM(26)=FIVE
+    PM(26) = FIVE_OVER_6
+    PM(26) = CPF
+    PM(26)=PM(26)*ONE_OVER_6
+    PM(26)=NT
+    PM(26)=THET
+    PM(26)=FIVE_OVER_6
+    PM(26)= CB
+    PM(26) = MAX(ZERO,DSUP1)
+    PM(27) = SQRT(A11/RHO0)  ! sound speed estimation
+    PM(27) = SQRT(YOUNG/RHO0)  ! Sound speed
+    PM(27)=D
+    PM(27) = SSP
+    PM(27) = SDSP
+    PM(27)=SDSP
+    PM(27)= CN
+    PM(27) = SQRT(A1/RHO0)  ! sound speed estimation
+    PM(27)= SSP
+    PM(27)  = VCRT2
+    PM(27) = SQRT(E/MAX(RHOR,EM20))
+    PM(27)=APY
+    PM(27) = SQRT((BULK + FOUR_OVER_3*G)/RHO0)  ! sound speed estimation
+    PM(27) = MAXVAL(SSP(1:4))
+    PM(27)=IDF
+    PM(27) = R_IGC1
+    PM(27)= SQRT(E/RHO0)  ! Sound speed for beam elements
+    PM(27) = VMAX
+    PM(27)  = D
+    PM(28) = MAX(ONEP0001,FMAX)
+    PM(28) = ONE/YOUNG
+    PM(28)  = GAMRP
+    PM(28) = ONE-HT/YMC
+    PM(28)=VB
+    PM(28) = MAX(ONEP0001,(SIGMX/CA)**2)
+    PM(28)=ONE/YOUNG
+    PM(28)=NR
+    PM(29)=-ANU*PM(28)
+    PM(29) = -NU*PM(28)
+    PM(29)  = GAM1
+    PM(29) = ROK
+    PM(29)=NT
+    PM(29)=TM0
+    PM(30)=ONE/G
+    PM(30)=IDF
+    PM(30) = ONE/G
+    PM(30)=E00
+    PM(30) = RO0
+    PM(31)=ZERO
+    PM(31) = -PSH + C0+C1*MU+         C3*MU**3+(C4+C5*MU)*E0
+    PM(31) = ZERO ! C0
+    PM(31)= C0
+    PM(31)= ZERO
+    PM(31) = -PSH + C0+C1*MU+C2*MU**2+C3*MU**3+(C4+C5*MU)*E0
+    PM(31)=C0
+    PM(31) = P0+PSHIFT
+    PM(31)=P0
+    PM(31)  = C0-PSH
+    PM(31)  = P0
+    PM(31)= C0-PSH
+    PM(32)  = C1
+    PM(32)= RBULK
+    PM(32)= RHOR*C**2
+    PM(32)=C1
+    PM(32) = RBULK
+    PM(32) = BULK
+    PM(32)=BULK
+    PM(32)= C1
+    PM(32) = GS
+    PM(32) = C1
+    PM(33)=ZERO
+    PM(33)= C2
+    PM(33) = E11
+    PM(33)= SIGT1
+    PM(33)=E11
+    PM(33)=C
+    PM(33)=C2
+    PM(33)  = A
+    PM(33) = FC
+    PM(33)  = RE0/RHO0
+    PM(34)=E22
+    PM(34) = E22
+    PM(34)= SIGT2
+    PM(34)=ZERO
+    PM(34)  = B
+    PM(34)  = -HALF*SSP2/CARL**2
+    PM(34)=C3
+    PM(34)=S
+    PM(34)= C3
+    PM(34) = RT
+    PM(35)=PCC
+    PM(35) = RC
+    PM(35)=N12
+    PM(35) = N12
+    PM(35)=C4
+    PM(35)=BUNL
+    PM(35)= C4
+    PM(35)=XKL
+    PM(35)  = R1
+    PM(35)= SIGT3
+    PM(35)=ZERO
+    PM(36)=XMUMX
+    PM(36)=ZERO
+    PM(36) = N21
+    PM(36)= C5
+    PM(36)=N21
+    PM(36)=GAM0
+    PM(36)=C5
+    PM(36) = RT*(TWO*RC-RT)
+    PM(36)  = R2
+    PM(36)=XLAMB
+    PM(36)= EFIB
+    PM(37)=-INFINITY
+    PM(37) = G12
+    PM(37)= EPSFT
+    PM(37)  = -PSH
+    PM(37)= PMIN
+    PM(37)=PMIN
+    PM(37) = (RC-RT)**2
+    PM(37)  = EF
+    PM(37)=G12
+    PM(37) = PMIN
+    PM(37)=ATOM
+    PM(38) = UPARAM(42)  !VDET
+    PM(38)=G23
+    PM(38) = AA
+    PM(38) = CA
+    PM(38)= EPSFC
+    PM(38)=CA
+    PM(38)        = D
+    PM(38)=A0
+    PM(38)= CA
+    PM(38)  = D
+    PM(38) = G23
+    PM(38)= EFIB
+    PM(38)=VDET
+    PM(38) = SIG0
+    PM(39)=CB
+    PM(39)= ALPHA
+    PM(39) = CB
+    PM(39)=G31
+    PM(39)=A1
+    PM(39)= CB
+    PM(39) = BC
+    PM(39) = G31
+    PM(39)=CE
+    PM(39)  = PCJ
+    PM(40)=A2
+    PM(40) = BT
+    PM(40)  = ONE/TSCAL
+    PM(40) = CN
+    PM(40)  = PM(1)*D**2/PCJ
+    PM(40) = IFLAG
+    PM(40)=CN
+    PM(40)= CN
+    PM(40)= D11
+    PM(41) = EPSM
+    PM(41)= D12
+    PM(41)  = IBFRAC
+    PM(41) = TIMESCAL
+    PM(41)= EPSM
+    PM(41)=AMX
+    PM(41) = AC
+    PM(41) = EP20 ! EPSM
+    PM(41) = WPLAMX
+    PM(41)=EPSM
+    PM(41)=WPLAMX
+    PM(42)  = QOPT
+    PM(42)=IOFF
+    PM(42)=SIGM
+    PM(42)= D13
+    PM(42) = IOFF
+    PM(42) = TSCAL
+    PM(42)=FAC_Y
+    PM(42) = SIGM
+    PM(42) = FT*FC/YMC
+    PM(42)= SIGM
+    PM(43)=CC
+    PM(43)=CM
+    PM(43) = HBP
+    PM(43)  = C0
+    PM(43)= CC
+    PM(43)= D22
+    PM(43) = CB1
+    PM(43) = CC
+    PM(43)=PEXT
+    PM(43) = ESCAL
+    PM(44)=EPS0
+    PM(44) = DE
+    PM(44)=PSTAR
+    PM(44) = EPS0
+    PM(44)= D23
+    PM(44) = CB2
+    PM(44)=DE
+    PM(44) = KSCAL
+    PM(44)  = BULK
+    PM(44) = RCOMP
+    PM(44) = ALI
+    PM(44)= EPS0
+    PM(45)  = W
+    PM(45) = ALF
+    PM(45) = CH
+    PM(45)=BUNL
+    PM(45)= CM
+    PM(45)= D33
+    PM(45)=EPSL
+    PM(45)=CM
+    PM(45)=A11
+    PM(46) = TMELT
+    PM(46)=CB
+    PM(46)=SSL
+    PM(46)=XMUMX
+    PM(46)= G12
+    PM(46)=A22
+    PM(46)=TMELT
+    PM(46)= TMELT
+    PM(46) = CB
+    PM(46) = VKY
+    PM(46)=HL
+    PM(47)=TMAX
+    PM(47)=A*AK
+    PM(47)=CN
+    PM(47)=ZERO ! MUMIN
+    PM(47) = CN
+    PM(47) = EPSMAX
+    PM(47)= TMAX
+    PM(47)=YLDL
+    PM(47)=A1122
+    PM(47)= G23
+    PM(48)=E
+    PM(48)=A
+    PM(48)= G31
+    PM(48)=A12
+    PM(48)=IFORM
+    PM(48)=NR
+    PM(48)=CS
+    PM(48)=EL
+    PM(48) = HV0
+    PM(49)=A
+    PM(49) = EXPO
+    PM(49)=FMAX
+    PM(49)=GAM0M
+    PM(49) = ICC
+    PM(49)=ICC
+    PM(49)= SSP
+    PM(49) = FMAX
+    PM(49)=C0
+    PM(49)=NT
+    PM(50)=AM
+    PM(50)=B
+    PM(50)=ZERO
+    PM(50) = YMS
+    PM(50)=IDF
+    PM(50)=CC
+    PM(50)  = ITYP
+    PM(50)=ONE
+    PM(51)=SIG
+    PM(51)=MT
+    PM(51)=EPS0
+    PM(51) = Y0S
+    PM(51)  = INOD ! USR2SYS APRES FSDCOD, IF(IFORM8==2) INOD=USR2SYS(INOD,ITABM1,MESS)
+    PM(51)=GAME
+    PM(51)=C3
+    PM(51)=YP1
+    PM(52)=GP
+    PM(52)=ONEP414*PM(17)*PM(1)*SSP
+    PM(52)=ICC
+    PM(52)=C4
+    PM(52)=TM
+    PM(52)=XKMAX
+    PM(52) = ONEP414*MU*PM(1)*SDSP
+    PM(52)=ONEP414*AMU*PM(1)*SDSP
+    PM(52) = ETS
+    PM(53)=ICC
+    PM(53)=F1
+    PM(53)=ONE/CP
+    PM(53)=DSP
+    PM(53) = ARM1
+    PM(53)   = AREAMIN1
+    PM(53)=ZERO
+    PM(54)=E0H
+    PM(54)=F2
+    PM(54) = ARM2
+    PM(54) = ZERO
+    PM(54)=F1
+    PM(54) = ONE / (AREAMIN2-AREAMIN1)
+    PM(54)=TI
+    PM(55)=FISOKIN
+    PM(55)=RP3
+    PM(55)=F3
+    PM(55)=F2
+    PM(55) = ARM3
+    PM(56)=F4
+    PM(56) = ONE      !
+    PM(56) = POROSITY
+    PM(56)=VJ
+    PM(56)=F11
+    PM(57)=F5
+    PM(57)=C1
+    PM(57) = ICAP+EM01
+    PM(57)=F22
+    PM(58)=C2
+    PM(58)=F33
+    PM(58)=F6
+    PM(58) = ONE-HVFAC
+    PM(59)=F11
+    PM(59) = ZERO    !
+    PM(59)=F12
+    PM(59)=F1
+    PM(59)=C3
+    PM(59)=ALPHA
+    PM(60)=F22
+    PM(60)= BETA
+    PM(60)=EPST1
+    PM(60)=D1
+    PM(60) = EPST1
+    PM(60)=F2
+    PM(61)= TMAX
+    PM(61)=ALPHAP
+    PM(61) = EPST2
+    PM(61)=EPST2
+    PM(61)=F33
+    PM(61)=F4
+    PM(62)=F5
+    PM(62)=F44
+    PM(62)=EPSM1
+    PM(62) = EPSM1
+    PM(63)=F11
+    PM(63)=EPSM2
+    PM(63)=F55
+    PM(63) = EPSM2
+    PM(64) = DMAX1
+    PM(64)=F22
+    PM(64)=DMAX
+    PM(64)=F66
+    PM(65)=SHRDAM
+    PM(65) = DMAX2
+    PM(65)=F12
+    PM(65)=F44
+    PM(66) = EPSF1
+    PM(66)= F23
+    PM(66)=SHRMAX
+    PM(66)=F55
+    PM(67)= F13
+    PM(67)=SHRDMAX
+    PM(67)=F12
+    PM(67) = EPSF2
+    PM(68)=WPLAREF
+    PM(68)=F23
+    PM(69)=SPH
+    PM(69) = SPH
+    PM(69) = RCP
+    PM(69)=C11
+    PM(70)=ZERO
+    PM(71) = JTHE+EM01
+    PM(72) = ZERO
+    PM(72)=ZERO
+    PM(73)=C22
+    PM(73)=C11
+    PM(74)=C33
+    PM(74)=C22
+    PM(75) = AS
+    PM(75)=C12
+    PM(75)=C33
+    PM(76)=C23
+    PM(76) = BS
+    PM(76)=C12
+    PM(77)=C13
+    PM(77)=C23
+    PM(77) = CF
+    PM(78) = T0
+    PM(78)=C13
+    PM(78)=DELTA
+    PM(79)  = T0
+    PM(79) = T0
+    PM(79)=T0
+    PM(79)=DELTA
+    PM(79)=THREE100
+    PM(80) = TMELT
+    PM(80)=INFINITY
+    PM(80) = INFINITY
+    PM(80)=TMELT
+    PM(80)= TMELT
+    PM(80)  = EP30
+    PM(81)  = CTM
+    PM(81)=CTM
+    PM(81)= SIGT1
+    PM(82)= SIGT2
+    PM(82)=CT1
+    PM(83)=CT2
+    PM(83)= SIGT3
+    PM(84)=CT3
+    PM(84)= EPSFT
+    PM(85)  = SK
+    PM(85)= EPSFC
+    PM(85)=SK
+    PM(86)=SE
+    PM(86)  = SE
+    PM(87)  = RK0/RHO0
+    PM(87)=RK0/RHO0
+    PM(88)= ZERO
+    PM(88)  = PSH
+    PM(88)=PSH
+    PM(88)= PSH
+    PM(89)=RHO0
+    PM(89)  = RHO0
+    PM(89)     = RHO0
+    PM(89) =RHO0
+    PM(89) = RHO0
+    PM(89)= RHO0
+    PM(91) = RHO10
+    PM(91)=MAXVAL(RHO0_(1:4))
+    PM(95)=RPR
+    PM(95) = RPR
+    PM(97)  = RHOC
+    PM(98)  = ALP0
+    PM(98)=EPSF1
+    PM(98)=WPLAREF
+    PM(99)  = DC+ONE
+    PM(99)=EPSF2
+    PM(100) = BULK
+    PM(100) = RBULK
+    PM(100) = RBULK  !PARMAT(1)
+    PM(100)= E
+    PM(100)= C1
+    PM(100) = PARMAT(1)
+    PM(100)= PARMAT(1)
+    PM(100)= BULK
+    PM(104) = P0+PSHIFT
+    PM(104)=C0 - PSH
+    PM(104)=C0
+    PM(104)=P0
+    PM(104) = C0-PSH
+    PM(105) = GS/(BULK + TWO_THIRD*GS)
+    PM(105) = GS/(RBULK + TWO_THIRD*G)
+    PM(105) = DMIN/DMAX/DMAX
+    PM(105) = (ONE -TWO*ANU)/(ONE - ANU)
+    PM(105) = ( ONE -TWO*ANU)/(ONE - ANU)
+    PM(105) =DMIN/C1**2
+    PM(105)= TWO*PM(22)/(BULK+FOUR_OVER_3*PM(22)) ! =(1-2*Nuc)/(1-Nuc)
+    PM(105) = TWO*G/(C1+FOUR_OVER_3*G) ! =(1-2*Nu)/(1-Nu)
+    PM(105) =  (ONE -TWO*ANU)/(ONE - ANU)
+    PM(105) = TWO*G0/(BULK+FOUR_OVER_3*G0) ! =(1-2*Nu)/(1-Nu)
+    PM(105) =  (ONE -TWO*ANU)/(ONE - ANU) ! TWO*G/(BULK + FOUR_OVER_3*G)
+    PM(105) = TWO*G/(C1+FOUR_OVER_3*G)
+    PM(105) = TWO*GS/(RBULK + FOUR_OVER_3*GS)
+    PM(105) =MIN(D11*D22-D12**2,D22*D33-D23**2,D11*D33-D13**2)/C1**2
+    PM(141)=SIGYT1
+    PM(141)= SIGYT1
+    PM(142)=CBT1
+    PM(142)= SIGYT2
+    PM(143)= SIGYC1
+    PM(143)=CNT1
+    PM(144)= SIGYC2
+    PM(144)=SIGMXT1
+    PM(145)= SIGYT12
+    PM(145)=CCT1
+    PM(146)= SIGYC12
+    PM(146)=SIGYT2
+    PM(147) = IFLAG
+    PM(147)=CBT2
+    PM(148) = S1
+    PM(148)=CNT2
+    PM(149)=SIGMXT2
+    PM(149) = S2
+    PM(150) = C11
+    PM(150)=CCT2
+    PM(151)=SIGYC1
+    PM(151) = C22
+    PM(152)=CBC1
+    PM(152)  =S12
+    PM(153)=CNC1
+    PM(154)=SIGMXC1
+    PM(155)=CCC1
+    PM(156)=SIGYC2
+    PM(157)=CBC2
+    PM(158)=CNC2
+    PM(159)=SIGMXC2
+    PM(160)=CCC2
+    PM(160) = EADD
+    PM(161)=SIGYT12
+    PM(161) = TBEGIN
+    PM(162)=CBT12
+    PM(162) = TEND
+    PM(163) = REACTION_RATE
+    PM(163)=CNT12
+    PM(164)=SIGMXT12
+    PM(164) = A_MIL
+    PM(165)=CCT12
+    PM(165) = M_MIL
+    PM(166)=EPS1T1
+    PM(166) = N_MIL
+    PM(167)=EPS2T1
+    PM(167) = REACTION_RATE2
+    PM(168)=SIGRST1
+    PM(168) = ALPHA_UNIT
+    PM(169)=WPLAMXT1
+    PM(170)=EPS1T2
+    PM(171)=EPS2T2
+    PM(172)=SIGRST2
+    PM(173)=WPLAMXT2
+    PM(174)=EPS1C1
+    PM(175)=EPS2C1
+    PM(176)=SIGRSC1
+    PM(177)=WPLAMXC1
+    PM(178)=EPS1C2
+    PM(179)=EPS2C2
+    PM(180)=SIGRSC2
+    PM(181)=WPLAMXC2
+    PM(182)=EPS1T12
+    PM(183)=EPS2T12
+    PM(184)=SIGRST12
+    PM(185)=WPLAMXT12
+    PM(186) = E33
+    PM(187) = IYEILD
+    PM(188) = RATIO
+    PM(189) = IMODWP
+    PM(191) = XK
+    PM(192) = XK
+    PM(192) = RHOA
+    PM(193) = FRAC
+    PM(193) = XK
+    PM(194) = AA
+    PM(195) = BB
+    PM(196) = TAUX
+    PM(197) = KK
+    PM(198) = ICLOS
+    PM(199) = RHOEXT
+    PM(200) = EINT_EXT
+    PM(201) = INCGAS
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

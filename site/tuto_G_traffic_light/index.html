@@ -1,0 +1,658 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>交通灯配置和使用（get_traffic_light） - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get_traffic_light" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              交通灯配置和使用（get_traffic_light）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      交通灯在Carla中的简单配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用python脚本简单使用交通灯
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用python脚本简单使用交通灯">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建与carla的连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取场景中的红绿灯对象
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1、获取红绿灯的位置信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、获取红绿灯的当前配时方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3、修改红绿灯的配时方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、根据路口车流量调整交通灯的红绿灯配时方案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4、根据路口车流量调整交通灯的红绿灯配时方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1、获取指定路口的车流量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2、调整配时方案
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="get_traffic_light">交通灯配置和使用（get_traffic_light）<a class="headerlink" href="#get_traffic_light" title="Permanent link">&para;</a></h1>
+<h2 id="carla">交通灯在Carla中的简单配置<a class="headerlink" href="#carla" title="Permanent link">&para;</a></h2>
+<ol>
+<li>从内容浏览器中选择<strong>Carla &gt; Static &gt; TrafficLight &gt; StreetLights_01</strong>下的交通灯蓝图。</li>
+<li>将交通灯拖到场景中，进行位置调整。</li>
+<li>与交通灯相连接的有一个<strong>立方体组件</strong>，通过拖到这个立方体的位置和改变长度来决定对应红绿灯的影响范围。</li>
+<li>将交通灯分配给路口交通灯组：从内容浏览器中选择<strong>Carla &gt; Static &gt; TrafficLight &gt; StreetLights_01</strong>下选择<strong>BP_TrafficLightGroup</strong>拖动到路口，并在该对象的细节面板下找到<strong>Traffic Light</strong>，将需要添加到该路口组的交通灯设置。</li>
+<li><a href="../tuto_G_modify_trafficlight/">此处</a>可以将交通灯直行和左转分别配时，或者将每个路口的交通灯不在同一个分组中，互不影响。</li>
+</ol>
+<p><strong>参考链接：</strong><a href="../tuto_content_authoring_maps/#traffic-lights">内容创作 - 地图 - 交通模拟器文档</a> 的交通灯部分。</p>
+<h2 id="python">使用python脚本简单使用交通灯<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<h4 id="carla_1">创建与carla的连接<a class="headerlink" href="#carla_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set_timeout</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>  <span class="c1"># 设置超时</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_world</span><span class="p">()</span>  <span class="c1"># 获取世界对象</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_settings</span><span class="p">()</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">synchronous_mode</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">fixed_delta_seconds</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">world</span><span class="o">.</span><span class="n">apply_settings</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="_1">获取场景中的红绿灯对象<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">traffic_lights</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_actors</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;traffic.traffic_light&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="1">1、获取红绿灯的位置信息<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_light_location</span><span class="p">(</span><span class="n">world</span><span class="p">,</span><span class="n">traffic_lights</span><span class="p">):</span>
+    <span class="c1"># 将交通灯的位置信息存储</span>
+    <span class="n">traffic_lights_location</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">traffic_light</span> <span class="ow">in</span> <span class="n">traffic_lights</span><span class="p">:</span>
+        <span class="n">location</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_location</span><span class="p">()</span>
+        <span class="c1">#status = traffic_light.get_state()</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+        <span class="c1"># status_str = str(status).split(&#39;.&#39;)[-1]</span>
+        <span class="c1"># traffic_lights_data[traffic_light.id] = {&#39;position&#39;: position, &#39;status&#39;: status_str}</span>
+        <span class="n">traffic_lights_location</span><span class="p">[</span><span class="n">traffic_light</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="n">position</span><span class="p">}</span>
+
+        <span class="c1"># 将交通灯在carla中标示出来，以traffic_light.id</span>
+        <span class="n">world</span><span class="o">.</span><span class="n">debug</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">traffic_light</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+                                    <span class="p">,</span> <span class="n">life_time</span><span class="o">=</span><span class="mi">6000</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">carla</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span>  <span class="n">traffic_lights_location</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">traffic_lights_location</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="2">2、获取红绿灯的当前配时方案<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_light_time</span><span class="p">(</span><span class="n">traffic_lights</span><span class="p">):</span>
+    <span class="c1">#获取交通灯的配时信息</span>
+    <span class="c1"># 创建一个空的字典，用于存储红绿灯信息</span>
+    <span class="n">traffic_lights_time</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># 遍历所有红绿灯</span>
+    <span class="k">for</span> <span class="n">traffic_light</span> <span class="ow">in</span> <span class="n">traffic_lights</span><span class="p">:</span>
+        <span class="c1"># 获取红绿灯的ID</span>
+        <span class="n">traffic_light_id</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">id</span>
+        <span class="c1"># 获取红绿灯的当前状态</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+        <span class="n">status_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># 获取红绿灯时间</span>
+        <span class="n">red_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_red_time</span><span class="p">()</span>
+        <span class="n">green_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_green_time</span><span class="p">()</span>
+        <span class="n">yellow_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_yellow_time</span><span class="p">()</span>
+        <span class="c1"># 将红绿灯信息添加到字典中</span>
+        <span class="n">traffic_lights_time</span><span class="p">[</span><span class="n">traffic_light_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">status_str</span><span class="p">,</span> <span class="s1">&#39;red_time&#39;</span><span class="p">:</span> <span class="n">red_time</span><span class="p">,</span> <span class="s1">&#39;green_time&#39;</span><span class="p">:</span> <span class="n">green_time</span><span class="p">,</span>
+                                                 <span class="s1">&#39;yellow_time&#39;</span><span class="p">:</span> <span class="n">yellow_time</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">traffic_lights_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">traffic_lights_time</span>
+</code></pre></div>
+<h4 id="3">3、修改红绿灯的配时方案<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">change_light_time</span><span class="p">(</span><span class="n">traffic_lights</span><span class="p">,</span><span class="n">traffic_light_id</span><span class="p">,</span><span class="n">red_time</span><span class="p">,</span><span class="n">yellow_time</span><span class="p">,</span><span class="n">green_time</span><span class="p">,</span><span class="n">world</span><span class="p">):</span>
+    <span class="c1"># 遍历红绿灯找到对应路灯</span>
+    <span class="k">for</span> <span class="n">traffic_light</span> <span class="ow">in</span> <span class="n">traffic_lights</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">traffic_light_id</span><span class="p">:</span>
+                <span class="c1">#展示原始红绿灯配时方案</span>
+                <span class="n">redtime</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_red_time</span><span class="p">()</span>
+                <span class="n">greentime</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_green_time</span><span class="p">()</span>
+                <span class="n">yellowtime</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_yellow_time</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;编号为</span><span class="si">{}</span><span class="s2">红绿灯的红灯时间为</span><span class="si">{}</span><span class="s2">，黄灯时间为</span><span class="si">{}</span><span class="s2">，绿灯时间为</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">traffic_light_id</span><span class="p">,</span> <span class="n">redtime</span><span class="p">,</span> <span class="n">yellowtime</span><span class="p">,</span> <span class="n">greentime</span><span class="p">))</span>
+
+                <span class="c1"># 修改红绿灯时长</span>
+                <span class="n">traffic_light</span><span class="o">.</span><span class="n">set_red_time</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">red_time</span><span class="p">))</span>
+                <span class="n">traffic_light</span><span class="o">.</span><span class="n">set_yellow_time</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">yellow_time</span><span class="p">))</span>
+                <span class="n">traffic_light</span><span class="o">.</span><span class="n">set_green_time</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">green_time</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;已修改编号为</span><span class="si">{}</span><span class="s2">红绿灯的红灯时间为</span><span class="si">{}</span><span class="s2">，黄灯时间为</span><span class="si">{}</span><span class="s2">，绿灯时间为</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">traffic_light_id</span><span class="p">,</span> <span class="n">red_time</span><span class="p">,</span> <span class="n">yellow_time</span><span class="p">,</span> <span class="n">green_time</span><span class="p">))</span>
+    <span class="n">world</span><span class="o">.</span><span class="n">tick</span><span class="p">()</span>  <span class="c1">#更新Carla世界的状态，使得修改的红绿灯方案立即生效。</span>
+</code></pre></div>
+<h4 id="4">4、根据路口车流量调整交通灯的红绿灯配时方案<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<h5 id="41">4.1、获取指定路口的车流量<a class="headerlink" href="#41" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_traffic_flow</span><span class="p">(</span><span class="n">world</span><span class="p">):</span>
+    <span class="c1"># 获取所有正在行驶的车辆列表</span>
+    <span class="n">vehicle_list</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_actors</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;vehicle.*&#39;</span><span class="p">)</span>
+    <span class="c1"># 创建一个空的字典,存储车辆的位置信息</span>
+    <span class="c1">#vehicle_positions = {}</span>
+    <span class="c1"># 创建两个空列表，用于存储时刻和车流量数据</span>
+    <span class="c1">#timestamps = []</span>
+    <span class="n">traffic_flow</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># 循环推进模拟时间并统计车流量</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>  <span class="c1"># 假设模拟1000个时间步</span>
+        <span class="c1"># 推进模拟时间</span>
+        <span class="n">world</span><span class="o">.</span><span class="n">tick</span><span class="p">()</span>
+        <span class="c1"># 重置车流量计数</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># 遍历所有正在行驶的车辆</span>
+        <span class="k">for</span> <span class="n">vehicle</span> <span class="ow">in</span> <span class="n">vehicle_list</span><span class="p">:</span>
+            <span class="c1"># 获取车辆的位置信息</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">vehicle</span><span class="o">.</span><span class="n">get_location</span><span class="p">()</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">x</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">y</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">z</span>
+            <span class="c1">#暂时采用xmin,xmax,ymin,ymax来指定区域路口</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">xmax</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">xmin</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">ymax</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">ymin</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1">#vehicle_positions[vehicle.id] = (x, y, z)</span>
+        <span class="c1"># 将时间和车流量数据添加到相应的列表中</span>
+        <span class="c1"># timestamps.append(t)</span>
+        <span class="n">traffic_flow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="c1">#采用1000个时间步的路口车流量的均值作为这段时间的车流量</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">traffic_flow</span><span class="p">))</span>
+</code></pre></div>
+<h5 id="42">4.2、调整配时方案<a class="headerlink" href="#42" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">traffic_signal</span><span class="p">(</span><span class="n">traffic_lights</span><span class="p">,</span><span class="n">traffic_flow</span><span class="p">,</span><span class="n">world</span><span class="p">):</span>
+    <span class="c1">#根据路口的车流量去优化路口红绿灯的配时方案简单示例</span>
+    <span class="c1">#该示例中设置的车辆总数为70辆，分为高流量：路口车流量&gt;7,中流量：路口车辆在4—7，低流量：路口车辆&lt;4</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;路口车流量为</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">traffic_flow</span><span class="p">))</span>
+    <span class="c1"># 遍历所有交通灯</span>
+    <span class="k">for</span> <span class="n">traffic_light</span> <span class="ow">in</span> <span class="n">traffic_lights</span><span class="p">:</span>
+
+        <span class="c1">#获得交通灯的位置信息</span>
+        <span class="n">location</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_location</span><span class="p">()</span>
+        <span class="c1">#找到位于该路口范围的红绿灯</span>
+        <span class="k">if</span> <span class="n">location</span><span class="o">.</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">xmin</span> <span class="ow">and</span> <span class="n">location</span><span class="o">.</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">xmax</span> <span class="ow">and</span> <span class="n">location</span><span class="o">.</span><span class="n">y</span><span class="o">&gt;=</span><span class="n">ymin</span> <span class="ow">and</span> <span class="n">location</span><span class="o">.</span><span class="n">y</span><span class="o">&lt;=</span><span class="n">ymax</span><span class="p">:</span>
+            <span class="c1"># 获取交通灯ID</span>
+            <span class="n">traffic_light_id</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">id</span>
+            <span class="c1"># 获取交通灯的红绿灯配时方案</span>
+            <span class="n">red_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_red_time</span><span class="p">()</span>
+            <span class="n">green_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_green_time</span><span class="p">()</span>
+            <span class="n">yellow_time</span> <span class="o">=</span> <span class="n">traffic_light</span><span class="o">.</span><span class="n">get_yellow_time</span><span class="p">()</span>
+        <span class="c1"># 根据车流量调整红绿灯时长</span>
+            <span class="k">if</span> <span class="n">traffic_flow</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="c1"># 低流量，增加红灯灯时间</span>
+                <span class="n">red_time</span> <span class="o">=</span> <span class="n">red_time</span><span class="o">+</span><span class="mi">5</span>
+            <span class="k">elif</span> <span class="n">traffic_flow</span> <span class="o">&gt;</span><span class="mi">4</span> <span class="ow">and</span> <span class="n">traffic_flow</span> <span class="o">&lt;</span><span class="mi">7</span><span class="p">:</span>
+            <span class="c1"># 中等流量，平衡红绿灯时长</span>
+                <span class="n">red_time</span> <span class="o">=</span><span class="n">red_time</span><span class="o">+</span><span class="mi">3</span>
+                <span class="n">yellow_time</span> <span class="o">=</span> <span class="n">yellow_time</span><span class="o">+</span><span class="mi">2</span>
+                <span class="n">green_time</span> <span class="o">=</span> <span class="n">green_time</span><span class="o">+</span><span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 高流量，增加绿灯时间</span>
+                <span class="n">red_time</span> <span class="o">=</span> <span class="n">red_time</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">yellow_time</span><span class="o">=</span><span class="n">yellow_time</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">green_time</span> <span class="o">=</span> <span class="n">green_time</span><span class="o">+</span><span class="mi">5</span>
+
+        <span class="c1">#修改红绿灯的配时方案</span>
+            <span class="n">change_light_time</span><span class="p">(</span><span class="n">traffic_lights</span><span class="p">,</span><span class="n">traffic_light_id</span><span class="p">,</span><span class="n">red_time</span><span class="p">,</span><span class="n">yellow_time</span><span class="p">,</span><span class="n">green_time</span><span class="p">,</span><span class="n">world</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

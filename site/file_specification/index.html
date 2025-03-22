@@ -1,0 +1,617 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>各模块文档 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              各模块文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#carlalibcarla" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、Carla库：LibCarla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carlaunreal" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、虚幻插件：CarlaUnreal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、虚幻场景：carla-content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、虚幻场景：carla-content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-blueprints" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 蓝图 Blueprints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-static" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 静态资产 Static
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      构建步骤分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="构建步骤分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilbuildtools" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译：Util/BuildTools/*
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatebat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update.bat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update.bat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1"><a href="">各模块文档</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><img alt="CARLA Modules" src="../img/build_modules.jpg" /></p>
+<h2 id="carlalibcarla">一、Carla库：<a href="https://openhutb.github.io/carla_cpp/dir_b14cdd661f9a7048a44f1771cd402401.html">LibCarla</a><a class="headerlink" href="#carlalibcarla" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../modules/client/">客户端</a> <a href="https://openhutb.github.io/carla_cpp/dir_64d7bb605f27024d49af86070bd3f0b6.html">client</a></li>
+<li><a href="../modules/geom/">几何变换</a> <a href="https://openhutb.github.io/carla_cpp/dir_8b032d9d353dba85c86dc5364d785bbe.html">geom</a></li>
+<li><a href="../modules/image/">图像</a> <a href="https://openhutb.github.io/carla_cpp/dir_f5e43f88654384cf885b20b39b543425.html">image</a></li>
+<li><a href="../modules/multigpu/">多GPU</a> <a href="https://openhutb.github.io/carla_cpp/dir_a2af28fa3ae0e0a62585ff5a8c898ebe.html">multigpu</a></li>
+<li><a href="../modules/nav/">导航</a> <a href="https://openhutb.github.io/carla_cpp/dir_ad0f87b2245230d21b267626b2c7750a.html">nav</a></li>
+<li><a href="../modules/opendirve/">路网</a> <a href="https://openhutb.github.io/carla_cpp/dir_a02f1db122f1bf0661014bee93740912.html">opendirve</a></li>
+<li><a href="../modules/pointcloud/">点云</a> <a href="https://openhutb.github.io/carla_cpp/dir_ba5554cd20e2d3b81742218af28f1632.html">pointcloud</a></li>
+<li><a href="../modules/profiler/">性能分析器</a> <a href="https://openhutb.github.io/carla_cpp/dir_a44fab28cda52915bea048e19f74f82b.html">profiler</a></li>
+<li><a href="../modules/pytorch/">深度模型</a> <a href="https://openhutb.github.io/carla_cpp/dir_1d6fac9cb22f8ab199e8be0190976796.html">pytorch</a> </li>
+<li><a href="../modules/road/">道路</a> <a href="https://openhutb.github.io/carla_cpp/dir_8afc3b5d71d319c27bc8bd38d925daae.html">road</a></li>
+<li><a href="../modules/ros2/">机器人操作系统</a> <a href="https://openhutb.github.io/carla_cpp/dir_087ce8304d10c4897e4acbeac1a6fcc8.html">ros2</a></li>
+<li><a href="../modules/rpc/">远程过程调用</a> <a href="https://openhutb.github.io/carla_cpp/dir_83201f30ace02cdf218980110872f8a7.html">rpc</a></li>
+<li><a href="../modules/rpc/">责任敏感安全</a> <a href="https://openhutb.github.io/carla_cpp/dir_4ec6c576fb70278fb3ee02e044838f82.html">rss</a></li>
+<li><a href="../modules/sensor/">传感器</a> <a href="https://openhutb.github.io/carla_cpp/dir_8b842c0ad24262c95de16c440fd51527.html">sensor</a></li>
+<li><a href="../modules/streaming/">流式传输</a> <a href="https://openhutb.github.io/carla_cpp/dir_6d1a5b6c73cd09063239376f47f02d88.html">streaming</a></li>
+<li><a href="../modules/trafficmanager/">交通管理器</a> <a href="https://openhutb.github.io/carla_cpp/dir_a8dbe3691941680fc0b6dad001059c22.html">trafficmanager</a></li>
+</ul>
+<h2 id="carlaunreal">二、虚幻插件：<a href="https://openhutb.github.io/carla_cpp/dir_8fc34afb5f07a67966c78bf5319f94ae.html">CarlaUnreal</a><a class="headerlink" href="#carlaunreal" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../modules/Actor/">参与者</a> <a href="https://openhutb.github.io/carla_cpp/dir_31691989b6ffa820edb06b9eb32cc520.html">Actor</a></li>
+<li><a href="../modules/AI/">人工智能</a> <a href="https://openhutb.github.io/carla_cpp/dir_cff6f5bec63abb9e5f12c0f62b47389c.html">AI</a></li>
+<li><a href="../modules/BlueprintLibary/">蓝图库</a> <a href="https://openhutb.github.io/carla_cpp/dir_bd6d94ad3c7534d0f2d8b3ea8c626bc5.html">BlueprintLibary</a></li>
+<li><a href="../modules/Commandlet/">命令</a> <a href="https://openhutb.github.io/carla_cpp/dir_b73fafeaa93af49306e77afd3c0d0eef.html">Commandlet</a></li>
+<li><a href="../modules/Game/">游戏</a> <a href="https://openhutb.github.io/carla_cpp/dir_b708e75f0564cefaa95a07ef1c60fa1d.html">Game</a></li>
+<li><a href="../modules/Lights/">灯光</a> <a href="https://openhutb.github.io/carla_cpp/dir_300f092198dff90fa236d1c5a9b26b0c.html">Lights</a></li>
+<li><a href="../modules/MapGen/">地图生成</a> <a href="https://openhutb.github.io/carla_cpp/dir_3e9aec868781f29a05b56aecc37cd1a9.html">MapGen</a></li>
+<li><a href="../modules/Math/">数学</a> <a href="https://openhutb.github.io/carla_cpp/dir_f9cdfd101429e27d647f8df664b6ebd1.html">Math</a></li>
+<li><a href="../modules/OpenDrive/">路网</a> <a href="https://openhutb.github.io/carla_cpp/dir_d0b0d7f8e453984c2ffe9ea659d3c27f.html">OpenDrive</a></li>
+<li><a href="../modules/Recorder/">记录器</a> <a href="https://openhutb.github.io/carla_cpp/dir_0dd3f6464b0e5c5db135a4b73b996175.html">Recorder</a></li>
+<li><a href="../modules/Sensor_UE/">传感器</a> <a href="https://openhutb.github.io/carla_cpp/dir_32df69f29a08a23c97cd630e5cd47b2e.html">Sensor</a></li>
+<li><a href="../modules/Server/">服务端</a> <a href="https://openhutb.github.io/carla_cpp/dir_4f477b896248adf10c6909a9eb9fb7d3.html">Server</a></li>
+<li><a href="../modules/Settings/">设置</a> <a href="https://openhutb.github.io/carla_cpp/dir_61a866aca8f5011fad0bfe0df06e6f79.html">Settings</a></li>
+<li><a href="../modules/Traffic/">交通</a> <a href="https://openhutb.github.io/carla_cpp/dir_cf78ae8ffd0f6192e117b8a1751c2bbd.html">Traffic</a></li>
+<li><a href="../modules/Trigger/">触发器</a> <a href="https://openhutb.github.io/carla_cpp/dir_6c62abedd72e3007bc03a7fda3037637.html">Trigger</a></li>
+<li><a href="../modules/Util/">工具</a> <a href="https://openhutb.github.io/carla_cpp/dir_c0211e659583c36c301432102f960843.html">Util</a></li>
+<li><a href="../modules/Vegetation/">植被</a> <a href="https://openhutb.github.io/carla_cpp/dir_a3491c9b10b5a3d0703facb105cd4941.html">Vegetation</a></li>
+<li><a href="../modules/Vehicle/">车辆</a> <a href="https://openhutb.github.io/carla_cpp/dir_4d620431c9b0dc62fca23e1ed91a49b6.html">Vehicle</a></li>
+<li><a href="../modules/Walker/">行人</a> <a href="https://openhutb.github.io/carla_cpp/dir_7a44753a182d2dd0cd15cfa7be7c0c89.html">Walker</a></li>
+<li><a href="../modules/Weather/">天气</a> <a href="https://openhutb.github.io/carla_cpp/dir_b3a8bd261fb98563f858806beb7e2741.html">Weather</a></li>
+</ul>
+<h2 id="carla-content">三、虚幻场景：<a href="https://bitbucket.org/carla-simulator/carla-content/src/master/">carla-content</a><a class="headerlink" href="#carla-content" title="Permanent link">&para;</a></h2>
+<h3 id="31-blueprints">3.1 <a href="../modules/Blueprints/">蓝图</a>  <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/">Blueprints</a><a class="headerlink" href="#31-blueprints" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../modules/Game_BP/">游戏</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Game/">Game</a></li>
+<li><a href="../modules/LevelDesign_BP/">关卡设计</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/LevelDesign/">LevelDesign</a></li>
+<li><a href="../modules/Lights_BP/">灯光</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Lights/">Lights</a></li>
+<li><a href="../modules/Props_BP/">道具</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Props/">Props</a></li>
+<li><a href="../modules/Testing_BP/">测试</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Testing/">Testing</a></li>
+<li><a href="../modules/TrafficLight_BP/">交通灯</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/TrafficLight/">TrafficLight</a></li>
+<li><a href="../modules/USDImportTemplates_BP/">通用场景描述(USD) 资产导入模板</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/USDImportTemplates/">USDImportTemplates</a></li>
+<li><a href="../modules/Vehicles_BP/">车辆</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Vehicles/">Vehicles</a></li>
+<li><a href="../modules/Walkers_BP/">行人</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Walkers/">Walkers</a></li>
+</ul>
+<h3 id="32-static">3.2 <a href="../modules/Static/">静态资产</a> <a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Static/">Static</a><a class="headerlink" href="#32-static" title="Permanent link">&para;</a></h3>
+<h2 id="_2">附加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><a href="../demo/figure/">绘图指南</a></p>
+<p>通用C++相关文档请参考 <a href="../ref_cpp/">链接</a> 。</p>
+<h2 id="_3">构建步骤分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="utilbuildtools">编译：Util/BuildTools/*<a class="headerlink" href="#utilbuildtools" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../img/tuto_D_windows_debug/file_specification_build_tools.png" /></p>
+<ul>
+<li>BuildUE4Plugins.bat : 构建虚幻引擎插件 StreetMap </li>
+<li>Setup.bat：调用<code>Util/InstallersWin/*.bat</code>下载并生成 zlib、libpng、rpclib、Google Test、Recast &amp; Detour、Fast-DDS (for ROS2)、Boost、Xercesc、Sqlite3、PROJ、Eigen、Chrono 库；设置资产下载URL；生成CMakeLists.txt.in；</li>
+<li>BuildLibCarla.bat：创建LibCarla的客户端和服务端；</li>
+<li>BuildOSM2ODR.bat：创建OSM转OpenDRIVE的库；</li>
+</ul>
+<h3 id="updatebat">Update.bat<a class="headerlink" href="#updatebat" title="Permanent link">&para;</a></h3>
+<ol>
+<li>环境变量初始化；</li>
+<li>获取最新的资产包；</li>
+<li>
+<p>下载并解压资产内容；</p>
+<p>如果不存在7zip就用<code>powershell -Command "Expand-Archive '</code>命令进行解压。</p>
+</li>
+</ol>
+<h4 id="makefile"><a href="https://seisman.github.io/how-to-write-makefile/index.html">Makefile</a><a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><code>make PythonAPI</code></p>
+<p>执行<code>Util/BuildTools/BuildPythonAPI.bat</code>，真正执行的是<code>python setup.py bdist_egg bdist_wheel</code>，在<code>PythonAPI/carla/dist</code>目录下生成<code>*.egg</code>和<code>*.whl</code>文件；</p>
+</li>
+<li>
+<p><code>make launch</code></p>
+<p>执行<code>Makefile</code>，调用<code>Util/BuildTools/Windows.mk</code>，真正执行的是<code>BuildLibCarla.bat</code>，构建LibCarla的服务端和客户端；</p>
+</li>
+</ol>
+<h3 id="build">Build<a class="headerlink" href="#build" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Xerces</code>是由 Apache 组织所推动的一项 XML 文档解析开源项目。</li>
+<li><code>SQLite</code>是一款轻型的数据库，是遵守 ACID 的关系型数据库管理系统，它包含在一个相对小的C库中。</li>
+<li><code>PROJ</code>是一种通用坐标转换软件，它将坐标从一个坐标参考系（CRS）转换为另一个坐标参考系。这包括地图投影和大地坐标变换。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

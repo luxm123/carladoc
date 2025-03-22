@@ -1,0 +1,598 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>构建系统 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              构建系统
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libcarla" class="md-nav__link">
+    <span class="md-ellipsis">
+      LibCarla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carlaue4-carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      CarlaUE4 和 Carla 插件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pythonapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      PythonAPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PythonAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0912" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.9.12+ 版本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0912_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.9.12 之前的版本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">构建系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="#setup"><strong>设置</strong></a>  </li>
+<li><a href="#libcarla"><strong>LibCarla</strong></a>  </li>
+<li><a href="#carlaue4_and_carla_plugin"><strong>CarlaUE4 和 Carla 插件</strong></a>  </li>
+<li><a href="#pythonapi"><strong>PythonAPI</strong></a><ul>
+<li><a href="#versions-0912">0.9.12+ 版本</a></li>
+<li><a href="#versions_prior_to_0912">0.9.12 之前的版本</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>本文档是一个正在进行的工作，这里仅考虑 Linux 构建系统。</em></p>
+</blockquote>
+<p>设置中最具挑战性的部分是编译所有依赖项和模块，使其与 a) 服务器端的虚幻引擎 和 b) 客户端的 Python 兼容。</p>
+<p>目标是能够从单独的 Python 进程调用虚幻引擎的函数。</p>
+<p><img alt="modules" src="../img/build_modules.jpg" /></p>
+<p>在 Linux 中，我们使用 clang-8.0 和 C++14 标准编译 Carla 和所有依赖项。然而，我们根据代码的使用位置来链接不同的运行时 C++ 库，因为所有将与虚幻引擎链接的代码都需要使用 <code>libc++</code> 进行编译。</p>
+<hr />
+<h2 id="_2">设置 <span id="setup"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>命令</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>setup
+</code></pre></div>
+<p>获取并编译依赖项</p>
+<ul>
+<li>llvm-8 (libc++ and libc++abi)</li>
+<li>rpclib-2.2.1 (twice, with libstdc++ and libc++)</li>
+<li>boost-1.72.0 (headers and boost_python for libstdc++)</li>
+<li>googletest-1.8.1 (with libc++)</li>
+</ul>
+<hr />
+<h2 id="libcarla">LibCarla <span id="libcarla"></span><a class="headerlink" href="#libcarla" title="Permanent link">&para;</a></h2>
+<p>使用 CMake 编译（最低版本需要 CMake 3.9）。</p>
+<p>命令</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>LibCarla
+</code></pre></div>
+<p>两种配置：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>服务器</th>
+<th>客户端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>单元测试</strong></td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td><strong>要求</strong></td>
+<td>rpclib, gtest, boost</td>
+<td>rpclib, boost</td>
+</tr>
+<tr>
+<td><strong>标准运行时</strong></td>
+<td>LLVM's <code>libc++</code></td>
+<td>默认 <code>libstdc++</code></td>
+</tr>
+<tr>
+<td><strong>输出</strong></td>
+<td>头文件和<code>carla_server.lib</code></td>
+<td><code>carla_server.lib</code></td>
+</tr>
+<tr>
+<td><strong>需要</strong></td>
+<td>Carla plugin</td>
+<td>PythonAPI</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="carlaue4-carla">CarlaUE4 和 Carla 插件 <span id="carlaue4_and_carla_plugin"></span><a class="headerlink" href="#carlaue4-carla" title="Permanent link">&para;</a></h2>
+<p>两者均使用虚幻引擎构建工具在同一步骤进行编译。它们需要 <code>UE4_ROOT</code> 环境变量。</p>
+<p>命令</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>CarlaUE4Editor
+</code></pre></div>
+<p>要启动虚幻引擎的编辑器，请运行</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>launch
+</code></pre></div>
+<p>编译 0.9.15 时候出现<code>carla/Unreal/CarlaUE4/Plugins/CarlaTools/Source/CarlaTools/Private/Online/CustomFileDownloader.cpp(11): fatal rror C1083: 无法打开包括文件: “OSM2ODR.h”: No such file or directory</code></p>
+<p>解决：将0.9.14<code>build</code>中的<code>carla\Build\osm2odr-visualstudio</code>复制过来。</p>
+<hr />
+<h2 id="pythonapi">PythonAPI <span id="pythonapi"></span><a class="headerlink" href="#pythonapi" title="Permanent link">&para;</a></h2>
+<h3 id="0912">0.9.12+ 版本 <span id="versions-0912"></span><a class="headerlink" href="#0912" title="Permanent link">&para;</a></h3>
+<p>使用 Python 的 <code>setuptools</code> ("setup.py")  编译。 目前需要在机器上安装以下软件：Python, libpython-dev, 和
+libboost-python-dev, pip&gt;=20.3, wheel, 和 auditwheel。</p>
+<p>命令：</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>PythonAPI
+</code></pre></div>
+<p>创建两个文件，每个文件包含客户端库并对应于系统上支持的 Python 版本。一个文件是 <code>.whl</code> 文件，另一个文件是 <code>.egg</code> 文件。这允许选择两种不同的、互斥的方式来使用客户端库。</p>
+<blockquote>
+<p><strong>A. .whl 文件</strong></p>
+<blockquote>
+<p><code>.whl</code> 使用以下命令安装：</p>
+<pre><code> pip install &lt;wheel_file&gt;.whl
+</code></pre>
+<p>无需像以前版本或 <code>.egg</code> 文件中那样直接在脚本中导入库路径 (请参阅 <a href="#versions-prior-to-0912">__0.9.12_之前的版本_</a>); <code>import carla</code> 就足够了。</p>
+</blockquote>
+<p><strong>B. .egg 文件</strong></p>
+<blockquote>
+<p>请参阅 <a href="#versions-prior-to-0912"><strong>0.9.12 之前的版本</strong></a> 了解更多详细信息。</p>
+</blockquote>
+</blockquote>
+<h3 id="0912_1">0.9.12 之前的版本 <span id="versions_prior_to_0912"></span><a class="headerlink" href="#0912_1" title="Permanent link">&para;</a></h3>
+<p>使用 Python 的 <code>setuptools</code> ("setup.py")编译。 目前需要在机器上安装以下软件： Python, libpython-dev, 和
+libboost-python-dev。</p>
+<p>命令</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>PythonAPI
+</code></pre></div>
+<p>它创造了两个 "egg" 包</p>
+<ul>
+<li><code>PythonAPI/dist/carla-X.X.X-py2.7-linux-x86_64.egg</code></li>
+<li><code>PythonAPI/dist/carla-X.X.X-py3.7-linux-x86_64.egg</code></li>
+</ul>
+<p>通过将其添加到系统路径，可以将该包直接导入到 Python 脚本中。</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="s1">&#39;PythonAPI/dist/carla-X.X.X-py</span><span class="si">%d</span><span class="s1">.</span><span class="si">%d</span><span class="s1">-linux-x86_64.egg&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="p">,</span>
+                                                             <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">minor</span><span class="p">))</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">carla</span>
+
+<span class="c1"># ...</span>
+</code></pre></div>
+<p>或者，可以使用 <code>easy_install</code> 安装</p>
+<div class="highlight"><pre><span></span><code>easy_install2<span class="w"> </span>--user<span class="w"> </span>--no-deps<span class="w"> </span>PythonAPI/dist/carla-X.X.X-py2.7-linux-x86_64.egg
+easy_install3<span class="w"> </span>--user<span class="w"> </span>--no-deps<span class="w"> </span>PythonAPI/dist/carla-X.X.X-py3.7-linux-x86_64.egg
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

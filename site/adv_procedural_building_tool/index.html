@@ -1,0 +1,594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Adv procedural building tool - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adv procedural building tool
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      打开程序化建筑工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本参数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      网格参数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      网格元素
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网格元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      套接字
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      外墙材料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      烘焙
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p>!!! 笔记
+    <strong>程序化建筑工具</strong> 目前是一个 <strong>实验性功能</strong> ，现阶段尚未考虑 <em>投入生产</em>。因此它只能用于实验研究项目。</p>
+<h1 id="_1"><a href="https://carla.readthedocs.io/en/latest/adv_procedural_building_tool/">程序化建筑工具</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>程序化建筑工具</strong> 有助于生成虚拟三维建筑，可以通过简单的界面对其尺寸和装饰风格进行调制，以创建近乎无限的变化。可以通过界面选择楼层的占地面积尺寸和高度。然后用户可以为建筑大堂、主体以及顶层或阁楼选择多种风格。可以从 Carla 资源库中为角窗和阳台等功能选择各种面板元素样式。</p>
+<ul>
+<li><a href="#opening-the-procedural-building-tool"><strong>打开程序化建筑工具</strong></a></li>
+<li><a href="#base-parameters"><strong>基本参数</strong></a></li>
+<li><a href="#mesh-parameters"><strong>网格参数</strong></a></li>
+<li><a href="#mesh-elements"><strong>网格元素</strong></a><ul>
+<li><a href="#sockets">套接字</a></li>
+</ul>
+</li>
+<li><a href="#facade-materials"><strong>外墙材料</strong></a></li>
+<li><a href="#cooking"><strong>烘焙</strong></a></li>
+</ul>
+<h2 id="_2">打开程序化建筑工具 <span id="opening-the-procedural-building-tool"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>首先，您需要向场景添加程序建筑参与者。导航到<code>Content&gt;Carla&gt;Blueprints&gt;LevelDesign</code>并拖动蓝图 <em>BP_ProceduralBuilding</em> 到地图中。将资产移动到您希望可视化建筑物的位置。选择一个有空间的地方，以便可以清楚地看到结果。然后，要打开该工具，请右键单击<em>WD_ProceduralBuilding（编辑器工具控件）</em>并从上下文菜单中选择<em>运行编辑器工具控件</em>(Run editor utility widget)来启动程序构建工具。这将打开该工具的界面。</p>
+<p><img alt="open_pb_tool" src="../img/open_pb_tool.png" /></p>
+<p>!!! 注意
+    您必须在打开工具之前完成此步骤，地图中必须存在<em>BP_ProceduralBuilding</em>蓝图的实例，工具才能运行。您还必须确保在继续之前在世界大纲视图（<em>World outliner</em>）中选择<em>BP_ProceduralBuilding</em>实体。</p>
+<h2 id="_3">基本参数 <span id="base-parameters"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><img alt="base_parameters" src="../img/pb_base_parameters.png" /></p>
+<p>在基本参数部分中，您可以选择建筑物的基本属性，例如占地面积和楼层高度。</p>
+<p>!!! 笔记
+    在网格参数部分（<a href="#mesh-parameters">mesh parameters</a>）选择网格片段之前，调整基本参数时，您不会在虚幻引擎视口中看到任何变化。</p>
+<p>可用参数如下：</p>
+<ul>
+<li><strong>Seed</strong>: 设置程序生成的随机种子，这可以使建筑物具有相同设置的变化。</li>
+<li><strong>Num floors</strong>: 设置建筑物的层数或楼层数，并从此定义建筑物的高度。</li>
+<li><strong>Length X/Y</strong>: 定义建筑物在 X 和 Y 维度上的占地面积大小。这些是无单位的，数字表示重复部分的数量，每个部分是一列窗口。</li>
+<li><strong>Create automatically</strong>: 如果选择此选项，建筑物将在视口中自动更新，以便您可以看到调整的效果。</li>
+<li><strong>Corners</strong>: 允许将角件添加到建筑物中，您可以在<a href="#mesh-parameters">Mesh parameters</a>部分中选择这些件。</li>
+<li><strong>Walls</strong>: 将建筑物左/右/前/后的中间部分替换为可使用网格参数（<a href="#mesh-parameters">Mesh parameters</a>）菜单选择的替代部分。</li>
+<li><strong>Doors</strong>: 允许在大厅曾放置门的阵列。门放置在选定的索引位置。</li>
+</ul>
+<h2 id="_4">网格参数 <span id="mesh-parameters"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><img alt="mesh_parameters" src="../img/pb_mesh_parameters.png" /></p>
+<p>在界面的“网格参数(Mesh Parameters)”选项卡中，我们选择将用于覆盖建筑物外部的网格件。建筑物不同部分的网片分为 5 类：</p>
+<ul>
+<li><strong>Lobby</strong>: 用于装饰建筑物大堂的网片。</li>
+<li><strong>Midsection</strong>: 用于装饰建筑物中段、大堂和顶层之间的每一层的网状部件。</li>
+<li><strong>Penthouse</strong>: 用于装饰顶层公寓层的网格件。</li>
+<li><strong>Doors</strong>: 为大厅添加门的网状部件</li>
+<li><strong>Walls</strong>: 用于装饰建筑物墙壁的网片</li>
+</ul>
+<p>在每个类别中，您都会发现许多网片选项。单击一个或多个使其变为红色，这些将被添加到建筑物的相应部分。如果您选择多个选项，该工具将在选项之间随机交替。当您为建筑物的每个部分选择网格片段时，如果您在基本参数部分中选择了自动创建（<em>Create automatically</em>），您将在编辑器视口中看到建筑物正在成形。</p>
+<p><img alt="building_parts" src="../img/pb_building_parts.png" /></p>
+<h2 id="_5">网格元素 <span id="mesh-elements"></span><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><img alt="mesh_elements" src="../img/pb_mesh_elements.png" /></p>
+<p>在此部分中，您可以选择建筑物的更详细元素，例如窗户、柱子、花盆、空调装置和天线。每种类型的装饰都有略微不同的属性。</p>
+<p>建筑物细节的装饰有多种类型：</p>
+<ul>
+<li>
+<p><strong>垂直/水平窗户网格</strong>: 这些网格片定义了建筑物中窗框的样式。垂直窗户网格将占据比其宽度高的窗户空间，而水平窗户网格将占据比其高度更宽的窗户空间。如果您选择多个选项，它们将交替出现。</p>
+</li>
+<li>
+<p><strong>柱网格</strong>: 这些模拟跨越建筑物高度的砖砌柱细节</p>
+</li>
+<li>
+<p><strong>顶部/底部窗户细节</strong>: 这些网格用门楣和遮阳板装饰窗户的顶部，用窗台和植物箱装饰窗户的底部。</p>
+</li>
+<li>
+<p><strong>Window columns</strong>: 分隔窗户的砖砌柱</p>
+</li>
+<li>
+<p><strong>Curtain meshes</strong>: 安装在窗户内的窗帘和百叶窗</p>
+</li>
+<li>
+<p><strong>Pot meshes</strong>: 在指定插座点添加到窗台和植物箱的花盆</p>
+</li>
+<li>
+<p><strong>Air conditioner meshes</strong>: 在指定插座点处添加到窗户的空调装置</p>
+</li>
+<li>
+<p><strong>Pipe meshes</strong>: 垂直向下延伸到建筑物的管道，模拟屋顶的排水管</p>
+</li>
+<li>
+<p><strong>Wire meshes</strong>: 沿着建筑物垂直延伸的电线，模拟电视天线延伸和闪电接地线</p>
+</li>
+<li>
+<p><strong>Antenna meshes</strong>: 从窗户伸出的电视天线</p>
+</li>
+</ul>
+<p><img alt="mesh_variations" src="../img/pb_detail_variations.webp" /></p>
+<p>参数的工作原理如下：</p>
+<p><strong>常用参数</strong>:</p>
+<ul>
+<li><strong>Percentage</strong>: 控制将放置在建筑物上的件数，100% 表示所有可用空间将被占用</li>
+<li><strong>Offset</strong>: 该作品相对于建筑物主体的空间偏移</li>
+</ul>
+<p><strong>Blinds and curtains</strong>:</p>
+<ul>
+<li><strong>Min/Max size</strong>: 选择百叶窗或窗帘的最小/最大长度，值之间随机变化。1.0为全闭，0.0为全开。</li>
+</ul>
+<p><strong>Pipes and wires</strong>:</p>
+<ul>
+<li><strong>Index</strong>: 定义将放置管道的建筑物的面</li>
+<li><strong>Offset side/front</strong>: 从建筑物正面的中心向作品添加空间偏移</li>
+</ul>
+<p>!!! 笔记
+    在某些情况下，您可能会发现，当您选择细节网格部件（例如花盆、天线和空调装置）时，您看不到建筑物有任何变化。这很可能是因为您正在使用的部件没有添加您选择的部件所需的适当套接字。请参阅插槽部分（<a href="#sockets">sockets section</a>）了解如何使用插槽。</p>
+<h3 id="_6">套接字 <span id="sockets"></span><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><img alt="socket_details" src="../img/pb_detail_section.png" /></p>
+<p>插槽是锚点，用于定义将细节网格物体放置在另一个网格物体上的位置。要将套接字添加到程序建筑中的网格物体，请在选择程序建筑的情况下，转到详细信息面板（<em>details panel</em>），通常位于虚幻编辑器界面的右侧。在那里，您将找到“网格（<em>Meshes</em>）”和“细节网格（<em>Detail meshes</em>）”面板。打开相关部分，在您要放置插座的位置打开网片。</p>
+<p><img alt="mesh_details" src="../img/pb_mesh_details.png" /></p>
+<p>找到要在其上放置套接字的网格，然后双击该图标以在编辑器中将其打开。单击“创建套接字(<em>create socket</em>)”以添加套接字并使用以下约定命名：</p>
+<ul>
+<li>空调机组（Air conditioning unit）： aa_*</li>
+<li>天线（Antennas）： ant_*</li>
+<li>花盆（Plant pots）： pot_*</li>
+</ul>
+<p>将星号替换为索引，具体取决于您有多少个套接字，即 aa_0, aa_2, aa_3...</p>
+<p><img alt="socket_details" src="../img/pb_add_socket.png" /></p>
+<p>当您单击“创建套接字(<em>Create socket</em>)”时，套接字将在编辑器中使用三维句柄进行实例化。将插槽拖动到网格上的所需位置，这是您的细节部件将显示连接到单元的位置。</p>
+<h2 id="_7">外墙材料 <span id="facade-materials"></span><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><img alt="facade_materials" src="../img/pb_facade_materials.png" /></p>
+<p>在外观材料选项卡中，您可以浏览和预览要装饰建筑物墙壁的材料。</p>
+<p><img alt="facade_changes" src="../img/pb_facade_changes.webp" /></p>
+<h2 id="_8">烘焙 <span id="cooking"></span><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>在烹饪选项卡中，您可以将选择的所有网格物体和材质组合到具有关联材质和纹理的单个静态网格物体中。还将为 LOD 创建建筑物的 LOD 纹理。在界面中指定将保存新建筑资源的文件夹名称。</p>
+<p>一旦您完成了建筑物的制作，您就可以像任何其他 Carla 资产一样将建筑物的实例放置在地图中。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2547 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>蓝图库 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              蓝图库
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      控制器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      传感器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    <span class="md-ellipsis">
+      static
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    <span class="md-ellipsis">
+      vehicle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walker" class="md-nav__link">
+    <span class="md-ellipsis">
+      walker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1"><a href="https://carla.readthedocs.io/en/latest/bp_library/">蓝图库</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>蓝图库 (<a href="../python_api/#carlablueprintlibrary-class"><code>carla.BlueprintLibrary</code></a>) 是 Carla 中用于可用的所有内容 <a href="../python_api/#carla.ActorBlueprint"><code>carla.ActorBlueprint</code></a> 及其属性 (<a href="../python_api/#carla.ActorAttribute"><code>carla.ActorAttribute</code></a>) 的摘要。</p>
+<p>以下是打印所有参与者蓝图及其属性的示例代码：
+<div class="highlight"><pre><span></span><code><span class="n">blueprints</span> <span class="o">=</span> <span class="p">[</span><span class="n">bp</span> <span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="n">world</span><span class="o">.</span><span class="n">get_blueprint_library</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">blueprint</span> <span class="ow">in</span> <span class="n">blueprints</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">blueprint</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">blueprint</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attr</span><span class="p">))</span>
+</code></pre></div></p>
+<p>查看 <a href="../core_actors/">蓝图的介绍</a>。</p>
+<h3 id="_2">控制器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><font color="#498efc">controller.ai.walker</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_3">传感器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><font color="#498efc">sensor.camera.depth</font></strong>  <ul>
+<li><strong>传感器</strong><ul>
+<li><code>fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_x</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_y</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_falloff</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_multiplier</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_k</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_kcube</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_x_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_y_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.camera.dvs</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>black_clip</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blade_count</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>bloom_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blur_amount</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blur_radius</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>calibration_constant</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>chromatic_aberration_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>chromatic_aberration_offset</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>enable_postprocess_effects</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_compensation</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_max_bright</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_min_bright</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_mode</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_speed_down</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_speed_up</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>focal_distance</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>fstop</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>gamma</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_x</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_y</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>iso</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_falloff</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_multiplier</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_flare_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_k</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_kcube</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_x_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_y_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>log_eps</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>min_fstop</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_max_distortion</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_min_object_screen_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>negative_threshold</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>positive_threshold</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>refractory_period_ns</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>shoulder</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>shutter_speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sigma_negative_threshold</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sigma_positive_threshold</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>slope</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>temp</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>tint</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>toe</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>use_log</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>white_clip</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.camera.optical_flow</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_x</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_y</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_falloff</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_multiplier</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_k</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_kcube</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_x_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_y_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.camera.rgb</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>black_clip</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blade_count</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>bloom_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blur_amount</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>blur_radius</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>calibration_constant</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>chromatic_aberration_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>chromatic_aberration_offset</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>enable_postprocess_effects</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_compensation</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_max_bright</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_min_bright</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_mode</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_speed_down</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>exposure_speed_up</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>focal_distance</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>fstop</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>gamma</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_x</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_y</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>iso</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_falloff</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_multiplier</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_flare_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_k</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_kcube</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_x_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_y_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>min_fstop</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_max_distortion</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>motion_blur_min_object_screen_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>shoulder</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>shutter_speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>slope</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>temp</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>tint</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>toe</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>white_clip</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.camera.semantic_segmentation</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_x</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>image_size_y</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_falloff</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_circle_multiplier</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_k</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_kcube</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_x_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lens_y_size</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.lidar.ray_cast</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>atmosphere_attenuation_rate</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>channels</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>dropoff_general_rate</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>dropoff_intensity_limit</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>dropoff_zero_intensity</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>horizontal_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lower_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_seed</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_stddev</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>points_per_second</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>range</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>rotation_frequency</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>upper_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.lidar.ray_cast_semantic</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>channels</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>horizontal_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>lower_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>points_per_second</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>range</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>rotation_frequency</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>upper_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.collision</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.gnss</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>noise_alt_bias</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_alt_stddev</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_lat_bias</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_lat_stddev</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_lon_bias</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_lon_stddev</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_seed</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.imu</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>noise_accel_stddev_x</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_accel_stddev_y</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_accel_stddev_z</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_bias_x</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_bias_y</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_bias_z</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_stddev_x</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_stddev_y</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_gyro_stddev_z</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_seed</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.lane_invasion</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.obstacle</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>debug_linetrace</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>distance</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>hit_radius</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>only_dynamics</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.radar</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>horizontal_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>noise_seed</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>points_per_second</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>range</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sensor_tick</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>vertical_fov</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">sensor.other.rss</font></strong> （自 Carla 0.9.15 起已被弃用）<ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><font color="#498efc">static.prop.advertisement</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.atm</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.barbeque</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.barrel</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.bench01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.bench02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.bench03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.bike helmet</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.bin</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.box01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.box02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.box03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.briefcase</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.brokentile01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.brokentile02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.brokentile03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.brokentile04</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.busstop</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.calibrator</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.chainbarrier</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.chainbarrierend</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.clothcontainer</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.clothesline</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.colacan</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.constructioncone</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.container</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.creasedbox01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.creasedbox02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.creasedbox03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.dirtdebris01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.dirtdebris02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.dirtdebris03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.doghouse</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.fountain</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage04</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage05</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.garbage06</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.gardenlamp</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.glasscontainer</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.gnome</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.guitarcase</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.ironplank</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.kiosk_01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.mailbox</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.maptable</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.mesh</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.mobile</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.motorhelmet</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.omri-0</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.omri-1</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.pergola</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot04</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot05</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot06</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot07</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plantpot08</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plasticbag</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plasticchair</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.plastictable</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.platformgarbage01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.purse</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.shoppingbag</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.shoppingcart</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.shoppingtrolley</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.slide</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.streetbarrier</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.streetfountain</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.streetsign</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.streetsign01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.streetsign04</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.swing</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.swingcouch</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.table</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trafficcone01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trafficcone02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trafficwarning</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trampoline</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashbag</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashcan01</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashcan02</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashcan03</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashcan04</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.trashcan05</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.travelcase</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.vendingmachine</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.prop.wateringcan</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>size</code> (<em>String</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">static.trigger.friction</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>extent_x</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>extent_y</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>extent_z</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>friction</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vehicle">vehicle<a class="headerlink" href="#vehicle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><font color="#498efc">vehicle.audi.a2</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.audi.etron</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.audi.tt</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.bh.crossbike</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.bmw.grandtourer</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.carlamotors.carlacola</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.carlamotors.firetruck</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.chevrolet.impala</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.citroen.c3</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.diamondback.century</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.dodge.charger_2020</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.dodge.charger_police</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.dodge.charger_police_2020</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.ford.ambulance</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.ford.crown</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.ford.mustang</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.gazelle.omafiets</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.harley-davidson.low_rider</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.jeep.wrangler_rubicon</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.kawasaki.ninja</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.lincoln.mkz_2017</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.lincoln.mkz_2020</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.mercedes.coupe</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.mercedes.coupe_2020</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.mercedes.sprinter</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.micro.microlino</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.mini.cooper_s</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.mini.cooper_s_2021</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.nissan.micra</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.nissan.patrol</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.nissan.patrol_2021</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.seat.leon</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.tesla.cybertruck</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.tesla.model3</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.toyota.prius</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.vespa.zx125</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.volkswagen.t2</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.volkswagen.t2_2021</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">vehicle.yamaha.yzf</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>color</code> (<em>RGBColor</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>driver_id</code> (<em>Int</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>number_of_wheels</code> (<em>Int</em>)</li>
+<li><code>object_type</code> (<em>String</em>)</li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>sticky_control</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="walker">walker<a class="headerlink" href="#walker" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><font color="#498efc">walker.pedestrian.0001</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0002</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0003</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0004</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0005</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0006</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0007</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0008</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0009</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0010</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0011</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0012</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0013</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0014</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0015</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0016</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0017</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0018</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0019</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0020</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0021</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0022</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0023</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0024</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0025</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0026</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0027</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0028</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0029</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0030</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0031</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0032</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0033</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0034</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0035</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0036</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0037</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0038</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0039</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0040</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0041</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0042</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0043</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0044</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0045</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0046</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0047</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><font color="#498efc">walker.pedestrian.0048</font></strong>  <ul>
+<li><strong>属性：</strong><ul>
+<li><code>age</code> (<em>String</em>)</li>
+<li><code>gender</code> (<em>String</em>)</li>
+<li><code>generation</code> (<em>Int</em>)</li>
+<li><code>is_invincible</code> (<em>Bool</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>role_name</code> (<em>String</em>) <sub><em>- 可修改</em></sub></li>
+<li><code>speed</code> (<em>Float</em>) <sub><em>- 可修改</em></sub></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

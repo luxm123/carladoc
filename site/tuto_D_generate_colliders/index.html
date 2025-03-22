@@ -1,0 +1,623 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>生成详细的碰撞体 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              生成详细的碰撞体
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      光线投射碰撞体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="光线投射碰撞体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fbx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1-导出车辆 FBX
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-生成低密度网格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3-将网格导入虚幻引擎
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-" class="md-nav__link">
+    <span class="md-ellipsis">
+      4-添加网格作为碰撞体
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      物理碰撞体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="物理碰撞体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-" class="md-nav__link">
+    <span class="md-ellipsis">
+      0-先决条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      1-在虚幻编辑器中定义轮子的自定义碰撞
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fbx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-将车辆导出为 FBX
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-4-blender" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 到 4-导入到 Blender 并创建自定义边界
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-blender-fbx" class="md-nav__link">
+    <span class="md-ellipsis">
+      5-从 Blender 导出到 FBX
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-8-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 到 8-导入碰撞体并定义物理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">生成详细的碰撞体<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>本教程介绍如何为车辆创建更准确的碰撞边界（相对于对象的原始形状）。它们可以用作物理碰撞体，与碰撞检测兼容，也可以用作基于光线投射的传感器（例如激光雷达）的辅助碰撞体，以检索更准确的数据。新的碰撞机可以集成到 Carla 中，以便所有社区都能从中受益。在 <a href="../cont_contribution_guidelines/">此处</a> 了解有关如何为内容存储库做出贡献的更多信息。 </p>
+<p>有两种方法可以创建新的碰撞体，但它们并不完全等效。</p>
+<ul>
+<li><strong>光线投射碰撞体</strong> — 这种方法需要一些基本的三维建模技能。车辆中添加了辅助碰撞体，以便基于光线投射的传感器（例如激光雷达）检索更精确的数据。 </li>
+<li><strong>物理碰撞体</strong> — 这种方法遵循贡献者 <strong><a href="https://github.com/yankagan">Yan Kaganovsky / yankagan</a></strong> 创建的 <a href="https://bitbucket.org/yankagan/carla-content/wiki/Home">教程</a> ，无需手动建模即可创建网格。然后，该网格用作车辆的主碰撞体，用于物理和传感器检测（除非添加辅助碰撞体）。</li>
+</ul>
+<hr />
+<ul>
+<li><a href="#raycast-colliders"><strong>光线投射碰撞体</strong></a>  <ul>
+<li><a href="#1-export-the-vehicle-fbx">1-导出车辆 FBX</a>  </li>
+<li><a href="#2-generate-a-low-density-mesh">2-生成低密度网格</a>  </li>
+<li><a href="#3-import-the-mesh-into-ue">3-将网格导入虚幻引擎</a>  </li>
+<li><a href="#4-add-the-mesh-as-collider">4-添加网格作为碰撞体</a>  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li><a href="#physics-colliders"><strong>物理碰撞体</strong></a>  <ul>
+<li><a href="#0-prerequisites">0-先决条件</a>  </li>
+<li><a href="#1-define-custom-collision-for-wheels-in-unreal-editor">1-在虚幻编辑器中定义轮子的自定义碰撞</a>  </li>
+<li><a href="#2-export-the-vehicle-as-fbx">2-将车辆导出为 FBX</a>  </li>
+<li><a href="#3-to-4-import-to-blender-and-create-custom-boundary">3 到 4-导入到 Blender 并创建自定义边界</a>  </li>
+<li><a href="#5-export-from-blender-to-fbx">5-从 Blender 导出到 FBX</a>  </li>
+<li><a href="#6-to-8-import-collider-and-define-physics">6 到 8-导入碰撞体并定义物理</a>  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_2">光线投射碰撞体 <span id="raycast-colliders"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-fbx">1-导出车辆 FBX <span id="1-export-the-vehicle-fbx"></span><a class="headerlink" href="#1-fbx" title="Permanent link">&para;</a></h3>
+<p>首先需要以车辆的原始网格作为参考。出于学习目的，本教程导出 Carla 车辆的网格。</p>
+<p><strong>1.1</strong> 在虚幻引擎中打开 Carla 并转到 <code>Content/Carla/Static/Vehicles/4Wheeled/&lt;model_of_vehicle&gt;</code>。</p>
+<p><strong>1.2</strong> 在 <code>SM_&lt;model_of_vehicle&gt;</code> 点击 <code>right-click</code> 将车辆网格导出为 FBX。</p>
+<h3 id="2-">2-生成低密度网格 <span id="2-generate-a-low-density-mesh"></span><a class="headerlink" href="#2-" title="Permanent link">&para;</a></h3>
+<p><strong>2.1</strong> 打开三维建模软件，并使用原始网格作为参考，建模一个与原始网格保持可靠的低密度网格。</p>
+<p><img alt="manual_meshgen" src="../img/tuto_D_colliders_mesh.jpg" /></p>
+<p><strong>2.2</strong> 将新网格保存为FBX。将网格命名为 <code>sm_sc_&lt;model_of_vehicle&gt;.fbx</code>。例如 <code>sm_sc_audiTT.fbx</code>.  </p>
+<p>!!! 笔记
+    至于车轮和附加元件（例如车顶、挡泥板等），新网格应该非常准确地遵循几何形状。放置简单的立方体是不行的。</p>
+<h3 id="3-">3-将网格导入虚幻引擎 <span id="3-import-the-mesh-into-ue"></span><a class="headerlink" href="#3-" title="Permanent link">&para;</a></h3>
+<p><strong>3.1</strong> 在虚幻引擎中打开 Carla 并转到 <code>Content/Carla/Static/Vehicles/4Wheeled/&lt;model_of_vehicle&gt;</code>.<br />
+<strong>3.2</strong> 点击 <code>right-click</code> 导入新网格 <code>SM_sc_&lt;model_of_vehicle&gt;.fbx</code>。</p>
+<h3 id="4-">4-添加网格作为碰撞体 <span id="4-add-the-mesh-as-collider"></span><a class="headerlink" href="#4-" title="Permanent link">&para;</a></h3>
+<p><strong>4.1</strong> 进入 <code>Content/Carla/Blueprints/Vehicles/&lt;model_of_vehicle&gt;</code> 并打开名为 <code>BP_&lt;model_of_vehicle&gt;</code> 的车辆的蓝图。  </p>
+<p><strong>4.2</strong> 选择 <code>CustomCollision</code> 元素并在 <code>Static mesh</code> 属性中添加 <code>SM_sc_&lt;model_of_vehicle&gt;.fbx</code>。</p>
+<p><img alt="manual_customcollision" src="../img/tuto_D_colliders_final.jpg" /></p>
+<p><strong>4.3</strong> 点击上方工具栏中的 <code>Compile</code> 并保存更改。</p>
+<p>!!! 笔记
+    对于摩托车和自行车等车辆，使用相同的组件 <code>CustomCollision</code> 更改车辆本身的碰撞体网格。</p>
+<hr />
+<h2 id="_3">物理碰撞体 <span id="physics-colliders"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>!!! 重要
+    本教程基于 <strong><a href="https://github.com/yankagan">yankagan</a></strong> 的 <a href="https://bitbucket.org/yankagan/carla-content/wiki/Home">贡献</a> ！贡献者还希望感谢 <strong>Francisco E</strong> 关于 <a href="https://www.youtube.com/watch?v=SEH4f0HrCDM">如何在虚幻引擎中导入自定义碰撞</a> 的教程。  </p>
+<p><a href="https://www.youtube.com/watch?v=CXK2M2cNQ4Y">该视频</a> 展示了遵循本教程后所取得的结果。</p>
+<h3 id="0-">0-先决条件 <span id="0-prerequisites"></span><a class="headerlink" href="#0-" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在 <a href="../build_linux/">Linux</a> 或 <a href="../build_windows/">Windows</a> 上 <strong>从源代码构建 Carla</strong>。</li>
+<li>可从 <a href="https://www.blender.org/download/">官方网站</a> 免费获取 <strong>Blender 2.80 或更新版本</strong> （开源 3D 建模软件）。</li>
+<li>按照 <a href="https://github.com/andyp123/blender_vhacd">此处</a> 的说明使用 <strong>Blender 的 VHACD 插件</strong>。该插件使用凸包集合自动创建选定对象的近似值。<a href="https://github.com/kmammou/v-hacd">阅读更多</a> 。</li>
+</ul>
+<p>!!! 笔记
+    这个 <a href="https://www.youtube.com/watch?v=ppASl6yaguU">系列</a> 和 <a href="https://www.udemy.com/course/blender-3d-from-zero-to-hero/?pmtag=MRY1010">Udemy 课程</a> 对于新手来说可能是一个很好的 Blender 入门教程。</p>
+<h3 id="1-">1-在虚幻编辑器中定义轮子的自定义碰撞 <span id="1-define-custom-collision-for-wheels-in-unreal-editor"></span><a class="headerlink" href="#1-" title="Permanent link">&para;</a></h3>
+<p><strong>第 1 步.</strong> <em>(在虚幻引擎中)</em> — 添加车轮的碰撞边界。以下视频详细介绍了这些步骤。 </p>
+<p><a href="https://www.youtube.com/watch?v=bECnsTw6ehI"><img alt="auto_step01" src="../img/tuto_D_colliders_01.jpg" /></a></p>
+<h3 id="2-fbx">2-将车辆导出为 FBX <span id="2-export-the-vehicle-as-fbx"></span><a class="headerlink" href="#2-fbx" title="Permanent link">&para;</a></h3>
+<p><strong>第 2 步.</strong> <em>(在虚幻引擎中)</em> — 将车辆的骨架网格物体导出到 FBX 文件。 </p>
+<p><strong>2.1</strong> 转到 <code>Content/Carla/Static/Vehicles/4Wheeled/&lt;model_of_vehicle&gt;</code>。 </p>
+<p><strong>2.2</strong> 在<code>SM_&lt;model_of_vehicle&gt;</code> 点击 <code>right-click</code>，将车辆网格导出为 FBX。 </p>
+<h3 id="3-4-blender">3 到 4-导入到 Blender 并创建自定义边界 <span id="3-to-4-import-to-blender-and-create-custom-boundary"></span><a class="headerlink" href="#3-4-blender" title="Permanent link">&para;</a></h3>
+<p><strong>第 3 步.</strong> <em>(在 Blender 中)</em> — 将 FBX 文件导入 Blender。
+<strong>第 4 步.</strong> <em>(在 Blender 中)</em> — 添加凸包网格以形成新的碰撞边界（虚幻引擎对计算效率的要求）。这是最难的一步。如果选择整辆车，VHACD 创建的碰撞边界将不精确且混乱。它将包含锋利的边缘，这会扰乱道路上的行驶。轮子周围要有光滑的边界，这一点很重要。在车身上使用凸分解，后视镜看起来仍然不正确。对于计算机视觉来说，车辆的细节非常重要。由于上述原因，这些步骤被分为两个部分。</p>
+<p><strong>4.1</strong> 使用 VHACD 工具切出车轮的底部、侧视镜和车身的顶部，以创建第一个边界。使用 VHACD 工具剪掉汽车的下半部分以创建第二个边界（汽车的顶部）。 </p>
+<p><a href="https://www.youtube.com/watch?v=oROkK3OCuOA"><img alt="auto_step03" src="../img/tuto_D_colliders_03.jpg" /></a></p>
+<p><strong>4.2</strong> 使用 VHACD 工具为后视镜创建单独的边界。</p>
+<p><a href="https://www.youtube.com/watch?v=L3upzdC602s"><img alt="auto_step04" src="../img/tuto_D_colliders_04.jpg" /></a></p>
+<p>!!! 警告
+    命名对象时要非常小心。每个边界应以 <code>UCX_</code> 开头，其余名称必须与原始网格 <strong>完全</strong> 相同 。</p>
+<h3 id="5-blender-fbx">5-从 Blender 导出到 FBX <span id="5-export-from-blender-to-fbx"></span><a class="headerlink" href="#5-blender-fbx" title="Permanent link">&para;</a></h3>
+<p><strong>第 5 步.</strong> <em>(在 Blender 中)</em> — 将自定义碰撞边界导出到 FBX 文件中。
+<strong>5.1</strong> 仅选择原始车辆和所有新添加的物体进行碰撞。<br />
+<strong>5.2</strong> 在导出菜单中，选中 <code>selected objects</code> 并仅选择“Mesh”。 </p>
+<p><a href="https://youtu.be/aJPyskYjzWo"><img alt="auto_step05" src="../img/tuto_D_colliders_05.jpg" /></a></p>
+<h3 id="6-8-">6 到 8-导入碰撞体并定义物理 <span id="6-to-8-import-collider-and-define-physics"></span><a class="headerlink" href="#6-8-" title="Permanent link">&para;</a></h3>
+<p><strong>第 6 步.</strong> <em>(在虚幻引擎中)</em> — 将新 FBX 作为虚幻资源文件（静态网格物体）导入 Carla。</p>
+<p><strong>第 7 步.</strong> <em>(在虚幻引擎中)</em> — 将自定义碰撞体导入到特定车辆的物理资源中，以便将其用于计算。</p>
+<p><strong>第 8 步.</strong> <em>(在虚幻引擎中)</em> — 创建连接不同关节的约束并定义所有部件的物理特性。 </p>
+<p><a href="https://www.youtube.com/watch?v=aqFNwAyj2CA"><img alt="auto_step0608" src="../img/tuto_D_colliders_0608.jpg" /></a></p>
+<hr />
+<p>这是关于如何更改 Carla 中车辆的默认碰撞体的总结。</p>
+<p>打开 Carla 并闲逛一会儿。如果有任何疑问，请随时在论坛中发布。</p>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions/" target="_blank" class="btn btn-neutral" title="Go to the CARLA forum">
+Carla 论坛</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

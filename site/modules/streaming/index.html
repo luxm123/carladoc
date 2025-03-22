@@ -1,0 +1,2815 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Streaming - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Streaming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Streaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行模式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是 Streaming?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是 Streaming?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构化设计
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据流管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据流管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件驱动
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="事件驱动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件触发机制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      流式计算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="流式计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      异步处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      流优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="流优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置项
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 网络配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 线程池管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 超时设置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="示例配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端配置示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端订阅示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 Streaming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据输入与输出
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据输入与输出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 Streaming 实例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建 Streaming 实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端（Server）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端（Client）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置流式任务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置流式任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动服务器（同步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动服务器（异步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动客户端（异步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置服务器超时
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止 Streaming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="停止 Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止客户端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      销毁所有客户端连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="运行模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#streaming_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming 服务器端和客户端
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Streaming 服务器端和客户端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端（Server）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器端（Server）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端（Client）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="客户端（Client）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      多客户端并发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多客户端并发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      多Streaming任务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多Streaming任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      端点配置与多地址支持
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="端点配置与多地址支持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      同步模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      多端点 Streaming
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用Streaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行模式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是 Streaming?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是 Streaming?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      结构化设计
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据流管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据流管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件驱动
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="事件驱动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件触发机制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      流式计算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="流式计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      异步处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      流优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="流优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      关键实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置项
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 网络配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 线程池管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 超时设置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="示例配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端配置示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端订阅示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 Streaming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据输入与输出
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据输入与输出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 Streaming 实例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建 Streaming 实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端（Server）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端（Client）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置流式任务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置流式任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动服务器（同步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动服务器（异步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动客户端（异步模式）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置服务器超时
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止 Streaming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="停止 Streaming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止客户端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      销毁所有客户端连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="运行模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#streaming_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming 服务器端和客户端
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Streaming 服务器端和客户端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器端（Server）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器端（Server）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      客户端（Client）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="客户端（Client）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      多客户端并发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多客户端并发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      多Streaming任务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多Streaming任务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      端点配置与多地址支持
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="端点配置与多地址支持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      同步模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      多端点 Streaming
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1><a href="#streaming">Streaming</a></h1>
+<h1><a href="#什么是-streaming">什么是 Streaming?</a></h1>
+
+<ul>
+<li><a href="#结构化设计">结构化设计</a></li>
+</ul>
+<h2 id="_1"><a href="#架构">架构</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#概述">概述</a></li>
+<li><a href="#数据流管理">数据流管理</a></li>
+<li><a href="#事件驱动">事件驱动</a></li>
+<li><a href="#流式计算">流式计算</a></li>
+<li><a href="#异步处理">异步处理</a></li>
+<li><a href="#缓存管理">缓存管理</a></li>
+<li><a href="#流优化">流优化</a></li>
+<li><a href="#配置管理">配置管理</a></li>
+</ul>
+<h2 id="streaming"><a href="#使用streaming">使用Streaming</a><a class="headerlink" href="#streaming" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#数据输入与输出">数据输入与输出</a></li>
+<li><a href="#创建streaming实例">创建Streaming实例</a></li>
+<li><a href="#配置流式任务">配置流式任务</a></li>
+<li><a href="#停止streaming">停止Streaming</a></li>
+</ul>
+<h2 id="_2"><a href="#运行模式">运行模式</a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#streaming服务端和客户端">Streaming服务端和客户端</a></li>
+<li><a href="#多客户端并发">多客户端并发</a></li>
+<li><a href="#多streaming任务">多Streaming任务</a></li>
+<li><a href="#端点配置与多地址支持">端点配置与多地址支持</a></li>
+</ul>
+<h2 id="_3"><a href="#其他模式">其他模式</a><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#同步模式">同步模式</a></li>
+<li><a href="#多端点-streaming">多端点 Streaming</a></li>
+</ul>
+<h1 id="streaming_1"><a href="#streaming">Streaming</a><a class="headerlink" href="#streaming_1" title="Permanent link">&para;</a></h1>
+<h1 id="streaming_2"><a href="#什么是-streaming">什么是 Streaming?</a><a class="headerlink" href="#streaming_2" title="Permanent link">&para;</a></h1>
+<p><strong>Streaming</strong> 是 <strong>CARLA 仿真环境中的流式数据传输模块</strong>，负责 <strong>服务器端创建数据流、客户端订阅流，并进行高效的数据传输</strong>。<br />
+该模块适用于 <strong>实时传感器数据传输、分布式仿真、远程数据处理</strong> 等应用场景，并支持 <strong>TCP/UDP、同步/异步模式、多客户端订阅</strong> 等功能，确保仿真数据能够高效传输到多个订阅客户端。</p>
+<h2 id="_4"><a href="#结构化设计">结构化设计</a><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>结构化设计是一种 <strong>模块化的软件架构方法</strong>，通过 <strong>高内聚、低耦合的方式</strong> 组织系统，使其更易维护和扩展。</p>
+<p>Streaming 组件采用 <strong>结构化设计</strong>，通过 <strong>模块化拆分</strong>，将数据流管理、客户端订阅和传输机制解耦，提高了系统的 <strong>可扩展性</strong> 和 <strong>维护性</strong>。</p>
+<p>在 Streaming 组件中，<strong>结构化设计</strong> 体现在 <strong>服务器（Server）、客户端（Client）、数据流（Stream）、Token 机制（Token）和通信端点（EndPoint）</strong> 的 <strong>分层管理</strong>，实现 <strong>清晰的模块拆分</strong>，确保数据流的 <strong>高效传输</strong> 和 <strong>动态管理</strong>。</p>
+<ul>
+<li><strong>服务器（Server）</strong> 负责 <strong>数据流的创建和推送</strong>，管理不同的数据流实例。  </li>
+<li><strong>客户端（Client）</strong> 通过 <strong>Token 机制</strong> 订阅流，接收服务器推送的数据。  </li>
+<li><strong>数据流（Stream）</strong> 作为 <strong>数据传输通道</strong>，确保服务器和客户端之间的流式通信。  </li>
+<li><strong>Token 机制（Token）</strong> 用于 <strong>流的访问控制</strong>，确保客户端只能订阅 <strong>授权的流</strong>。  </li>
+<li><strong>通信端点（EndPoint）</strong> 作为 <strong>网络接口</strong>，处理数据流的输入输出，确保流的高效传输和路由管理。</li>
+</ul>
+<p>数据流组件 <strong>独立于服务器和客户端运行</strong>，避免强依赖关系，使得 Streaming 组件能够 <strong>灵活适配多种实时数据场景</strong>，如 <strong>日志分析、视频流、金融交易和自动驾驶</strong>。</p>
+<h1 id="_5"><a href="#架构">架构</a><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h2 id="_6"><a href="#概述">概述</a><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><img alt="Streaming Flowchart" src="img/streaming_flowchart.png" /></p>
+<p>该架构图展示了 <strong>Client（客户端）</strong>、<strong>Server（服务器）</strong>、<strong>Stream（数据流）</strong>、<strong>Token（令牌）</strong> 和 <strong>EndPoint（端点）</strong> 之间的交互关系。<strong>服务器创建数据流（Stream），客户端通过网络端点（EndPoint）连接服务器并订阅流（使用唯一标识 Token），服务器向订阅的客户端推送数据。</strong></p>
+<h2 id="_7"><a href="#数据流管理">数据流管理</a><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Streaming 组件的 <strong>数据流管理</strong> 主要关注 <strong>数据的高效传输</strong>、<strong>流量控制</strong> 和 <strong>访问权限管理</strong>，确保数据流的稳定性和可靠性。</p>
+<h3 id="_8"><strong>关键概念</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>流控制（Flow Control）</strong>：通过 <strong>异步传输机制（async_read / async_write）</strong>，调整数据传输速率，防止 <strong>客户端处理不过来</strong> 或 <strong>网络拥塞</strong>。  </li>
+<li><strong>访问控制（Access Control）</strong>：使用 <code>Token.h</code> 提供 <strong>流访问权限管理</strong>，确保 <strong>只有授权的客户端才能订阅数据流</strong>。  </li>
+<li><strong>高并发处理（Concurrency Management）</strong>：<code>Server.h</code> 结合 <code>Boost.Asio</code> 提供 <strong>异步并发能力</strong>，支持多个客户端同时订阅数据流。</li>
+</ul>
+<h3 id="_9"><strong>关键实现</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>流式数据传输</strong>：在 <code>Stream.h</code> 设计中，服务器通过 <strong>数据流（Stream）</strong> 进行持续数据推送，客户端通过 <strong>Token 订阅流</strong> 并消费数据。  </li>
+<li><strong>异步并发机制</strong>：<code>Server.h</code> 使用 <code>Boost.Asio</code> 提供 <strong>异步 I/O 处理</strong>，通过 <code>AsyncRun()</code> 方法调度多个线程，提高系统吞吐量。  </li>
+<li><strong>访问权限管理</strong>：<code>Token.h</code> 通过 <code>Token</code> 机制控制 <strong>流的访问权限</strong>，防止未授权客户端订阅数据流。</li>
+</ul>
+<h3 id="_10"><strong>总结</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>流控制</strong> 预防网络拥塞，动态调整数据传输速率，确保客户端稳定接收数据。</li>
+<li><strong>访问控制</strong> 通过 <code>Token</code> 机制限制数据流权限，防止未授权访问。</li>
+<li><strong>异步并发机制</strong> 使用 <code>Boost.Asio</code> 进行线程管理，提高系统吞吐能力，支持多个客户端同时订阅数据流。</li>
+</ul>
+<h2 id="_11"><a href="#事件驱动">事件驱动</a><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块采用了 <strong>事件驱动模型</strong> 来管理客户端与服务器之间的异步通信。该模块利用 <code>Boost.Asio</code> 提供的 <strong>异步 I/O 机制</strong> 来处理事件，确保数据传输的 <strong>高效性</strong> 和 <strong>非阻塞特性</strong>。</p>
+<h3 id="_12">事件触发机制<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>客户端发送请求</strong>  </li>
+<li>
+<p>客户端调用 <code>Boost.Asio</code> 提供的 <code>async_write</code> 发送数据，写入完成后，系统触发 <strong>写入完成事件</strong>。</p>
+</li>
+<li>
+<p><strong>服务器接收数据</strong>  </p>
+</li>
+<li>服务器调用 <code>async_read</code> 读取数据，并根据数据流管理机制触发 <strong>数据接收事件</strong>。</li>
+<li>
+<p>服务器将数据推送到 <code>Stream.h</code> 进行流式传输，确保数据的高效分发。</p>
+</li>
+<li>
+<p><strong>数据流与订阅机制</strong>  </p>
+</li>
+<li><code>Stream.h</code> 负责管理数据流，多个客户端可以通过流令牌 (<code>Token.h</code>) 订阅流。</li>
+<li>
+<p>如果没有客户端订阅该流，服务器推送的数据会被丢弃，避免不必要的资源消耗。</p>
+</li>
+<li>
+<p><strong>事件回调机制</strong>  </p>
+</li>
+<li><code>Boost.Asio</code> 的 <code>io_context.run()</code> 负责驱动整个事件循环，确保所有 I/O 事件（读、写、连接）都能 <strong>异步执行</strong>，不会阻塞主线程，提高系统吞吐量。</li>
+</ol>
+<h2 id="_13"><a href="#流式计算">流式计算</a><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块中的 <code>Stream.h</code> 文件实现了 <strong>流式计算</strong> 模型，专注于高效处理大规模、连续的数据流。该模块支持 <strong>多客户端订阅流</strong>，并结合 <strong>Boost.Asio</strong> 进行 <strong>异步数据传输</strong>，使系统能够在不等待数据完全到达的情况下，按数据块处理数据流。</p>
+<h3 id="_14">核心概念<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据流（Data Stream）</strong>：<code>Stream.h</code> 通过 <code>Stream</code> 类提供单向数据流，允许多个客户端订阅并接收数据。</li>
+<li><strong>流标识（Token-based Access）</strong>：<code>Token.h</code> 定义了流标识机制，使客户端能够基于唯一令牌订阅特定数据流。</li>
+<li><strong>异步数据处理（Asynchronous Processing）</strong>：<code>Server.h</code> 和 <code>EndPoint.h</code> 结合 <code>Boost.Asio</code>，采用 <code>async_read</code> 和 <code>async_write</code> 进行非阻塞的数据传输。</li>
+</ul>
+<h3 id="_15">关键实现<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据传输</strong>：</li>
+<li><code>Stream.h</code> 负责 <strong>数据流的核心管理</strong>，确保高效的数据传输和订阅机制。</li>
+<li><code>Client.h</code> 处理 <strong>客户端连接</strong>，通过 <code>Token.h</code> 订阅数据流。</li>
+<li>
+<p><code>EndPoint.h</code> 采用 <strong>Boost.Asio</strong> 提供 <strong>TCP/UDP 端口管理</strong>，实现高效的异步通信。</p>
+</li>
+<li>
+<p><strong>流事件驱动</strong>：</p>
+</li>
+<li><code>Server.h</code> 结合 <code>Stream.h</code>，在数据流输入时触发事件，使处理器能够高效响应流数据。</li>
+<li>
+<p>采用 <strong>多线程（ThreadPool）</strong> 机制，优化数据分发，提高吞吐量。</p>
+</li>
+<li>
+<p><strong>数据序列化</strong>：</p>
+</li>
+<li><code>Token.h</code> 结合 <code>MsgPack</code> 进行数据序列化，提升传输效率，支持跨平台数据交互。</li>
+</ul>
+<h2 id="_16"><a href="#异步处理">异步处理</a><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>服务器异步运行</strong></p>
+</li>
+<li>
+<p>Server.h 采用 Boost.Asio 提供的 io_context 进行事件管理，AsyncRun(size_t worker_threads) 启动 <strong>异步处理线程池</strong>。</p>
+</li>
+<li>
+<p>服务器监听端口，并在 MakeStream() 时创建数据流，数据流可以被多个客户端订阅。</p>
+</li>
+<li>
+<p><strong>客户端异步订阅</strong></p>
+</li>
+<li>
+<p>Client.h 提供 Subscribe(const Token &amp;token, Functor &amp;&amp;callback) 方法，允许客户端基于 <strong>流令牌</strong> 订阅流数据。</p>
+</li>
+<li>
+<p>订阅后，服务器端的数据会通过 <strong>异步回调</strong> 传输至客户端。</p>
+</li>
+<li>
+<p><strong>数据流管理</strong></p>
+</li>
+<li>
+<p>Stream.h 负责 <strong>管理和分发数据流</strong>，通过 Stream 进行 <strong>非阻塞式数据推送</strong>，多个客户端可同时订阅。</p>
+</li>
+<li>
+<p>如果没有客户端订阅，该流中的数据将被丢弃，防止无效数据传输。</p>
+</li>
+<li>
+<p><strong>事件驱动与回调机制</strong></p>
+</li>
+<li>
+<p>Boost.Asio 的 io_context.run() 驱动 <strong>事件循环</strong>，确保服务器和客户端都能在高并发环境下 <strong>异步</strong> 处理数据流。</p>
+</li>
+<li>
+<p>服务器和客户端之间的数据交互采用 <strong>回调机制</strong>，在数据到达时自动触发 <strong>数据处理回调</strong>，确保高效的数据传输和处理。</p>
+</li>
+<li>
+<p><strong>多线程优化</strong></p>
+</li>
+<li>
+<p>Server.h 和 Client.h 采用 <strong>线程池 (ThreadPool)</strong>，在 AsyncRun(worker_threads) 中指定线程数，以 <strong>优化异步处理性能</strong>，避免单线程阻塞问题。</p>
+</li>
+<li>
+<p>服务器端可以在多个线程上处理 <strong>多个数据流请求</strong>，提高吞吐量。</p>
+</li>
+<li>
+<p><strong>网络端点管理</strong></p>
+</li>
+<li>
+<p>EndPoint.h 负责 <strong>动态创建 TCP/UDP 端点</strong>，支持 make_endpoint(address, port) 动态绑定端口，使服务器可以灵活监听多个地址。</p>
+</li>
+<li>boost::asio::ip::tcp::resolver 解析域名，支持 <strong>跨网段通信</strong>。</li>
+</ol>
+<h2 id="_17"><a href="#缓存管理">缓存管理</a><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块中的 <strong>缓存管理（Buffer Management）</strong> 旨在优化数据的存储和传输，减少 I/O 操作，提高系统吞吐量。</p>
+<h2 id="_18">关键概念<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>数据缓冲（Buffering）</strong><br />
+<code>Stream.h</code> 使用 <strong>流状态（MultiStreamState）</strong> 来管理数据的存储和传输，并采用缓存策略，减少直接访问网络或磁盘的开销。只有被客户端订阅的数据流才会被缓存，等待合适的时机发送。未被客户端订阅的数据流不会长时间存储，而是直接丢弃，以优化资源使用。</p>
+</li>
+<li>
+<p><strong>流控制（Flow Control）</strong><br />
+ 服务器端 <code>Server.h</code> 通过 <strong>低级 TCP 服务器（<code>low_level::Server&lt;detail::tcp::Server&gt;</code>）</strong> 进行流控制，动态调整数据流速率，防止网络拥塞。令牌机制（Token）管理客户端订阅，影响数据传输策略。</p>
+</li>
+<li>
+<p><strong>缓存清理（Buffer Cleanup）</strong><br />
+<code>Server.h</code> 通过 <strong>CloseStream()</strong> 释放未使用的流，回收资源，避免内存占用。</p>
+</li>
+</ul>
+<h2 id="_19">关键实现<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>数据预存储</strong><br />
+<code>Client.h</code> 发送数据时，<code>Stream.h</code> 先将数据存入 <strong>流状态管理器</strong>，等待合适的时机发送，以减少网络开销。</p>
+</li>
+<li>
+<p><strong>分块处理</strong><br />
+  缓存采用 <strong>分块机制</strong>（Chunking），一次处理固定大小的数据块，减少资源占用，提高吞吐率。</p>
+</li>
+<li>
+<p><strong>动态分配</strong><br />
+<code>Server.h</code> 结合 <strong>低级 TCP 服务器</strong> 进行动态内存管理，根据订阅情况调整缓冲区大小，提高资源利用率。</p>
+</li>
+</ul>
+<h2 id="_20">总结<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>缓存管理</strong> 减少不必要的 I/O 操作，提高系统性能。  </li>
+<li><strong>流控制</strong> 通过 <strong>令牌订阅机制</strong>，保证数据传输稳定，防止网络拥堵。  </li>
+<li><strong>缓存清理</strong> 通过 <strong>CloseStream() 释放未使用的流</strong>，避免内存泄漏，保持系统长期稳定运行。  </li>
+</ul>
+<h2 id="_21"><a href="#流优化">流优化</a><a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块中的 <strong>流优化（Stream Optimization）</strong> 主要关注数据流的管理和调度，以提升传输效率、减少延迟，并优化系统的整体吞吐量。</p>
+<h3 id="_22">关键概念<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据流管理（Stream Management）</strong>：<code>Stream.h</code> 主要提供 <strong>单向数据流</strong>，支持多个客户端订阅数据流，但如果没有客户端订阅，数据会被丢弃，以减少无效传输。</li>
+<li><strong>连接管理（Connection Management）</strong>：<code>Server.h</code> 负责创建流，并管理端口连接，支持多个流的创建和管理。</li>
+<li><strong>超时机制（Timeout Mechanism）</strong>：<code>Server.h</code> 允许设置超时时间，避免长时间无响应造成资源占用。</li>
+</ul>
+<h3 id="_23">关键实现<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>流订阅机制（Stream Subscription Mechanism）</strong>：客户端可以通过 <strong>流令牌（Stream Token）</strong> 订阅数据流，确保数据只发送给有订阅的客户端，减少带宽浪费。</li>
+<li><strong>线程池优化（Thread Pool Optimization）</strong>：<code>Server.h</code> 使用 <code>carla::ThreadPool</code> 进行并发处理，提高流的并发能力和数据传输效率。</li>
+<li><strong>基于 <code>boost::asio</code> 的异步传输（Asynchronous Transmission with Boost.Asio）</strong>：底层使用 <code>boost::asio</code> 进行非阻塞数据传输，优化网络吞吐。</li>
+</ul>
+<h3 id="_24">总结<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>streaming</code> 模块主要提供 <strong>流的管理、订阅和并发处理</strong>。</li>
+<li><strong>线程池和异步传输</strong> 提高了流的并发能力，减少阻塞，提高吞吐量。</li>
+</ul>
+<h2 id="_25"><a href="#配置管理">配置管理</a><a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h2 id="_26"><strong>概述</strong><a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块用于在服务器和客户端之间建立高效的数据流通信，依赖 <code>boost::asio</code> 进行网络传输，并使用 <code>carla::ThreadPool</code> 进行线程管理。现介绍该模块的配置方式，包括网络端口设置、线程池管理和依赖项安装等。</p>
+<h2 id="_27"><strong>环境要求</strong><a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p><code>streaming</code> 模块依赖以下组件：</p>
+<ul>
+<li><strong>Boost.Asio</strong>（用于网络通信）</li>
+<li><strong>MsgPack</strong>（用于数据序列化）</li>
+<li><strong>carla::ThreadPool</strong>（用于线程管理）</li>
+</ul>
+<p>安装 Boost 和 MsgPack（Ubuntu 示例）：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libboost-all-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libmsgpack-dev
+</code></pre></div>
+<p>如果使用 <code>vcpkg</code> 进行依赖管理：</p>
+<div class="highlight"><pre><span></span><code>vcpkg<span class="w"> </span>install<span class="w"> </span>boost-asio<span class="w"> </span>msgpack
+</code></pre></div>
+<h2 id="_28"><strong>配置项</strong><a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="1"><strong>1. 网络配置</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Server.h</code> 和 <code>EndPoint.h</code> 负责端点管理。</li>
+<li>服务器支持多种方式配置端口：</li>
+</ul>
+<p><strong>默认端口（8080）</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Server</span><span class="w"> </span><span class="nf">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>指定 IP 地址和端口</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Server</span><span class="w"> </span><span class="n">server</span><span class="p">(</span><span class="s">&quot;192.168.1.100&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8080</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>使用动态端点解析</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">make_endpoint</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">ip</span><span class="o">::</span><span class="n">tcp</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8080</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>服务器获取本地端点</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">GetLocalEndpoint</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>客户端订阅流</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<h3 id="2"><strong>2. 线程池管理</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>服务器和客户端使用 <code>carla::ThreadPool</code> 进行并发调度。</p>
+<p><strong>同步运行服务器</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>多线程异步执行（4 线程）</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">AsyncRun</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>客户端使用异步模式</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="p">.</span><span class="n">AsyncRun</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="3"><strong>3. 超时设置</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>服务器支持超时机制，防止连接长时间无响应。</p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">SetTimeout</span><span class="p">(</span><span class="n">time_duration</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="_29"><strong>示例配置</strong><a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30"><strong>服务器端配置示例</strong><a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 包含Carla Streaming库中的Server头文件</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;carla/streaming/Server.h&quot;</span>
+
+<span class="c1">// 主函数</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 创建一个Carla流媒体服务器实例，监听端口8080</span>
+<span class="w">    </span><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Server</span><span class="w"> </span><span class="n">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 启动服务器，开始监听和处理客户端连接</span>
+<span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 序正常结束，返回0</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_31"><strong>客户端订阅示例</strong><a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 包含Carla Streaming库中的Client头文件</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;carla/streaming/Client.h&quot;</span>
+
+<span class="c1">// 主函数</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 创建一个Carla流媒体客户端实例，连接到本地IP地址127.0.0.1</span>
+<span class="w">    </span><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Client</span><span class="w"> </span><span class="n">client</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 创建一个流媒体令牌（Token），用于订阅特定的数据流</span>
+<span class="w">    </span><span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Token</span><span class="w"> </span><span class="n">token</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 使用客户端订阅指定的数据流，并提供一个回调函数来处理接收到的消息</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 当接收到消息时，打印消息内容到控制台</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Received: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// 启动客户端，开始接收和处理数据流</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 程序正常结束，返回0</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_32"><strong>总结</strong><a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>streaming</code> 模块提供 <strong>灵活的网络配置</strong>，支持 <strong>本地和远程端点</strong>。</li>
+<li><strong>线程池管理</strong> 提供 <strong>同步与异步执行模式</strong>，支持高并发数据流处理。</li>
+<li>服务器支持 <strong>超时机制</strong>，防止无效连接长期占用资源。</li>
+<li>依赖 <code>Boost.Asio</code> 进行 <strong>异步网络通信</strong>，用户需确保 <strong>正确安装依赖</strong>。</li>
+</ul>
+<p>该模块适用于 <strong>高吞吐量、低延迟</strong> 的流式数据传输场景，例如 <strong>自动驾驶仿真、远程传感器数据采集、实时流处理</strong>。</p>
+<h1 id="streaming_3"><a href="#使用-streaming">使用 Streaming</a><a class="headerlink" href="#streaming_3" title="Permanent link">&para;</a></h1>
+<p>Streaming 组件用于在服务器和客户端之间进行高效的数据流传输。它依赖 <code>boost::asio</code> 进行网络通信，并使用 <code>carla::ThreadPool</code> 进行线程管理。</p>
+<h2 id="_33"><a href="#数据输入与输出">数据输入与输出</a><a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>Streaming 主要用于 <strong>服务器向客户端单向发送数据</strong>，多个客户端可以通过流令牌（Token）订阅相同的流。如果没有客户端订阅，该流中的数据将被丢弃。</p>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>流（Stream）</strong></td>
+<td>服务器向客户端传输数据的通道。</td>
+</tr>
+<tr>
+<td><strong>流令牌（Token）</strong></td>
+<td>用于标识和订阅数据流的唯一标识符。</td>
+</tr>
+<tr>
+<td><strong>端点（EndPoint）</strong></td>
+<td>定义 TCP/UDP 通信地址，包括 IP+端口 或仅端口的形式。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_34">示例代码<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Stream</span><span class="w"> </span><span class="n">my_stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// 创建流</span>
+<span class="n">Token</span><span class="w"> </span><span class="n">my_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">GetToken</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 获取流的 Token</span>
+<span class="n">client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">my_token</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;收到数据: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="streaming_4"><a href="#创建-streaming-实例">创建 Streaming 实例</a><a class="headerlink" href="#streaming_4" title="Permanent link">&para;</a></h2>
+<p>Streaming 由 <strong>服务器（Server）</strong> 和 <strong>客户端（Client）</strong> 组成。</p>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Server</strong></td>
+<td>创建和管理流，负责数据流的生成与推送。</td>
+</tr>
+<tr>
+<td><strong>Client</strong></td>
+<td>订阅流，接收服务器推送的数据，并进行数据处理。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="server">服务器端（Server）<a class="headerlink" href="#server" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Server</span><span class="w"> </span><span class="nf">server</span><span class="p">(</span><span class="mi">8000</span><span class="p">);</span><span class="w"> </span><span class="c1">// 创建监听 8000 端口的服务器</span>
+<span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span><span class="w"> </span><span class="c1">// 启动服务器</span>
+<span class="n">Stream</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// 创建新的流</span>
+</code></pre></div>
+<h3 id="client">客户端（Client）<a class="headerlink" href="#client" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Client</span><span class="w"> </span><span class="n">client</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 连接到服务器</span>
+<span class="n">client</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span><span class="w"> </span><span class="c1">// 启动客户端</span>
+<span class="n">client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">my_token</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;收到消息：&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="_35"><a href="#配置流式任务">配置流式任务</a><a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p>Streaming 支持<strong>同步模式</strong>和<strong>异步模式</strong>，可调整服务器与客户端的运行方式。</p>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>同步模式</strong></td>
+<td>服务器和客户端以阻塞方式运行，适用于严格时序同步的任务。</td>
+</tr>
+<tr>
+<td><strong>异步模式</strong></td>
+<td>服务器和客户端运行在独立的线程池中，提高并发能力。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_36">启动服务器（同步模式）<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span><span class="w"> </span><span class="c1">// 以同步模式运行</span>
+</code></pre></div>
+<h3 id="_37">启动服务器（异步模式）<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">AsyncRun</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// 以 4 个线程运行</span>
+</code></pre></div>
+<h3 id="_38">启动客户端（异步模式）<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="p">.</span><span class="n">AsyncRun</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// 以 4 个线程运行</span>
+</code></pre></div>
+<h3 id="_39">配置服务器超时<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">SetTimeout</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">posix_time</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"> </span><span class="c1">// 设置 10 秒超时</span>
+</code></pre></div>
+<h2 id="streaming_5"><a href="#停止-streaming">停止 Streaming</a><a class="headerlink" href="#streaming_5" title="Permanent link">&para;</a></h2>
+<p>Streaming 组件在 <strong>服务器关闭时会自动停止</strong>，但手动管理资源可确保所有订阅的客户端和服务器任务都正常释放。</p>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>停止客户端</strong></td>
+<td>取消订阅流，避免继续接收数据。</td>
+</tr>
+<tr>
+<td><strong>停止服务器</strong></td>
+<td>关闭流 ID，停止数据流传输。</td>
+</tr>
+<tr>
+<td><strong>销毁连接</strong></td>
+<td>释放所有客户端连接，避免资源泄漏。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_40">停止客户端<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="p">.</span><span class="n">UnSubscribe</span><span class="p">(</span><span class="n">my_token</span><span class="p">);</span><span class="w"> </span><span class="c1">// 取消订阅流</span>
+</code></pre></div>
+<h3 id="_41">停止服务器<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="p">.</span><span class="n">CloseStream</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 关闭流 ID 为 1 的数据流</span>
+</code></pre></div>
+<h3 id="_42">销毁所有客户端连接<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="p">.</span><span class="n">apply_batch</span><span class="p">([</span><span class="n">carla</span><span class="o">::</span><span class="n">command</span><span class="o">::</span><span class="n">DestroyActor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">client_list</span><span class="p">]);</span>
+</code></pre></div>
+<p><strong>注意：关闭 Streaming 服务器后，所有仍然订阅的客户端将无法接收新的数据。如果不主动销毁客户端，它们仍然存在，只是无法获取新的流数据。</strong></p>
+<p><strong>补充说明</strong></p>
+<blockquote>
+<ul>
+<li>使用 <code>server.SetTimeout(x)</code> 设置超时参数，防止长时间挂起。</li>
+<li>服务器默认运行在 <code>8000</code> 端口，可根据需要调整。</li>
+<li>异步模式适用于高吞吐量应用，确保 <code>worker_threads</code> 数量适配任务需求。</li>
+</ul>
+</blockquote>
+<h1 id="_43"><a href="#运行模式">运行模式</a><a class="headerlink" href="#_43" title="Permanent link">&para;</a></h1>
+<h2 id="streaming_6"><a href="#streaming-服务器端和客户端">Streaming 服务器端和客户端</a><a class="headerlink" href="#streaming_6" title="Permanent link">&para;</a></h2>
+<h3 id="_44">概述<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<p>Streaming 模块采用客户端-服务器 (Client-Server) 架构，服务器端 <code>Server</code> 负责创建和管理数据流，客户端 <code>Client</code> 负责订阅流并接收数据。<br />
+该架构允许多个客户端同时连接到服务器并接收同一数据流，实现高效的数据共享。</p>
+<hr />
+<h3 id="server_1">服务器端（Server）<a class="headerlink" href="#server_1" title="Permanent link">&para;</a></h3>
+<p><code>Server</code> 主要功能：
+- 管理数据流：创建、关闭数据流，并管理流的生命周期。
+- 支持多客户端订阅：不同客户端可以同时订阅同一流，数据仅发送给已订阅的客户端。
+- 控制运行模式：支持同步 (<code>Run()</code>) 和异步 (<code>AsyncRun(worker_threads)</code>) 运行。</p>
+<h4 id="_45">代码解析<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 构造函数，接受一个端口号并创建一个服务器实例</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Server</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">port</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">_server</span><span class="p">(</span><span class="n">_pool</span><span class="p">.</span><span class="n">io_context</span><span class="p">(),</span><span class="w"> </span><span class="n">make_endpoint</span><span class="o">&lt;</span><span class="n">protocol_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">port</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="c1">// 构造函数，接受一个IP地址和端口号并创建一个服务器实例</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Server</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">port</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">_server</span><span class="p">(</span><span class="n">_pool</span><span class="p">.</span><span class="n">io_context</span><span class="p">(),</span><span class="w"> </span><span class="n">make_endpoint</span><span class="o">&lt;</span><span class="n">protocol_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="c1">// 创建一个新的数据流，并返回该流的实例</span>
+<span class="w">    </span><span class="n">Stream</span><span class="w"> </span><span class="n">MakeStream</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">_server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 关闭指定ID的数据流</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">CloseStream</span><span class="p">(</span><span class="n">stream_id</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">_server</span><span class="p">.</span><span class="n">CloseStream</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 启动服务器，开始处理连接和数据流</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_pool</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 线程池，用于处理异步操作</span>
+<span class="w">    </span><span class="n">ThreadPool</span><span class="w"> </span><span class="n">_pool</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 服务器实例，用于管理数据流和连接</span>
+<span class="w">    </span><span class="n">ServerType</span><span class="w"> </span><span class="n">_server</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="_46">示例<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建服务器并监听 8080 端口</span>
+<span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Server</span><span class="w"> </span><span class="nf">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span><span class="w">  </span><span class="c1">// 运行服务器</span>
+</code></pre></div>
+<h3 id="client_1">客户端（Client）<a class="headerlink" href="#client_1" title="Permanent link">&para;</a></h3>
+<p><code>Client</code> 主要功能：
+- 订阅服务器流：通过 <code>Subscribe(token, callback)</code> 订阅流，并传入回调函数处理数据。
+- 取消订阅：调用 <code>UnSubscribe(token)</code> 停止接收流数据。
+- 控制运行模式：支持同步 (<code>Run()</code>) 和异步 (<code>AsyncRun(worker_threads)</code>) 运行。</p>
+<h4 id="_47">代码解析<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Client</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 订阅指定令牌（Token）对应的数据流，并提供一个回调函数来处理接收到的消息</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Subscribe</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="o">&amp;</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">Functor</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 使用客户端实例订阅数据流，并将回调函数与数据流关联</span>
+<span class="w">      </span><span class="n">_client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">_service</span><span class="p">.</span><span class="n">io_context</span><span class="p">(),</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Functor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">callback</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 取消订阅指定令牌（Token）对应的数据流</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">UnSubscribe</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="o">&amp;</span><span class="n">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 使用客户端实例取消订阅数据流</span>
+<span class="w">      </span><span class="n">_client</span><span class="p">.</span><span class="n">UnSubscribe</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 启动客户端，开始处理数据流和回调</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 运行服务以处理异步操作</span>
+<span class="w">      </span><span class="n">_service</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 服务实例，用于管理异步操作和事件循环</span>
+<span class="w">    </span><span class="n">ServiceType</span><span class="w"> </span><span class="n">_service</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 客户端实例，用于管理数据流的订阅和取消订阅</span>
+<span class="w">    </span><span class="n">ClientType</span><span class="w"> </span><span class="n">_client</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="_48">示例<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建Carla流媒体客户端</span>
+<span class="n">carla</span><span class="o">::</span><span class="n">streaming</span><span class="o">::</span><span class="n">Client</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+
+<span class="c1">// 从服务器获取令牌</span>
+<span class="n">Token</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">GenerateToken</span><span class="p">();</span>
+
+<span class="c1">// 订阅数据流并设置回调</span>
+<span class="n">client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Received Data: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// 启动客户端</span>
+<span class="n">client</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+
+<span class="c1">// 如果需要非阻塞运行，可以使用多线程</span>
+<span class="c1">// std::thread clientThread([&amp;client]() { client.Run(); });</span>
+<span class="c1">// clientThread.detach();</span>
+</code></pre></div>
+<h2 id="_49"><a href="#多客户端并发">多客户端并发</a><a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<h3 id="_50">概述<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<p>Streaming 模块支持多个客户端同时订阅同一个流，数据流可被多个客户端共享，不影响彼此。<br />
+在 <code>Stream.h</code> 中，<code>Stream</code> 采用 <code>MultiStreamState</code> 机制，允许多个客户端同时接收同一数据流。</p>
+<h3 id="_51">代码解析<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">Stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">detail</span><span class="o">::</span><span class="n">MultiStreamState</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="_52">示例<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 多个客户端订阅同一流</span>
+<span class="n">client1</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">);</span>
+<span class="n">client2</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">);</span>
+<span class="n">client3</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="streaming_7"><a href="#多Streaming任务">多Streaming任务</a><a class="headerlink" href="#streaming_7" title="Permanent link">&para;</a></h2>
+<h3 id="_53">概述<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<p>服务器支持多个 <code>Stream</code> 并行运行，每个 <code>Stream</code> 由唯一 <code>Token</code> 识别，不同客户端可以订阅不同的流，互不干扰。</p>
+<h4 id="_54">代码解析<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 定义一个函数 MakeStream，用于创建新的 Streaming 流</span>
+<span class="n">Stream</span><span class="w"> </span><span class="nf">MakeStream</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">_server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// 调用服务器对象的 MakeStream 方法，返回一个新的流</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_55">示例<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建两个独立的 Streaming 流</span>
+<span class="n">Stream</span><span class="w"> </span><span class="n">stream1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// 通过服务器创建第一个流</span>
+<span class="n">Stream</span><span class="w"> </span><span class="n">stream2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">MakeStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// 通过服务器创建第二个流</span>
+</code></pre></div>
+<h2 id="_56"><a href="#端点配置与多地址支持">端点配置与多地址支持</a><a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<h3 id="_57">概述<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p>Streaming 支持灵活的 <strong>端点 (EndPoint)</strong> 配置，可以使用 IP 地址或端口定义服务器端和客户端的连接方式。</p>
+<h4 id="_58">代码解析<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 静态内联函数 make_endpoint，用于根据提供的 IP 地址和端口号创建一个完全定义的端点</span>
+<span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">make_endpoint</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">EndPoint</span><span class="o">&lt;</span><span class="n">Protocol</span><span class="p">,</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">FullyDefinedEndPoint</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="p">{</span><span class="n">make_address</span><span class="p">(</span><span class="n">address</span><span class="p">),</span><span class="w"> </span><span class="n">port</span><span class="p">}</span><span class="w"> </span><span class="c1">// 将字符串地址转换为 boost::asio::ip::address 并与端口号组合，生成端点</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_59">示例<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建一个 Streaming 服务器，监听本机 127.0.0.1（即 localhost）上的 8080 端口</span>
+<span class="n">Server</span><span class="w"> </span><span class="n">server</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8080</span><span class="p">);</span>
+
+<span class="c1">// 启动服务器，使其开始运行并接受客户端的连接</span>
+<span class="n">server</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="_60">总结<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Streaming 服务器和客户端实现高效的数据传输，支持同步/异步模式。</li>
+<li>服务器支持多客户端并发，多个客户端可订阅同一流，数据并行分发。</li>
+<li>服务器支持多个 Streaming 任务，每个任务由 <code>Token</code> 识别，客户端可分别订阅不同流。</li>
+<li>服务器和客户端支持灵活的端点配置，允许自定义 IP 地址、端口，适用于不同的网络环境。</li>
+</ul>
+<h1 id="_61"><a href="#其他模式">其他模式</a><a class="headerlink" href="#_61" title="Permanent link">&para;</a></h1>
+<h2 id="_62"><a href="#同步模式">同步模式</a><a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<p>在同步模式下，服务器端的 <code>Server</code> 类可以通过 <code>SetSynchronousMode</code> 方法控制是否以同步方式运行。同步模式主要用于需要严格按照时序进行数据传输的场景，比如模拟器同步数据流。</p>
+<p>在 <code>Server.h</code> 文件中，可以看到 <code>SetSynchronousMode(bool is_synchro)</code> 方法，它用于控制服务器端的同步模式开关：
+<div class="highlight"><pre><span></span><code><span class="c1">// 设置服务器的同步模式</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">SetSynchronousMode</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">is_synchro</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">_server</span><span class="p">.</span><span class="n">SetSynchronousMode</span><span class="p">(</span><span class="n">is_synchro</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+此外，<code>Run()</code> 方法用于同步启动服务器，而 <code>AsyncRun(size_t worker_threads)</code> 则支持异步多线程运行。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 以同步方式运行服务器</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">_pool</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// 以异步方式运行服务器，指定工作线程数量</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">AsyncRun</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">worker_threads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">_pool</span><span class="p">.</span><span class="n">AsyncRun</span><span class="p">(</span><span class="n">worker_threads</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="streaming_8"><a href="#多端点-streaming">多端点 Streaming</a><a class="headerlink" href="#streaming_8" title="Permanent link">&para;</a></h2>
+<p>多端点 Streaming 主要依赖 <code>EndPoint.h</code> 中的 <code>EndPoint</code> 相关类，该类提供了 <code>FullyDefinedEndPoint</code> 和 <code>PartiallyDefinedEndPoint</code> 两种端点类型。</p>
+<p>在 <code>Server.h</code> 中，<code>Server</code> 类使用 <code>make_endpoint&lt;protocol_type&gt;(address, port)</code> 方法创建端点，并支持外部地址绑定：
+<div class="highlight"><pre><span></span><code><span class="c1">// 服务器构造函数，绑定到指定地址和端口</span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">Server</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">port</span><span class="p">)</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">_server</span><span class="p">(</span><span class="n">_pool</span><span class="p">.</span><span class="n">io_context</span><span class="p">(),</span><span class="w"> </span><span class="n">make_endpoint</span><span class="o">&lt;</span><span class="n">protocol_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></p>
+<p>对于客户端 <code>Client.h</code>，客户端通过 <code>Subscribe(const Token &amp;token, Functor &amp;&amp;callback)</code> 订阅流，并在 <code>UnSubscribe(const Token &amp;token)</code> 取消订阅。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 客户端订阅数据流</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Functor</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">Subscribe</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="o">&amp;</span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">Functor</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">_client</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">_service</span><span class="p">.</span><span class="n">io_context</span><span class="p">(),</span><span class="w"> </span><span class="n">token</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Functor</span><span class="o">&gt;</span><span class="p">(</span><span class="n">callback</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// 取消订阅数据流</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">UnSubscribe</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="o">&amp;</span><span class="n">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">_client</span><span class="p">.</span><span class="n">UnSubscribe</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这些机制确保了服务器和多个客户端之间的高效数据传输，并允许多个客户端同时订阅同一个数据流，从而实现多端点 Streaming。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

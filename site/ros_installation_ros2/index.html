@@ -1,0 +1,574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>ROS 2的ROS桥安装 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros-2ros" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ROS 2的ROS桥安装
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      开始之前
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS桥安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行ROS桥
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows下安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ros-2ros">ROS 2的ROS桥安装<a class="headerlink" href="#ros-2ros" title="Permanent link">&para;</a></h1>
+<p>本节是关于如何在 Linux 上安装 ROS 桥以与 ROS 2 一起使用的指南。您将找到先决条件、安装步骤、如何运行基本包以确保一切正常工作以及运行测试的命令。</p>
+<ul>
+<li><a href="#before-you-begin"><strong>开始之前</strong></a></li>
+<li><a href="#ros-bridge-installation"><strong>ROS桥安装</strong></a></li>
+<li><a href="#run-the-ros-bridge"><strong>运行ROS桥</strong></a></li>
+<li><a href="#testing"><strong>测试</strong></a></li>
+</ul>
+<p>!!! 重要
+    适用于Windows 的 ROS仍在<a href="http://wiki.ros.org/noetic/Installation">实验</a> 。它只在Linux系统上进行过测试。 </p>
+<hr />
+<h2 id="_1">开始之前<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在使用ROS桥之前，您需要满足以下软件要求：</p>
+<ul>
+<li>安装 ROS:<ul>
+<li><a href="https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html"><strong>ROS 2 Foxy</strong></a> — 针对 Ubuntu 20.04 (Focal)
+-根据您的需要，可能需要额外的 ROS 包。强烈建议是用 <a href="https://wiki.ros.org/rviz">rviz</a> 将ROS数据可视化。</li>
+</ul>
+</li>
+<li>CARLA 0.9.11或更高版本——以前的版本与ROS桥不兼容。遵循<a href="https://carla.readthedocs.io/en/latest/start_quickstart/">快速启动安装</a> 或者为 <a href="https://carla.readthedocs.io/en/latest/build_linux/">Linux构建</a> 。建议尽可能将ROS桥接版本与CARLA版本相匹配。</li>
+</ul>
+<hr />
+<h2 id="ros">ROS桥安装<a class="headerlink" href="#ros" title="Permanent link">&para;</a></h2>
+<p>!!! 注意
+    Debian软件包安装还不能用于ROS 2。</p>
+<p><strong>1.</strong> 设置项目目录并克隆ROS网桥存储库和子模块：</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/carla-ros-bridge<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/carla-ros-bridge
+git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/carla-simulator/ros-bridge.git<span class="w"> </span>src/ros-bridge
+</code></pre></div>
+<p><strong>2.</strong> 设置 ROS 环境：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/foxy/setup.bash
+</code></pre></div>
+<p><strong>3.</strong> 安装 ROS 依赖：</p>
+<div class="highlight"><pre><span></span><code>rosdep<span class="w"> </span>update
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r
+</code></pre></div>
+<p><strong>4.</strong> 使用colcon构建ROS桥的工作空间：</p>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build
+</code></pre></div>
+<hr />
+<h2 id="ros_1">运行ROS桥<a class="headerlink" href="#ros_1" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> 请根据安装 CARLA 时使用的安装方法启动 CARLA 服务器：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在 Carla的根目录中运行打包好的版本</span>
+./CarlaUE4.sh
+
+<span class="c1"># 在`opt/carla-simulator/`的 Debian 安装 </span>
+./CarlaUE4.sh
+
+<span class="c1"># 在 Carla 的根目录中从源代码构建</span>
+make<span class="w"> </span>launch
+</code></pre></div>
+<p><strong>2.</strong> Add the correct CARLA modules to your Python path:</p>
+<p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">CARLA_ROOT</span><span class="o">=</span>&lt;path-to-carla&gt;
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:<span class="nv">$CARLA_ROOT</span>/PythonAPI/carla/dist/carla-&lt;carla_version_and_arch&gt;.egg:<span class="nv">$CARLA_ROOT</span>/PythonAPI/carla
+</code></pre></div>
+<strong>3.</strong> Add the source path for the ROS bridge workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">source</span><span class="w"> </span>./install/setup.bash
+</code></pre></div>
+<p><strong>4.</strong> In another terminal, start the ROS 2 bridge. You can run one of the two options below:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1"># Option 1, start the basic ROS bridge package</span>
+<span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>carla_ros_bridge<span class="w"> </span>carla_ros_bridge.launch.py
+
+<span class="w">    </span><span class="c1"># Option 2, start the ROS bridge with an example ego vehicle</span>
+<span class="w">    </span>ros2<span class="w"> </span>launch<span class="w"> </span>carla_ros_bridge<span class="w"> </span>carla_ros_bridge_with_example_ego_vehicle.launch.py
+</code></pre></div>
+<p>!!! Note</p>
+<pre><code>If you receive the error: `ImportError: no module named CARLA` then the path to the CARLA Python API is missing. The apt installation sets the path automatically, but it may be missing for other installations.
+
+You will need to add the appropriate `.egg` file to your Python path. You will find the file in either `/PythonAPI/` or `/PythonAPI/dist/` depending on the CARLA installation. Execute the following command with the complete path to the `.egg` file, using the file that corresponds to your installed version of Python:
+
+`export PYTHONPATH=$PYTHONPATH:path/to/carla/PythonAPI/&lt;your_egg_file&gt;`
+
+It is recommended to set this variable permanently by adding the previous line to your `.bashrc` file.
+
+To check the CARLA library can be imported correctly, run the following command and wait for a success message:
+
+        python3 -c 'import carla;print("Success")' # python3
+
+        or
+
+        python -c 'import carla;print("Success")' # python2
+</code></pre>
+<hr />
+<h2 id="_2">测试<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>To execute tests using colcon:</p>
+<p><strong>1.</strong> Build the package:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-up-to<span class="w"> </span>carla_ros_bridge
+</code></pre></div>
+<p><strong>2.</strong> Run the tests:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>launch_test<span class="w"> </span>carla_ros_bridge/test/ros_bridge_client_ros2_test.py
+</code></pre></div>
+<hr />
+<h2 id="windows">Windows下安装<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<p>根据<a href="../ros/windows-install_binary/">链接</a> 安装ROS2。</p>
+<p>1.安装Chocolatey</p>
+<p>以管理员权限打开命令提示符，运行：
+<div class="highlight"><pre><span></span><code>@<span class="s2">&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot;</span><span class="w"> </span>-NoProfile<span class="w"> </span>-InputFormat<span class="w"> </span>None<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>Bypass<span class="w"> </span>-Command<span class="w"> </span><span class="s2">&quot;[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>SET<span class="w"> </span><span class="s2">&quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span>
+</code></pre></div>
+如果报出警告：<code>WARNING: An existing Chocolatey installation was detected. Installation will not continue. This script will not         overwrite existing installations.                                                                                       If there is no Chocolatey installation at 'C:\ProgramData\chocolatey', delete the folder and attempt the installation   again.</code>
+则删除文件夹<code>C:\ProgramData\chocolatey</code>后继续执行以上命令。</p>
+<p>验证是否安装成功，运行（必须以管理员权限运行）
+<div class="highlight"><pre><span></span><code>choco
+</code></pre></div></p>
+<p>2.利用choco安装ROS2
+<div class="highlight"><pre><span></span><code>choco<span class="w"> </span><span class="nb">source</span><span class="w"> </span>add<span class="w"> </span>-n<span class="o">=</span>ros-win<span class="w"> </span>-s<span class="o">=</span><span class="s2">&quot;https://aka.ms/ros/public&quot;</span><span class="w"> </span>--priority<span class="o">=</span><span class="m">1</span>
+choco<span class="w"> </span>upgrade<span class="w"> </span>ros-foxy-desktop<span class="w"> </span>-y<span class="w"> </span>--execution-timeout<span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+报错：<code>Unable to connect to source 'https://aka.ms/ros/public':</code></p>
+<p>这一步需要设置代理：
+<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span>http://127.0.0.1:7890
+<span class="nb">set</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span>http://127.0.0.1:7890
+</code></pre></div></p>
+<h2 id="_3">参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://bbs.carla.org.cn/info/5d3ee60a617a4db08bf9389e60ecaad2?csr=1">CARLA ROS2 Bridge 容器镜像</a> - 提供 Carla 和 ROS2 之间桥梁的容器</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

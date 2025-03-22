@@ -1,0 +1,672 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>DReyeVR - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dreyevr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DReyeVR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dreyevr_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      欢迎来到 DReyeVR, 这是一个针对行为和交互研究的虚拟现实驾驶仿真器。
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      亮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      自我车辆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      自我传感器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他补充：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装/构建
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作系统兼容性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      文档 &amp; 指南
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      引用
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dreyevr">DReyeVR<a class="headerlink" href="#dreyevr" title="Permanent link">&para;</a></h1>
+<h3 id="dreyevr_1">欢迎来到 DReyeVR, 这是一个针对行为和交互研究的虚拟现实驾驶仿真器。<a class="headerlink" href="#dreyevr_1" title="Permanent link">&para;</a></h3>
+<iframe width="100%" height="400px" src="https://www.youtube.com/embed/yGIPSDOMGpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- [![Main Figure](interbehavior/Figures/demo.gif)](https://www.youtube.com/watch?v=yGIPSDOMGpY) -->
+
+<!-- [视频演示 (YouTube)](https://www.youtube.com/watch?v=yGIPSDOMGpY) -->
+<!-- Welcome to the DReyeVR wiki! -->
+
+<p>该项目扩展了 <a href="https://github.com/carla-simulator/carla/tree/0.9.13"><code>Carla</code></a> 模拟器，增加了虚拟现实集成、第一人称可操纵的自我车辆、眼动追踪支持和多种沉浸感增强功能。</p>
+<p>如果您有任何疑问，希望我们的常见问题解答 <a href="https://github.com/HARPLab/DReyeVR/wiki/Frequently-Asked-Questions">F.A.Q. 维基页面</a> 和 <a href="https://github.com/HARPLab/DReyeVR/issues?q=is%3Aissue+is%3Aclosed">问题页面</a> 可以解答其中的一些问题。</p>
+<p><strong>重要提示：</strong> 目前 DReyeVR 仅支持 Carla 版本：<a href="https://github.com/carla-simulator/carla/tree/0.9.13">0.9.13</a> 和 Unreal Engine 4.26</p>
+<h2 id="_1">亮点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">自我车辆<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/ValveSoftware/steamvr_unreal_plugin/tree/4.23">集成 SteamVR</a> 的完全可驾驶<strong>虚拟现实自我车辆</strong>（参见 <a href="DReyeVR/EgoVehicle.h">EgoVehicle.h</a> ）
+- SteamVR HMD 头部跟踪 (朝向 &amp; 位置)
+- 我们已经使用以下设备进行了测试：</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>虚拟现实支持</th>
+<th>眼动跟踪</th>
+<th>操作系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://business.vive.com/us/product/vive-pro-eye-office/">HTC Vive Pro Eye</a></td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>Windows, Linux</td>
+</tr>
+<tr>
+<td><a href="https://www.oculus.com/quest-2/">Quest 2</a></td>
+<td>:white_check_mark:</td>
+<td>:x:</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>虽然我们还没有测试其他耳机，但如果 SteamVR 支持，它们仍然可以用于基本的虚拟现实用途（非眼动追踪）。</li>
+<li>由于我们使用 <a href="https://forum.htc.com/topic/5641-sranipal-faq/">SRanipal</a> 作为眼动追踪器 SDK，因此眼动追踪目前<strong>仅</strong>支持 HTC Vive Pro Eye。我们很乐意通过贡献添加其他 SDK 来支持更多设备。</li>
+<li>车辆控制：</li>
+<li>通用键盘 WASD + 鼠标</li>
+<li>使用此开源 <a href="https://github.com/HARPLab/LogitechWheelPlugin">LogitechWheelPlugin</a> 支持 Logitech 方向盘<ul>
+<li>包括方向盘的力反馈。</li>
+<li>我们使用了 <a href="https://www.logitechg.com/en-us/products/driving/driving-force-racing-wheel.html">Logitech G923 赛车方向盘和踏板</a></li>
+<li>虽然我们可以在没有经过测试的情况下保证开箱即用的功能，但是可以在 <a href="https://github.com/HARPLab/LogitechWheelPlugin/blob/master/README.md">此处</a> 找到受支持设备的完整列表。</li>
+</ul>
+</li>
+<li>逼真的（可参数化的）后视镜和侧视镜 </li>
+<li>警告：非常耗性能</li>
+<li>车辆仪表板：</li>
+<li>速度计（默认单位为英里/小时）</li>
+<li>档位指示器</li>
+<li>转向信号</li>
+<li>动力学方向盘</li>
+<li>可调节参数，响应转向输入</li>
+<li>请在 <a href="Tutorials/Model/">此处</a> 查看我们的相关文档</li>
+<li>“以自我为中心”的音频</li>
+<li>响应式发动机转速（基于油门）</li>
+<li>转向灯咔嗒声</li>
+<li>档位切换</li>
+<li>碰撞</li>
+<li>与现有的 <a href="https://carla.readthedocs.io/en/0.9.13/python_api/">Carla PythonAPI</a> 和 <a href="https://github.com/carla-simulator/scenario_runner/tree/v0.9.13">ScenarioRunner</a> 完全兼容</li>
+<li>进行了微小修改。请参阅 <a href="Usage/">Usage.md</a> 文档。</li>
+<li>与 <a href="https://carla.readthedocs.io/en/0.9.13/adv_recorder/">Carla Recorder 和 Replayer</a> 完全兼容</li>
+<li>能够将控制权移交给/接管 Carla 的 AI 轮式车辆控制器</li>
+<li>基于 Carla 的语义分割相机（参见 <a href="Shaders/README.md"><code>Shaders/README.md</code></a> ）</li>
+</ul>
+<h3 id="_3">自我传感器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>与 Carla 兼容的<strong>自我车辆传感器</strong>（参见 <a href="DReyeVR/EgoSensor.h">EgoSensor.h</a> ）是一种“隐形传感器”，可跟踪以下信息：</p>
+<ul>
+<li>使用 <a href="https://enterprise.vive.com/us/product/vive-pro-eye-office/">HTC Vive Pro Eye</a> VR 耳机进行实时<strong>眼动跟踪</strong> </li>
+<li>眼动仪数据包括：<ul>
+<li>时间信息（基于耳机、世界和眼动仪）</li>
+<li>三维眼睛凝视光线（左、右及组合）</li>
+<li>2D 瞳孔位置（左和右）</li>
+<li>瞳孔直径（左和右）</li>
+<li>眼睛睁开度（左和右）</li>
+<li>世界中的焦点及命中的参与者信息</li>
+<li>完整列表请参见 <a href="Carla/Sensor/DReyeVRData.h">DReyeVRData.h:EyeTracker</a></li>
+</ul>
+</li>
+<li>实时眼标线可视化</li>
+<li>实时用户输入（油门、转向、刹车、转向信号等）</li>
+<li>基于摄像头的图像（截图）帧捕获 </li>
+<li>由于性能密集程度高，通常用于重播而不是实时。</li>
+<li>与 LibCarla 数据序列化完全兼容，可流式传输到 PythonAPI 客户端（参见 <a href="LibCarla/Sensor">LibCarla/Sensor</a> ）</li>
+<li>我们还测试并验证了对（<code>rospy</code>）ROS 集成传感器数据流的支持</li>
+</ul>
+<h3 id="_4">其他补充：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用于一次性运行时参数的自定义 DReyeVR 配置文件。请参阅 <a href="Configs/DReyeVRConfig.ini">DReyeVRConfig.ini</a> </li>
+<li>特别适用于无需重新编译所有内容即可更改参数。</li>
+<li>使用标准 c++ io 管理来读取文件，对性能的影响最小。请参阅 <a href="DReyeVR/DReyeVRUtils.h">DReyeVRUtils.h</a> 。</li>
+<li>世界环境音频</li>
+<li>鸟鸣声、风声、烟雾声等（参见 <a href="Tutorials/Sounds/">interbehavior/Tutorials/Sounds.md</a> ） </li>
+<li>非自我为中心的音频（非自我车辆的发动机转速）</li>
+<li>同步重放并逐帧捕获以进行事后分析（参见 <a href="Usage/">interbehavior/Usage.md</a> ） </li>
+<li>记录器/重放器媒体功能</li>
+<li>添加了游戏内键盘命令播放/暂停/前进/后退/等。</li>
+<li>用于自然导航的静态环境方向标志（参见 <a href="Tutorials/Signs/"><code>interbehavior/Signs.md</code></a> ）</li>
+<li>将天气信息添加到 Carla 记录器/重放器/查询中（参见此 <a href="https://github.com/carla-simulator/carla/pull/5235">Carla PR</a> ）</li>
+<li>自定义动态 3D 参与者，具有全面录制支持（例如方向的头显指示器、AR 边界框、视觉目标等）。有关更多信息，请参阅 <a href="Tutorials/CustomActor/">CustomActor.md</a> 。 </li>
+<li>（仅调试）注视点渲染可通过注视感知（或固定）可变速率着色来提高性能</li>
+</ul>
+<h2 id="_5">安装/构建<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>查看 <a href="Install/"><code>interbehavior/Install.md</code></a> :
+- 在可运行的 <code>Carla</code> 存储库上安装并构建 <code>DReyeVR</code> 。
+- 下载 <code>DReyeVR</code> 所需的插件，以实现以下精彩功能：
+  - 眼动跟踪 (SRanipal)
+  - 方向盘/踏板 (Logitech)
+- 为 DReyeVR PythonAPI 设置 <code>conda</code> 环境</p>
+<h2 id="_6">操作系统兼容性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>虚拟现实</th>
+<th>眼动跟踪</th>
+<th>音频</th>
+<th>键盘+鼠标</th>
+<th>赛车方向盘</th>
+<th>注视点渲染（编辑器）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>:white_check_mark:</td>
+<td>:x:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:x:</td>
+<td>:x:</td>
+</tr>
+<tr>
+<td>MacOS</td>
+<td>:x:</td>
+<td>:x:</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
+<td>:x:</td>
+<td>:x:</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>虽然建议使用 Windows（10）来优化虚拟现实支持，但除了眼动跟踪和硬件集成（它们仅依赖于 Windows）之外，我们所有的工作都转移到了 Linux 系统。 </li>
+<li>不幸的是，眼动追踪固件是专有的，无法在 Linux 上运行<ul>
+<li>由于 <a href="https://developer.vive.com/resources/knowledgebase/vive-sranipal-sdk/">HTC SRanipal SDK</a> 和 Tobii 的 SDK 之间存在一些专有依赖关系，因此目前仅支持 Windows。对 HTC Vive Pro 眼动追踪的 Linux 讨论感兴趣的人可以关注 <a href="https://forum.vive.com/topic/6994-eye-tracking-in-linux/"> 此处 (Vive)</a> 、<a href="https://forum.vive.com/topic/7012-vive-pro-eye-on-ubuntu-16-or-18/">此处 (Vive)</a> 和 <a href="https://developer.tobii.com/community/forums/topic/vive-pro-eye-with-stream-engine/">此处 (Tobii)</a> 的主题。</li>
+</ul>
+</li>
+<li>此外，我们使用的 <a href="https://github.com/HARPLab/LogitechWheelPlugin">LogitechWheelPlugin</a> 目前仅支持 Windows。不过，根据 <a href="https://wiki.archlinux.org/title/Logitech_Racing_Wheel">Arch Wiki</a> ，应该可以在 Linux 上使用 G923。</li>
+<li>此外，尽管 CARLA 并未正式支持 MacOS，但我们在 Apple Silicon 机器上进行了开发，并且拥有 CARLA + UE4.26 的活跃分支，支持 MacOS 12+。请注意，这主要用于开发，因为它是迄今为止最受限制的系统。</li>
+</ul>
+<h2 id="_7">文档 &amp; 指南<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>请参阅 <a href="https://github.com/HARPLab/DReyeVR/wiki/Frequently-Asked-Questions"><code>F.A.Q. wiki</code></a> ，了解我们的常见问题 wiki 页面。</li>
+<li>请参阅 <a href="Install/"><code>Install.md</code></a> 来安装和构建 DReyeVR</li>
+<li>请参阅 <a href="Usage/"><code>Usage.md</code></a> 了解如何使用我们提供的 DReyeVR 功能</li>
+<li>请参阅 <a href="Development/"><code>Development.md</code></a> 以开始 DReyeVR 开发并添加新功能</li>
+<li>请参阅 <a href="interbehavior/Tutorials/"><code>interbehavior/Tutorials/</code></a> 查看多个 DReyeVR 教程，例如自定义 EgoVehicle、添加自定义标志/道具等。</li>
+</ul>
+<h2 id="_8">引用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>如果你想使用该工作，请参考对应的 <a href="https://arxiv.org/abs/2201.01931">论文</a>:</p>
+<ul>
+<li>此 repo 包含来自 Hewlett-Packard Development Company, LP 的一些代码。请参阅 <a href="Tools/Diagnostics/collectl/nvidia.ph">nvidia.ph</a> 。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

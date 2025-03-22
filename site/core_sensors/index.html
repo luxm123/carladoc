@@ -1,0 +1,756 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>传感器和数据 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              传感器和数据
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      传感器逐步介绍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传感器逐步介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      监听
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      传感器类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传感器类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      相机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      检测器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1"><a href="https://carla.readthedocs.io/en/latest/core_sensors/">传感器和数据</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>传感器是从周围环境中检索数据的参与者。它们对于为驾驶代理创造学习环境至关重要。</p>
+<p>本页总结了开始处理传感器所需的一切。它介绍了可用的类型及其生命周期的分步指南。每个传感器的详细信息可以在 <a href="../ref_sensors/">传感器参考</a> 中找到。</p>
+<ul>
+<li><a href="#sensors-step-by-step"><strong>传感器逐步介绍</strong></a>  <ul>
+<li><a href="#setting">设置</a>  </li>
+<li><a href="#spawning">生成</a>  </li>
+<li><a href="#listening">监听</a>  </li>
+<li><a href="#data">数据</a>  </li>
+</ul>
+</li>
+<li><a href="#types-of-sensors"><strong>传感器类型</strong></a>  <ul>
+<li><a href="#cameras">相机</a>  </li>
+<li><a href="#detectors">检测器</a>  </li>
+<li><a href="#other">其他</a>  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_2">传感器逐步介绍 <span id="sensors-step-by-step"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><a href="../python_api/#carla.Sensor">carla.Sensor</a> 类定义了一种特殊类型的参与者，能够测量和传输数据。</p>
+<ul>
+<li><strong>这个数据是什么？</strong> 根据传感器的类型，它变化很大。所有类型的数据都继承自通用的 <a href="../python_api/#carla.SensorData">carla.SensorData</a>。 </li>
+<li><strong>他们什么时候检索数据？</strong> 在每个模拟步骤上或在注册某个事件时。取决于传感器的类型。</li>
+<li><strong>他们如何检索数据？</strong> 每个传感器都有一种接收和管理数据的 <code>listen()</code> 方法。</li>
+</ul>
+<p>尽管存在差异，但所有传感器的使用方式都相似。</p>
+<h3 id="_3">设置 <span id="setting"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>与其他参与者一样，找到蓝图并设置特定属性。这在处理传感器时至关重要。他们的属性将决定所获得的结果。这些在 <a href="../ref_sensors/">传感器参考</a> 中有详细介绍。</p>
+<p>以下示例设置仪表板高清摄像头。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 找到传感器蓝图。</span>
+<span class="n">blueprint</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_blueprint_library</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;sensor.camera.rgb&#39;</span><span class="p">)</span>
+<span class="c1"># 修改蓝图属性来设置图像分辨率和视野</span>
+<span class="n">blueprint</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span><span class="s1">&#39;image_size_x&#39;</span><span class="p">,</span> <span class="s1">&#39;1920&#39;</span><span class="p">)</span>
+<span class="n">blueprint</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span><span class="s1">&#39;image_size_y&#39;</span><span class="p">,</span> <span class="s1">&#39;1080&#39;</span><span class="p">)</span>
+<span class="n">blueprint</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span><span class="s1">&#39;fov&#39;</span><span class="p">,</span> <span class="s1">&#39;110&#39;</span><span class="p">)</span>
+<span class="c1"># 设置传感器捕获之间的时间（以秒为单位）</span>
+<span class="n">blueprint</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span><span class="s1">&#39;sensor_tick&#39;</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_4">生成 <span id="spawning"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><code>attachment_to</code> 和 <code>attachment_type</code> 至关重要。传感器应连接到父参与者（通常是车辆）上，以跟踪它并收集信息。附件类型将确定其关于所述车辆的位置如何更新。</p>
+<ul>
+<li><strong>刚性附件(Rigid attachment)。</strong> 动对于其父位置是严格的。这是从模拟中检索数据的合适附件。</li>
+<li><strong>弹簧臂附件(SpringArm attachment)。</strong> 运动变得轻松，几乎没有加速和减速。仅建议使用此附件来记录模拟视频。更新摄像机位置时，移动平滑并且避免“跳跃”。</li>
+<li><strong>弹簧臂幽灵附件(SpringArmGhost attachment)。</strong> 与前一个类似，但没有进行碰撞测试，因此相机或传感器可以穿过墙壁或其他几何形状。</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="n">transform</span> <span class="o">=</span> <span class="n">carla</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">carla</span><span class="o">.</span><span class="n">Location</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.7</span><span class="p">))</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">spawn_actor</span><span class="p">(</span><span class="n">blueprint</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">attach_to</span><span class="o">=</span><span class="n">my_vehicle</span><span class="p">)</span>
+</code></pre></div>
+!!! 重要
+    当带有附件生成时，位置必须相对于父参与者。</p>
+<h3 id="_5">监听 <span id="listening"></span><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>每个传感器都有一个 <a href="../python_api/#carla.Sensor.listen"><code>listen()</code></a> 方法。每次传感器获取数据时都会调用此函数。</p>
+<p>参数<code>callback</code>是一个 <a href="https://www.w3schools.com/python/python_lambda.asp">lambda 函数</a> 。它描述了传感器在获取数据时应该做什么。这必须将检索的数据作为参数。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 每次相机生成新图像时，都会调用 do_something()。</span>
+<span class="n">sensor</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="n">do_something</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="o">...</span>
+
+<span class="c1"># 每次检测到碰撞时，此碰撞传感器都会打印。</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">actor_id</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+        <span class="n">vehicle</span> <span class="o">=</span> <span class="n">world_ref</span><span class="p">()</span><span class="o">.</span><span class="n">get_actor</span><span class="p">(</span><span class="n">actor_id</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vehicle too close: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">vehicle</span><span class="o">.</span><span class="n">type_id</span><span class="p">)</span>
+
+<span class="n">sensor02</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_6">数据 <span id="data"></span><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>大多数传感器数据对象都具有将信息保存到磁盘的功能。这将允许它在其他环境中使用。</p>
+<p>不同类型传感器的传感器数据差异很大。查看 <a href="../ref_sensors/">传感器参考</a> 以获得详细说明。然而，所有这些都总是带有一些基本信息的标签。</p>
+<table>
+<thead>
+<tr>
+<th>传感器数据属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame</code></td>
+<td>int</td>
+<td>进行测量时的帧编号。</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>double</td>
+<td>自轮数开始以来以模拟秒为单位的测量时间戳。</td>
+</tr>
+<tr>
+<td><code>transform</code></td>
+<td><a href="../python_api#carlatransform">carla.Transform</a></td>
+<td>测量时传感器的世界参考。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>!!! 重要
+    <code>is_listening</code>是一种传感器方法，用于检查传感器是否有通过<code>listen</code>注册的回调。<code>stop()</code>是一种停止传感器监听的 <strong>传感器方法</strong> 。<code>sensor_tick</code>是一个<strong>蓝图属性</strong>，用于设置接收数据之间的模拟时间。</p>
+<hr />
+<h2 id="_7">传感器类型 <span id="types-of-sensors"></span><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">相机 <span id="cameras"></span><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>从他们的角度拍摄世界。对于返回 <a href="../python_api#carlaimage">carla.Image</a> 的相机，您可以使用辅助类<a href="../python_api/#carla.ColorConverter">carla.ColorConverter</a> 修改图像以表示不同的信息。</p>
+<ul>
+<li>每个模拟步骤 <strong>获取数据</strong> 。  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>传感器</th>
+<th>输出</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>深度</td>
+<td><a href="../python_api#carlaimage">carla.Image</a></td>
+<td>在灰度图中渲染视野中元素的深度。</td>
+</tr>
+<tr>
+<td>RGB</td>
+<td><a href="../python_api#carlaimage">carla.Image</a></td>
+<td>提供清晰的周围环境视野。看起来就像一张正常的现场照片。</td>
+</tr>
+<tr>
+<td>光流</td>
+<td><a href="../python_api#carlaimage">carla.Image</a></td>
+<td>渲染相机中每个像素的运动。</td>
+</tr>
+<tr>
+<td>语义分割</td>
+<td><a href="../python_api#carlaimage">carla.Image</a></td>
+<td>根据元素的标签以特定颜色渲染视野中的元素。</td>
+</tr>
+<tr>
+<td>实例分割</td>
+<td><a href="../python_api#carlaimage">carla.Image</a></td>
+<td>根据元素的标签和唯一的对象 ID 以特定颜色渲染视野中的元素。</td>
+</tr>
+<tr>
+<td>DVS</td>
+<td><a href="../python_api#carladvseventarray">carla.DVSEventArray</a></td>
+<td>作为事件流异步测量亮度强度的变化。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<h3 id="_9">检测器 <span id="detectors"></span><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>当附加的对象注册特定事件时获取数据。 </p>
+<ul>
+<li>触发时 <strong>获取数据</strong> 。  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>传感器</th>
+<th>输出</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>碰撞</td>
+<td><a href="../python_api#carlacollisionevent">carla.CollisionEvent</a></td>
+<td>检索其父级与其他参与者之间的碰撞。</td>
+</tr>
+<tr>
+<td>压线</td>
+<td><a href="../python_api#carlalaneinvasionevent">carla.LaneInvasionEvent</a></td>
+<td>当其父级穿过车道标记时进行注册。</td>
+</tr>
+<tr>
+<td>障碍</td>
+<td><a href="../python_api#carlaobstacledetectionevent">carla.ObstacleDetectionEvent</a></td>
+<td>检测其父级前方可能存在的障碍物。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="_10">其他 <span id="other"></span><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>不同的功能，例如导航、物理属性测量和场景的二维/三维点图。</p>
+<ul>
+<li>每个模拟步骤 <strong>检索数据</strong> 。  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>传感器</th>
+<th>输出</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全球导航卫星系统(GNSS)</td>
+<td><a href="../python_api#carlagnssmeasurement">carla.GNSSMeasurement</a></td>
+<td>检索传感器的地理位置。</td>
+</tr>
+<tr>
+<td>惯性测量单元(IMU)</td>
+<td><a href="../python_api#carlaimumeasurement">carla.IMUMeasurement</a></td>
+<td>包括加速度计、陀螺仪和指南针。</td>
+</tr>
+<tr>
+<td>激光雷达(LIDAR)</td>
+<td><a href="../python_api#carlalidarmeasurement">carla.LidarMeasurement</a></td>
+<td>旋转激光雷达。生成包含每个点的坐标和强度的 4D 点云，以对周围环境进行建模。</td>
+</tr>
+<tr>
+<td>雷达</td>
+<td><a href="../python_api#carlaradarmeasurement">carla.RadarMeasurement</a></td>
+<td>二维点图建模视线中的元素及其相对于传感器的运动。</td>
+</tr>
+<tr>
+<td>责任敏感安全(RSS)</td>
+<td><a href="../python_api#carlarssresponse">carla.RssResponse</a></td>
+<td>根据安全检查修改应用于车辆的控制器。该传感器的工作方式与其他传感器不同，并且有专门的 <a href="../adv_rss">责任敏感安全文档</a> （自 Carla 0.9.15 起已被弃用）。</td>
+</tr>
+<tr>
+<td>语义激光雷达</td>
+<td><a href="../python_api#carlasemanticlidarmeasurement">carla.SemanticLidarMeasurement</a></td>
+<td>旋转激光雷达。生成 3D 点云，其中包含有关实例和语义分割的额外信息。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>这是传感器的包装以及它们如何检索模拟数据。 </p>
+<p>Carla 的介绍到此结束。然而，还有很多东西需要学习。</p>
+<ul>
+<li><strong>继续学习。</strong> Carla 中有一些高级功能：渲染选项、交通管理器、记录器等等。这是了解更多关于他们的好时机。</li>
+</ul>
+<div class="build-buttons">
+<p>
+<a href="../adv_synchrony_timestep" target="_blank" class="btn btn-neutral" title="Synchrony and time-step">
+同步和时间步长</a>
+</p>
+</div>
+
+<ul>
+<li><strong>自由实验。</strong> 查看本文档的 <strong>参考</strong> 部分。它包含有关 Python API 中的类、传感器、代码片段等的详细信息。</li>
+</ul>
+<div class="build-buttons">
+<p>
+<a href="../python_api" target="_blank" class="btn btn-neutral" title="Python API 参考">
+Python API 参考</a>
+</p>
+</div>
+
+<ul>
+<li><strong>发表您的意见。</strong> 有任何疑问、建议和想法欢迎在论坛中提出。</li>
+</ul>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions/" target="_blank" class="btn btn-neutral" title="Go to the CARLA forum">
+Carla 论坛</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

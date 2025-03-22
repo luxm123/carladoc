@@ -1,0 +1,666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>carlaviz - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#carlaviz" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              carlaviz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      支持
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carlaviz_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取 carlaviz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取 carlaviz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      先决条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载插件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carlaviz_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 carlaviz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      像素流
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="carlaviz">carlaviz<a class="headerlink" href="#carlaviz" title="Permanent link">&para;</a></h1>
+<p>carlaviz 插件用于在网络浏览器中可视化模拟。创建了一个具有场景的一些基本表示的窗口。参与者可以即时更新，可以检索传感器数据，还可以在场景中绘制附加文本、线条和折线。</p>
+<ul>
+<li><a href="#general_information"><strong>一般信息</strong></a>  <ul>
+<li><a href="#support">支持</a>  </li>
+</ul>
+</li>
+<li><a href="#get_carlaviz"><strong>获取 carlaviz</strong></a>  <ul>
+<li><a href="#prerequisites">先决条件</a>  </li>
+<li><a href="#download_the_plugin">下载插件</a>  </li>
+</ul>
+</li>
+<li><a href="#run"><strong>运行</strong></a>    </li>
+<li><a href="#utilities"><strong>工具</strong></a>  </li>
+</ul>
+<hr />
+<h2 id="_1">一般信息 <span id="general_information"></span><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>贡献者</strong> — Minjun Xu, 也被称为 <a href="https://github.com/mjxu96/carlaviz">mjxu96</a>.  </li>
+<li><strong>许可证</strong> — <a href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>.  </li>
+</ul>
+<h3 id="_2">支持 <span id="support"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Linux</strong> — Carla 0.9.6, 0.9.7, 0.9.8, 0.9.9, 0.9.10.  </li>
+<li><strong>Windows</strong> — Carla 0.9.9, 0.9.10, 0.9.15.  </li>
+<li><strong>从源代码构建</strong> — 最新更新。</li>
+</ul>
+<hr />
+<h2 id="carlaviz_1">获取 carlaviz <span id="get_carlaviz"></span><a class="headerlink" href="#carlaviz_1" title="Permanent link">&para;</a></h2>
+<h3 id="_3">先决条件 <span id="prerequisites"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Docker</strong> — 访问文档并 <a href="https://docs.docker.com/get-docker/">安装 Docker</a>.  </li>
+<li><strong>操作系统</strong> — 任何能够运行 Carla 的操作系统都应该可以工作。</li>
+<li><strong>Websocket-client</strong> — <code>pip3 install websocket_client</code>。如果系统中尚未安装 <a href="https://pip.pypa.io/en/stable/installing/">pip</a> 。  </li>
+</ul>
+<h3 id="_4">下载插件 <span id="download_the_plugin"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>打开终端并根据要运行的 Carla 版本拉取 carlaviz 的 Docker 映像。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 仅拉取和所使用的Carla包匹配的镜像。</span>
+<span class="c1"># docker pull mjxu96/carlaviz:0.9.6</span>
+<span class="c1"># docker pull mjxu96/carlaviz:0.9.7</span>
+<span class="c1"># docker pull mjxu96/carlaviz:0.9.8</span>
+<span class="c1"># docker pull mjxu96/carlaviz:0.9.9</span>
+<span class="c1"># docker pull mjxu96/carlaviz:0.9.10</span>
+
+<span class="c1"># 如果工作在从源代码构建的 Carla 上，则拉取该镜像</span>
+<span class="c1"># docker pull mjxu96/carlaviz:latest</span>
+docker<span class="w"> </span>pull<span class="w"> </span>mjxu96/carlaviz:0.9.15
+</code></pre></div>
+<p>!!! 重要
+    目前在 Windows 中仅支持 0.9.9 和 0.9.10。</p>
+<p>Carla 至 0.9.9（包含）设置为单流。对于更高版本，实现了传感器的多流。 </p>
+<ul>
+<li>
+<p><strong>在单流中</strong>, 一个传感器只能被一个客户端听到。当另一个客户端已经听到传感器时，例如在运行 <code>manual_control.py</code> 时，carlaviz 被迫复制传感器以检索数据，并且性能可能会受到影响。 </p>
+</li>
+<li>
+<p><strong>在多流中</strong>，多个客户端可以听到一个传感器。carlaviz 不需要重复这些，并且性能不会受到影响。</p>
+</li>
+</ul>
+<p>!!! 笔记
+    或者，在 Linux 上，用户可以按照 <a href="https://github.com/carla-simulator/carlaviz/blob/master/docs/build.md">此处</a> 的说明构建 carlaviz ，但使用 Docker 映像将使事情变得更加容易。</p>
+<hr />
+<h2 id="carlaviz_2">运行 carlaviz <span id="run"></span><a class="headerlink" href="#carlaviz_2" title="Permanent link">&para;</a></h2>
+<p><strong>1. 运行 Carla。</strong></p>
+<ul>
+<li>
+<p><strong>a) 在 Carla 包中</strong> — 转至 Carla 文件夹并使用 <code>CarlaUE4.exe</code>(Windows) 或<code>./CarlaUE4.sh</code>(Linux) 启动模拟。  </p>
+</li>
+<li>
+<p><strong>b) 在从源代码构建的包中</strong> — 转到 Carla 文件夹，使用 <code>make launch</code> 运行虚幻编辑器，并按<code>Play</code>。</p>
+</li>
+<li>
+<p><strong>c) 运行示例脚本</strong> - <a href="https://github.com/OpenHUTB/carla_doc/blob/master/src/examples/carlaviz_exmaple.py">carlaviz_exmaple</a>  。</p>
+</li>
+</ul>
+<p><strong>2. 运行 carlaviz.</strong> 根据已下载的 Docker 镜像，在另一个终端中运行以下命令。</p>
+<p>更改先前下载的镜像的名称 <code>&lt;name_of_Docker_image&gt;</code>，例如 <code>mjxu96/carlaviz:latest</code> 或 <code>mjxu96/carlaviz:0.9.15</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在 Linux 系统</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">CARLAVIZ_HOST_IP</span><span class="o">=</span>localhost<span class="w"> </span>-e<span class="w"> </span><span class="nv">CARLA_SERVER_IP</span><span class="o">=</span>localhost<span class="w"> </span>-e<span class="w"> </span><span class="nv">CARLA_SERVER_PORT</span><span class="o">=</span><span class="m">2000</span><span class="w"> </span>&lt;name_of_Docker_image&gt;
+
+<span class="c1"># 在 Windows/MacOS 系统</span>
+<span class="c1"># docker run -it -e CARLAVIZ_HOST_IP=localhost -e CARLA_SERVER_IP=host.docker.internal -e CARLA_SERVER_PORT=2000 -p 8080-8081:8080-8081 -p 8089:8089 &lt;name_of_Docker_image&gt;</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>-8081:8080-8081<span class="w"> </span>mjxu96/carlaviz:0.9.15<span class="w"> </span>--simulator_host<span class="w"> </span>host.docker.internal<span class="w"> </span>--simulator_port<span class="w"> </span><span class="m">2000</span>
+</code></pre></div>
+<p>如果一切都已正确设置，carlaviz 将显示类似于以下内容的成功消息。</p>
+<p><img alt="carlaviz_run" src="../img/plugins_carlaviz_run.jpg" /></p>
+<p>!!! 警告
+    请记住编辑前面的命令以匹配正在使用的 Docker 映像。</p>
+<p><strong>3. 从本地打开</strong> 打开 Web 浏览器并转到 <code>http://127.0.0.1:8080/</code> 。carlaviz 默认在 <code>8080</code> 端口运行。输出应类似于以下内容。</p>
+<p><img alt="carlaviz_empty" src="../img/plugins_carlaviz_empty.jpg" /></p>
+<hr />
+<h2 id="_5">工具 <span id="utilities"></span><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>一旦插件运行，它就可以用于可视化模拟、其中的参与者以及传感器检索的数据。该插件在右侧显示一个可视化窗口，场景实时更新，左侧显示一个侧边栏，其中包含要显示的项目列表。其中一些项目将出现在可视化窗口中，其他项目（主要是传感器和游戏数据）出现在项目列表上方。
+以下是可用于可视化的选项列表。可能会显示其他元素，例如</p>
+<ul>
+<li>
+<p><strong>View Mode</strong> — 更改可视化窗口中的视角。</p>
+<ul>
+<li><code>Top Down</code> — 空中视角。</li>
+<li><code>Perspective</code> — 自由的视角。</li>
+<li><code>Driver</code> — 第一人称视角。  </li>
+</ul>
+</li>
+<li>
+<p><strong>/vehicle</strong> — 显示自主车辆的属性。可视化窗口中包括速度计和加速度计，以及 IMU、全球导航卫星系统传感器和碰撞检测传感器检索的数据。</p>
+<ul>
+<li><code>/velocity</code> — 自主车辆的速度。</li>
+<li><code>/acceleration</code> — 自主车辆的加速。</li>
+</ul>
+</li>
+<li><strong>/drawing</strong> — 在使用 <a href="https://github.com/wx9698/carlaviz/blob/master/examples/carla_painter.py">CarlaPainter</a> 绘制的可视化窗口中显示其他元素。<ul>
+<li><code>/texts</code> — 文本元素。</li>
+<li><code>/points</code> — 点元素。</li>
+<li><code>/polylines</code> — 折线元素。 </li>
+</ul>
+</li>
+<li><strong>/objects</strong>  — 在可视化窗口中显示参与者。 <ul>
+<li><code>/walkers</code> — 更新行人。</li>
+<li><code>/vehicles</code> — 更新车辆。</li>
+</ul>
+</li>
+<li><strong>/game</strong>  — 显示游戏数据。<ul>
+<li><code>/time</code> — 当前模拟时间和帧。</li>
+</ul>
+</li>
+<li><strong>/lidar</strong> — LIDAR 传感器数据。<ul>
+<li><code>/points</code> — LIDAR 传感器检测到的点云。 </li>
+</ul>
+</li>
+<li><strong>/radar</strong> — LIDAR 传感器数据。<ul>
+<li><code>/points</code> — 雷达传感器检测到的点云。  </li>
+</ul>
+</li>
+<li><strong>/traffic</strong>  — 地标数据。<ul>
+<li><code>/traffic_light</code> — 在可视化窗口中显示地图的交通灯。</li>
+<li><code>/stop_sign</code> — 在可视化窗口中显示地图的停车标志。</li>
+</ul>
+</li>
+</ul>
+<p>尝试生成一些参与者。这些将在可视化窗口中自动更新。
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>PythonAPI/examples
+<span class="c1"># 在同步模式模拟下生成参与者</span>
+python3<span class="w"> </span>generate_traffic.py<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-w<span class="w"> </span><span class="m">5</span>
+</code></pre></div></p>
+<p><img alt="carlaviz_full" src="../img/plugins_carlaviz_full.jpg" /></p>
+<p>生成一个手动控制的自主车辆并四处移动，以查看插件如何更新传感器数据。
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>PythonAPI/examples
+python3<span class="w"> </span>manual_control.py
+</code></pre></div></p>
+<p><img alt="carlaviz_data" src="../img/plugins_carlaviz_data.jpg" /></p>
+<p>贡献者 ( <a href="https://github.com/wx9698">wx9698</a> ) 创建了一个附加类 <a href="https://github.com/wx9698/carlaviz/blob/master/examples/carla_painter.py">CarlaPainter</a> ，它允许用户绘制要在可视化窗口中显示的元素。其中包括文本、点和折线。按照 <a href="https://github.com/carla-simulator/carlaviz/blob/master/examples/example.py">此示例</a> 生成带有 LIDAR 的自我车辆，并绘制 LIDAR 数据、车辆的轨迹和速度。</p>
+<p><img alt="carlaviz_demo" src="../img/plugins_carlaviz_demo.jpg" /></p>
+<h2 id="_6">像素流<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>参考 <a href="https://github.com/OpenHUTB/gpt/tree/main/sim">链接</a> 中的说明和代码进行像素流推送的部署，如果出现启动成功：
+<div class="highlight"><pre><span></span><code>12:06:52.980 WebSocket 1istening to Streamer comnections on :8888
+12:06:52.982 WebSocket listening to Players comnections on :80
+12:06:52.980 Http 1istening on *: 80
+</code></pre></div>
+但是浏览器访问不了像素流，则可能需要：在系统设置里（或按win键直接搜<code>代理</code>），把这个<code>使用代理服务器</code>点掉。</p>
+<hr />
+<p>这就是关于 carlaviz 插件的全部信息。如果有任何疑问，请随时在论坛中发布。</p>
+<h2 id="_7">其他<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><a href="https://mp.weixin.qq.com/s/LLGqp8ESzXWOejrSsBKnNw">Carla＋Carlaviz：仿真数据可视化</a></p>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions/" target="_blank" class="btn btn-neutral" title="Go to the CARLA forum">
+Carla 论坛</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

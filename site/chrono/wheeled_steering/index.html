@@ -1,0 +1,563 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>转向机构模型 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              转向机构模型
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      转向臂
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      齿条齿轮
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      旋臂
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">转向机构模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="#pitman_arm"><strong>转向臂</strong></a></li>
+<li><a href="#rack_pinion"><strong>齿条齿轮</strong></a></li>
+<li><a href="#rotary_arm"><strong>旋臂</strong></a></li>
+</ul>
+<p>基类 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_ch_steering.html">ChSteering</a> 规定任何派生的转向机构类（转向机构模板）都应提供一个转向连杆体，可转向悬架可以与其连接（通常通过悬架的转向连杆）。</p>
+<p>派生转向机构类型定义特定类型的转向机构的主体、关节、力元素和拓扑。所有位置均假定相对于机构参考系提供（派生转向机构类型可以自由选择此框架的位置和方向）。</p>
+<p>通过指定机构组件参考系相对于底盘参考系的位置和方向（参见 <a href="https://api.projectchrono.org/vehicle_overview.html#vehicle_ISO_frame">ISO 参考系</a> 的定义），将转向机构组件安装到车辆底盘上。</p>
+<p>轮式车辆可能有多个转向机构，每个转向机构与不同的转向车轴相关联。同样，单个转向机构可以连接到多个转向车轴。</p>
+<h2 id="_2">转向臂 <span id="pitman_arm"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>该转向机构为四连杆机构，转向连杆体通过转向臂和惰臂与底盘相连。转向臂体通过万向节与转向连杆相连，通过旋转关节与底盘相连。驾驶员转向输入用于控制旋转关节的角度。在 Chrono::Vehicle 转向臂模板中，惰臂采用复合旋转球关节建模。</p>
+<p>参见 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_ch_pitman_arm.html">ChPitmanArm</a> 和 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_pitman_arm.html">PitmanArm</a> 。</p>
+<p><img alt="" src="../../img/chrono/PitmanArm_bodies.png" /></p>
+<p>本转向机构模板的拓扑结构为：</p>
+<p><img alt="" src="../../img/chrono/PitmanArm_topology.png" /></p>
+<p>承力点如下：</p>
+<p><img alt="" src="../../img/chrono/PitmanArm_points.png" /></p>
+<p>具有 PitmanArm 转向机构规范的示例 JSON 文件如下：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;HMMWV Pitman Arm Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Template&quot;</span><span class="p">:</span><span class="w">                   </span><span class="s2">&quot;PitmanArm&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;Vehicle-Frame Inertia&quot;</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;Steering Link&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Mass&quot;</span><span class="p">:</span><span class="w">                     </span><span class="mf">3.681</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;COM&quot;</span><span class="p">:</span><span class="w">                      </span><span class="p">[</span><span class="mf">0.129</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Moments of Inertia&quot;</span><span class="p">:</span><span class="w">       </span><span class="p">[</span><span class="mf">0.252</span><span class="p">,</span><span class="w"> </span><span class="mf">0.00233</span><span class="p">,</span><span class="w"> </span><span class="mf">0.254</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Products of Inertia&quot;</span><span class="p">:</span><span class="w">      </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Radius&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.03</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Pitman Arm&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Mass&quot;</span><span class="p">:</span><span class="w">                     </span><span class="mf">1.605</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;COM&quot;</span><span class="p">:</span><span class="w">                      </span><span class="p">[</span><span class="mf">0.064</span><span class="p">,</span><span class="w"> </span><span class="mf">0.249</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Moments of Inertia&quot;</span><span class="p">:</span><span class="w">       </span><span class="p">[</span><span class="mf">0.00638</span><span class="p">,</span><span class="w"> </span><span class="mf">0.00756</span><span class="p">,</span><span class="w"> </span><span class="mf">0.00150</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Products of Inertia&quot;</span><span class="p">:</span><span class="w">      </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Radius&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.02</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Revolute Joint&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Location&quot;</span><span class="p">:</span><span class="w">                 </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.249</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Direction&quot;</span><span class="p">:</span><span class="w">                </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Maximum Angle (deg)&quot;</span><span class="p">:</span><span class="w">      </span><span class="mi">30</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Universal Joint&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Location&quot;</span><span class="p">:</span><span class="w">                 </span><span class="p">[</span><span class="w"> </span><span class="mf">0.129</span><span class="p">,</span><span class="w"> </span><span class="mf">0.249</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Direction Arm&quot;</span><span class="p">:</span><span class="w">            </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Direction Link&quot;</span><span class="p">:</span><span class="w">           </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Revolute-Spherical Joint&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Location Chassis&quot;</span><span class="p">:</span><span class="w">         </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.325</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Location Link&quot;</span><span class="p">:</span><span class="w">            </span><span class="p">[</span><span class="mf">0.129</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.325</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Direction&quot;</span><span class="p">:</span><span class="w">                </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Tierod Locations&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Pitman Side&quot;</span><span class="p">:</span><span class="w">              </span><span class="p">[</span><span class="mf">0.195</span><span class="p">,</span><span class="w">  </span><span class="mf">0.448</span><span class="p">,</span><span class="w"> </span><span class="mf">0.035</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Idler Side&quot;</span><span class="p">:</span><span class="w">               </span><span class="p">[</span><span class="mf">0.195</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.448</span><span class="p">,</span><span class="w"> </span><span class="mf">0.035</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_3">齿条齿轮 <span id="rack_pinion"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Chrono::Vehicle 齿条齿轮转向模板是齿条齿轮转向机构的运动学模型。转向连杆体通过棱柱关节连接到底盘。齿条位移计算如下：</p>
+<p>d= r （α最大限度s )</p>
+<p>其中r是小齿轮半径，α最大限度 是最大小齿轮角，并且s ∈ [ − 1 , 1 ]是驾驶员的转向输入。该位移用于控制转向连杆的平移。</p>
+<p>参见 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_ch_rack_pinion.html">ChRackPinion</a> 和 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_rack_pinion.html">RackPinion</a> 。</p>
+<p><img alt="" src="../../img/chrono/RackPinion_bodies.png" /></p>
+<p>本转向机构模板的拓扑结构为：</p>
+<p><img alt="" src="../../img/chrono/RackPinion_topology.png" /></p>
+<p>受力点如下：</p>
+<p><img alt="" src="../../img/chrono/RackPinion_points.png" /></p>
+<p>具有 RackPinion 转向机构规范的示例 JSON 文件如下：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;HMMWV Rack-Pinion Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Template&quot;</span><span class="p">:</span><span class="w">                   </span><span class="s2">&quot;RackPinion&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;Steering Link&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Mass&quot;</span><span class="p">:</span><span class="w">                     </span><span class="mf">9.072</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;COM&quot;</span><span class="p">:</span><span class="w">                      </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Inertia&quot;</span><span class="p">:</span><span class="w">                  </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Radius&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.03</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Length&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.896</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nt">&quot;Pinion&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Radius&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Maximum Angle (deg)&quot;</span><span class="p">:</span><span class="w">      </span><span class="mi">50</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">旋臂 <span id="rotary_arm"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>旋转臂转向是一种绕轴旋转的简单杠杆臂。它与实心摇臂轴和实心前束轴配合使用。它通常用作卡车、农用拖拉机和联合收割机的转向系统。</p>
+<p>参见 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_ch_rotary_arm.html">ChRotaryArm</a> 和 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_rotary_arm.html">RotaryArm</a> 。</p>
+<p><img alt="" src="../../img/chrono/RotaryArm_bodies.png" /></p>
+<p>本转向机构模板的拓扑结构为：</p>
+<p><img alt="" src="../../img/chrono/RotaryArm_topology.png" /></p>
+<p>受力点如下：</p>
+<p><img alt="" src="../../img/chrono/RotaryArm_points.png" /></p>
+<p>具有 RotaryArm 转向机构规范的示例 JSON 文件如下：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;UAZBUS Rotary-Arm Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w">                       </span><span class="s2">&quot;Steering&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Template&quot;</span><span class="p">:</span><span class="w">                   </span><span class="s2">&quot;RotaryArm&quot;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">&quot;Pitman Arm&quot;</span><span class="p">:</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Mass&quot;</span><span class="p">:</span><span class="w">                     </span><span class="mf">5.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Inertia&quot;</span><span class="p">:</span><span class="w">                  </span><span class="p">[</span><span class="mf">0.00638</span><span class="p">,</span><span class="w"> </span><span class="mf">0.00756</span><span class="p">,</span><span class="w"> </span><span class="mf">0.00150</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Inertia Products&quot;</span><span class="p">:</span><span class="w">         </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Radius&quot;</span><span class="p">:</span><span class="w">                   </span><span class="mf">0.03</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Axis of Rotation&quot;</span><span class="p">:</span><span class="w">         </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">           </span><span class="c1">// arm-chassis revolute joint</span>
+<span class="w">    </span><span class="nt">&quot;Point of Rotation&quot;</span><span class="p">:</span><span class="w">        </span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5325</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">],</span><span class="w">  </span><span class="c1">// location of chassis connection</span>
+<span class="w">    </span><span class="nt">&quot;Point to Draglink&quot;</span><span class="p">:</span><span class="w">        </span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5325</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">],</span><span class="w">  </span><span class="c1">// location of draglink connection</span>
+<span class="w">    </span><span class="nt">&quot;Maximum Angle (deg)&quot;</span><span class="p">:</span><span class="w">      </span><span class="mf">12.5</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

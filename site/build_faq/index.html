@@ -1,0 +1,1292 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>常问的问题 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              常问的问题
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      专业问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统要求
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 构建
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 构建
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openhutb" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译 OpenHUTB 分支
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译 OpenHUTB 分支">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-lanunch-args-chrono" class="md-nav__link">
+    <span class="md-ellipsis">
+      make lanunch ARGS="--chrono"报错
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 Carla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      构建 Carla 所需的磁盘空间。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 Carla 的推荐硬件。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 构建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-carlaue4sh" class="md-nav__link">
+    <span class="md-ellipsis">
+      从 GitHub 下载时不会出现“CarlaUE4.sh”脚本。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-launch-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      “make launch”在 Linux 上不起作用。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      克隆虚幻引擎存储库显示错误。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributeerror-module-carla-has-no-attribute-client-when-running-a-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      AttributeError: module 'carla' has no attribute 'Client' when running a script.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtimeerror-rpcrpc_error-during-call-in-function-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      无法运行示例脚本或 "RuntimeError: rpc::rpc_error during call in function version".
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 构建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows 构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-carlaue4exe" class="md-nav__link">
+    <span class="md-ellipsis">
+      从 GitHub 下载时不会出现“CarlaUE4.exe”。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carlaue4-could-not-be-compiled-try-rebuilding-it-from-source-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      CarlaUE4 could not be compiled. Try rebuilding it from source manually.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      即使 CMake 已正确安装，也会显示 CMake 错误。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-c2440-c2672-compiler-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error C2440, C2672: compiler version.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-launch-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      “make launch”在 Windows 上不起作用。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-libintl3dll-libiconv2dll" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make 缺少 libintl3.dll 或/和 libiconv2.dll。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules-are-missing-or-built-with-a-different-engine-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules are missing or built with a different engine version.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythonapicarladist" class="md-nav__link">
+    <span class="md-ellipsis">
+      尽管成功输出消息，但在PythonAPI/carla中没有dist文件夹。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osm2odr-visualstudio" class="md-nav__link">
+    <span class="md-ellipsis">
+      osm2odr-visualstudio为空，或者拷贝过去的目录不对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      类型转换不对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osm2odrlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      链接不到osm2odr.lib
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译器的堆空间不足
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carla_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行 Carla
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="运行 Carla">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla_0912sherror-while-loading-shared-libraries-libompso5" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行Carla_0.9.12.sh时候报错：error while loading shared libraries: libomp.so.5。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fps" class="md-nav__link">
+    <span class="md-ellipsis">
+      在虚幻编辑器中运行服务器时 FPS 速率较低。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      无法运行脚本。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      在虚幻编辑器中运行时连接到模拟器。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      无法运行 Carla，无论是二进制还是源代码构建。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importerror-dll-load-failed-the-specified-module-could-not-be-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      ImportError: DLL load failed: The specified module could not be found.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importerror-dll-load-failed-while-importing-libcarla-1-is-not-a-valid-win32-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      ImportError: DLL load failed while importing libcarla: %1 is not a valid Win32 app.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importerror-no-module-named-carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      ImportError: No module named 'carla'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtimeerror-rpcrpc_error-during-call-in-function-apply_batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      RuntimeError: rpc::rpc_error during call in function apply_batch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valueerror-sticky_control-invalid-value-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      ValueError: sticky_control: invalid value type
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fatal-error-versionh-has-been-modified-since-the-precompiled-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fatal error: 'version.h' has been modified since the precompiled header.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建 Carla 的二进制版本。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-windows-carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      我可以在 Linux 计算机上打包适用于 Windows 的 Carla，反之亦然吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carla_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何卸载 Carla 客户端库？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">常问的问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>此处列出了有关 Carla 安装和构建的一些最常见问题。更多信息可以在该项目的 <a href="https://github.com/carla-simulator/carla/issues?utf8=%E2%9C%93&amp;q=label%3Aquestion+">GitHub issues</a> 找到。如果您没有发现此处列出的疑问，请查看论坛并随时提问。</p>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions/" target="_blank" class="btn btn-neutral" title="跳转至 Carla 论坛">
+Carla 论坛</a>
+</p>
+</div>
+
+<hr />
+<h2 id="_2">专业问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="./QA/sensor.md">传感器</a></li>
+<li><a href="./QA/dynamics.md">动力学</a></li>
+</ul>
+<h2 id="_3">系统要求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#expected-disk-space-to-build-carla">构建 Carla 所需的磁盘空间。</a></li>
+<li><a href="#recommended-hardware-to-run-carla">运行 Carla 的推荐硬件。</a></li>
+</ul>
+<hr />
+<h2 id="linux">Linux 构建<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#carlaue4sh-script-does-not-appear-when-downloading-from-github">从 GitHub 下载时不会出现“CarlaUE4.sh”脚本。</a></li>
+<li><a href="#make-launch-is-not-working-on-linux">“make launch” 在 Linux 上不起作用。</a></li>
+<li><a href="#cloning-the-unreal-engine-repository-shows-an-error">克隆虚幻引擎存储库显示错误。</a></li>
+<li><a href="#attributeerror-module-carla-has-no-attribute-client-when-running-a-script">AttributeError: module 'carla' has no attribute 'Client' when running a script.</a></li>
+<li><a href="#cannot-run-example-scripts-or-runtimeerror-rpcrpc_error-during-call-in-function-version">无法运行示例脚本或 "RuntimeError: rpc::rpc_error during call in function version".</a></li>
+</ul>
+<hr />
+<h2 id="windows">Windows 构建<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#carlaue4exe-does-not-appear-when-downloading-from-github">从 GitHub 下载时不会出现“CarlaUE4.exe”。</a></li>
+<li><a href="#carlaue4-could-not-be-compiled-try-rebuilding-it-from-source-manually">CarlaUE4 无法编译。尝试从源手动重建它。</a></li>
+<li><a href="#cmake-error-shows-even-though-cmake-is-properly-installed">即使 CMake 已正确安装，也会显示 CMake 错误。</a></li>
+<li><a href="#error-c2440-c2672-compiler-version">Error C2440, C2672：编译器版本。</a></li>
+<li><a href="#make-launch-is-not-working-on-windows">“make launch”在 Windows 上不起作用。</a></li>
+<li><a href="#make-is-missing-libintl3dll-orand-libiconv2dll">Make 缺少 libintl3.dll 或/和 libiconv2.dll。</a></li>
+<li><a href="#modules-are-missing-or-built-with-a-different-engine-version">模块缺失或使用不同的引擎版本构建。</a></li>
+<li><a href="#there-is-no-dist-folder-in-pythonapicarla-despite-a-successful-output-message">在 <code>PythonAPI/carla</code> 中尽管成功输出消息，但没有<code>dist</code>文件夹</a></li>
+<li><a href="#osm2odr_is_null">osm2odr-visualstudio为空，或者拷贝过去的目录不对</a></li>
+<li><a href="#type_conversion_error">类型转换不对</a></li>
+<li><a href="#link_osm2odr_failed">链接不到osm2odr.lib</a></li>
+<li><a href="#heap_lack">编译器的堆空间不足</a></li>
+</ul>
+<hr />
+<h2 id="openhutb">编译 OpenHUTB 分支<a class="headerlink" href="#openhutb" title="Permanent link">&para;</a></h2>
+<h3 id="make-lanunch-args-chrono">make lanunch ARGS="--chrono"报错<a class="headerlink" href="#make-lanunch-args-chrono" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(219): error C2653: “CubemapHelpersFisheye”: 不是类或命名空间名称
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(279): note: 查看对正在编译的函数 模板 实例化“void AFisheyeSensor::SendPixelsInRenderThread&lt;AFisheyeSensor&gt;(TSensor &amp;,float,float,float,float,float,float,float,float,float,float,float)”的引用
+      with
+      [
+          TSensor=AFisheyeSensor
+      ]
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(219): error C2065: “FFisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(219): error C2146: 语法错误: 缺少“;”(在标识符“FisheyeParams”的前面)
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(219): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(221): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(223): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(225): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(227): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(229): error C2653: “CubemapHelpersFisheye”: 不是类或命名空间名称
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(229): error C2065: “FisheyeParams”: 未声明的标识符
+D:/work/workspace/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/FisheyeSensor.cpp(229): error C3861: “GenerateLongLatUnwrapFisheye”: 找不到标识符
+</code></pre></div>
+<blockquote>
+<p>因为鱼眼相机需要修改虚幻引擎中的代码，需要同步更新 <a href="https://github.com/OpenHUTB/UnrealEngine">UnrealEngine</a> 分支中的代码。</p>
+</blockquote>
+<hr />
+<h2 id="carla">运行 Carla<a class="headerlink" href="#carla" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#load_libraries">运行Carla_0.9.12.sh时候报错：error while loading shared libraries: libomp.so.5</a></li>
+<li><a href="#low-fps-rate-when-running-the-server-in-unreal-editor">在虚幻编辑器中运行服务器时 FPS 速率较低。</a></li>
+<li><a href="#cant-run-a-script">无法运行脚本。</a></li>
+<li><a href="#connect-to-the-simulator-while-running-within-unreal-editor">当在虚幻编辑器中运行时链接到模拟器。</a></li>
+<li><a href="#cant-run-carla-neither-binary-nor-source-build">无法运行 Carla，无论是二进制还是源代码构建。</a></li>
+<li><a href="#importerror-dll-load-failed-the-specified-module-could-not-be-found">ImportError: DLL load failed: The specified module could not be found.</a></li>
+<li><a href="#importerror-dll-load-failed-while-importing-libcarla-1-is-not-a-valid-win32-app">ImportError: DLL load failed while importing libcarla: %1 is not a valid Win32 app.</a></li>
+<li><a href="#importerror-no-module-named-carla">ImportError: No module named 'carla'</a></li>
+<li><a href="#rpc_error">RuntimeError: rpc::rpc_error during call in function apply_batch</a></li>
+<li><a href="#value_error">ValueError: sticky_control: invalid value type</a></li>
+</ul>
+<hr />
+<h2 id="_4">其他<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#fatal-error-versionh-has-been-modified-since-the-precompiled-header">Fatal error: 'version.h' has been modified since the precompiled header.</a></li>
+<li><a href="#create-a-binary-version-of-carla">创建 Carla 的二进制版本。</a></li>
+<li><a href="#can-i-package-carla-for-windows-on-a-linux-machine-and-vice-versa">我可以在 Linux 计算机上打包适用于 Windows 的 Carla，反之亦然吗？</a></li>
+<li><a href="#how-do-i-uninstall-the-carla-client-library">如何卸载 Carla 客户端库？</a></li>
+</ul>
+<hr />
+<!-- ======================================================================= -->
+<h2 id="_5">系统要求<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<!-- ======================================================================= -->
+
+<h6 id="carla_1">构建 Carla 所需的磁盘空间。 <span id="expected-disk-space-to-build-carla"></span><a class="headerlink" href="#carla_1" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>建议至少有 170GB 可用空间。构建 Carla 需要大约 35GB 的磁盘空间，加上虚幻引擎大约需要 95-135GB。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="carla_2">运行 Carla 的推荐硬件。 <span id="recommended-hardware-to-run-carla"></span><a class="headerlink" href="#carla_2" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Carla 是一款性能要求较高的软件。它至少需要 6GB GPU，或者更好的是能够运行虚幻引擎的专用 GPU。</p>
+<p>看看 <a href="https://www.ue4community.wiki/recommended-hardware-x1p9qyg0">虚幻引擎推荐的硬件</a> 。</p>
+</blockquote>
+<hr />
+<h2 id="linux_1">Linux 构建<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h2>
+<!-- ======================================================================= -->
+<h6 id="github-carlaue4sh">从 GitHub 下载时不会出现“CarlaUE4.sh”脚本。 <span id="carlaue4sh-script-does-not-appear-when-downloading-from-github"></span><a class="headerlink" href="#github-carlaue4sh" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Carla 的源版本中没有 <code>CarlaUE4.sh</code> 脚本。按照 <a href="../build_linux/">构建说明</a> 从源代码构建 Carla。</p>
+<p>要使用 <code>CarlaUE4.sh</code> 运行 Carla，请按照 <a href="../start_quickstart/">快速启动安装</a> 进行操作。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="make-launch-linux">“make launch”在 Linux 上不起作用。 <span id="make-launch-is-not-working-on-linux"></span><a class="headerlink" href="#make-launch-linux" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>在构建安装过程中可能会拖出许多不同的问题，并会像这样显现出来。以下是最可能的原因列表：</p>
+<ul>
+<li><strong>运行虚幻引擎 4.26。</strong> 构建虚幻引擎时可能出现某些问题。尝试单独运行虚幻编辑器并检查它是否是 4.26 版本。</li>
+<li><strong>下载资产。</strong> 如果没有视觉内容，服务器将无法运行。此步骤是强制性的。</li>
+<li><strong>UE4_ROOT 未定义。</strong> 境变量未设置。请记住通过将其添加到 <code>~/.bashrc</code> 或 <code>~/.profile</code> 来使其在会话范围内持久存在。否则，需要为每个新 shell 进行设置。运行<code>export UE4_ROOT=&lt;path_to_unreal_4-26&gt;</code>设置这次的变量。</li>
+<li><strong>检查依赖。</strong> 确保一切都安装正确。也许其中一个命令被跳过、不成功或者依赖项不适合系统。</li>
+<li><strong>删除 Carla 并再次克隆它。</strong> 以防万一出了问题。删除 Carla 并重新克隆或下载。</li>
+<li><strong>满足系统要求。</strong> Ubuntu 版本应为 16.04 或更高版本。Carla 需要大约 170GB 的磁盘空间和一个专用 GPU（或至少一个 6GB）才能运行。</li>
+</ul>
+<p>系统显示与 Carla 冲突的其他特定原因可能会发生。请将这些内容发布到 <a href="https://github.com/carla-simulator/carla/discussions/">论坛</a> 上，以便团队可以更多地了解它们。 </p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="_6">克隆虚幻引擎存储库显示错误。 <span id="cloning-the-unreal-engine-repository-shows-an-error"></span><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p><strong>1. 虚幻引擎帐号是否已激活？</strong> 虚幻引擎存储库是私有的。为了克隆它，请创建虚 <a href="https://www.unrealengine.com/en-US/">幻引擎帐</a> 户，激活它（检查验证邮件），然后 <a href="https://www.unrealengine.com/en-US/blog/updated-authentication-process-for-connecting-epic-github-accounts">链接您的 GitHub</a>  帐户。</p>
+<p><strong>2. git是否安装正确？</strong> 有时错误表明与 <code>https</code> 协议不兼容。通过卸载并重新安装 git 即可轻松解决。打开终端并运行以下命令：</p>
+<pre><code> sudo apt-get remove git # 卸载 git
+ sudo apt install git-all # 安装 git
+</code></pre>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="attributeerror-module-carla-has-no-attribute-client-when-running-a-script">AttributeError: module 'carla' has no attribute 'Client' when running a script. <span id="attributeerror-module-carla-has-no-attribute-client-when-running-a-script"></span><a class="headerlink" href="#attributeerror-module-carla-has-no-attribute-client-when-running-a-script" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>运行以下命令。</p>
+<pre><code>  pip3 install -Iv setuptools==47.3.1
+</code></pre>
+<p>并再次构建 PythonAPI。</p>
+<pre><code> make PythonAPI
+</code></pre>
+<p>尝试构建文档来测试一切是否正常运行。应该会显示成功的消息。</p>
+<pre><code> make PythonAPI.docs
+</code></pre>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="runtimeerror-rpcrpc_error-during-call-in-function-version">无法运行示例脚本或 "RuntimeError: rpc::rpc_error during call in function version". <span id="cannot-run-example-scripts-or-runtimeerror-rpcrpc_error-during-call-in-function-version"></span><a class="headerlink" href="#runtimeerror-rpcrpc_error-during-call-in-function-version" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p><img alt="faq_rpc_error" src="../img/faq_rpc_error.jpg" /></p>
+<p>如果运行脚本返回与此类似的输出，则说明 PythonAPI 中的 <code>.egg</code> 文件存在问题。</p>
+</blockquote>
+<p>!!! 重要
+    如果您使用的是 0.9.12+，有多种方法可以使用/安装客户端库。如果您使用客户端库（<code>.whl</code> 或 PyPi 下载）的较新方法之一，本节中的信息将与您无关。</p>
+<blockquote>
+<p>首先，打开<code>&lt;root_carla&gt;/PythonAPI/carla/dist</code>。 应该有一个和你正在使用相对应的 Carla 和 Python 响应的 <code>.egg</code> 文件（类似于 <code>carla-0.X.X-pyX.X-linux-x86_64.egg</code>）。确保该文件与您正在使用的 Python 版本匹配。要检查您的 Python 版本，请使用以下命令。 </p>
+<pre><code>  python3 --version
+  # 或者对于 Python 2
+  python --version
+</code></pre>
+<p>如果文件丢失或者您认为它可能已损坏，请尝试再次重建。</p>
+<pre><code> make clean
+ make PythonAPI
+ make launch
+</code></pre>
+<p>现在再次尝试示例脚本之一。 </p>
+<pre><code> cd PythonAPI/examples
+ python3 dynamic_weather.py
+</code></pre>
+<p>如果错误仍然存在，则问题可能与您的 PythonPATH 有关。这些脚本会自动查找<code>.egg</code> 与构建相关的文件，因此，您的 PythonPATH 中可能存在另一个<code>.egg</code> 文件干扰该过程。使用以下命令显示 PythonPATH 的内容。</p>
+<pre><code> echo $PYTHONPATH
+</code></pre>
+<p>在类似于<code>PythonAPI/carla/dist</code>的路径下查找另一个<code>.egg</code>文件，并删除它们。它们可能属于 Carla 安装的其他实例。例如，如果您还通过 <em>apt-get</em> 安装了 Carla ，则可以使用以下命令将其删除，并且 PythonPATH 也会被清理。</p>
+<pre><code> sudo apt-get purge carla-simulator
+</code></pre>
+<p>最终可以选择使用<code>~/.bashrc</code>，将PythonPATH下你构建的<code>.egg</code>文件添加进来。这不是推荐的方式。最好有一个明确的 PythonPATH，只需在脚本中添加必要的<code>.egg</code>文件路径即可。</p>
+<p>首先，打开 <code>~/.bashrc</code>.</p>
+<pre><code> gedit ~/.bashrc
+</code></pre>
+<p>将以下行添加到 <code>~/.bashrc</code>。它们存储构建的<code>.egg</code>文件路径，以便Python可以自动找到它。保存文件，然后重置终端以使更改生效。</p>
+<div class="highlight"><pre><span></span><code>export PYTHONPATH=$PYTHONPATH:&quot;${CARLA_ROOT}/PythonAPI/carla/dist/$(ls ${CARLA_ROOT}/PythonAPI/carla/dist | grep py3.)&quot;
+export PYTHONPATH=$PYTHONPATH:${CARLA_ROOT}/PythonAPI/carla
+</code></pre></div>
+<p>清理 PythonPATH 或添加构建的 <code>.egg</code>文件路径后，所有示例脚本都应该正常工作。</p>
+</blockquote>
+<hr />
+<h2 id="windows_1">Windows 构建<a class="headerlink" href="#windows_1" title="Permanent link">&para;</a></h2>
+<!-- ======================================================================= -->
+
+<h6 id="github-carlaue4exe">从 GitHub 下载时不会出现“CarlaUE4.exe”。 <span id="carlaue4exe-does-not-appear-when-downloading-from-github"></span><a class="headerlink" href="#github-carlaue4exe" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Carla 的源版本中没有<code>CarlaUE4.exe</code>可执行文件。按照构建说明从源代码构建 Carla。要直接获取<code>CarlaUE4.exe</code>，请按照 <a href="../start_quickstart/">快速入门</a> 说明进行操作。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="carlaue4-could-not-be-compiled-try-rebuilding-it-from-source-manually">CarlaUE4 could not be compiled. Try rebuilding it from source manually. <span id="carlaue4-could-not-be-compiled-try-rebuilding-it-from-source-manually"></span><a class="headerlink" href="#carlaue4-could-not-be-compiled-try-rebuilding-it-from-source-manually" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>尝试构建 Carla 时出现问题。使用 Visual Studio 重新构建以发现发生了什么。</p>
+<p><strong>1.</strong> 转到 <code>carla/Unreal/CarlaUE4</code> 并右键单击 <code>CarlaUE4.uproject</code>。</p>
+<p><strong>2.</strong> 单击 <strong>Generate Visual Studio project files</strong>。<br />
+<strong>3.</strong> 使用 Visual Studio 2019 打开生成的文件。</p>
+<p><strong>4.</strong> 使用 Visual Studio 编译项目。快捷键是F7。构建将失败，但发现的问题将显示在下面。</p>
+<p>不同的问题可能会导致出现此特定错误消息。用户<a href="https://github.com/tamakoji">@tamakoji</a> 解决了一个经常出现的情况，即源代码未正确克隆且无法设置 Carla 版本（从 git 将其下载为 .zip 时）。</p>
+<ul>
+<li><strong>检查 <code>Build/CMakeLists.txt.in</code>.</strong> 如果显示： <code>set(CARLA_VERSION )</code>，请执行以下操作： </li>
+</ul>
+<p><strong>1.</strong> 转到 <code>Setup.bat</code> 第 198 行。 </p>
+<p><strong>2.</strong> Update the line from: </p>
+<div class="highlight"><pre><span></span><code>for /f %%i in (&#39;git describe --tags --dirty --always&#39;) do set carla_version=%%i
+</code></pre></div>
+<p>为：</p>
+<div class="highlight"><pre><span></span><code>for /f %%i in (&#39;git describe --tags --dirty --always&#39;) do set carla_version=&quot;0.9.9&quot;
+</code></pre></div>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="cmake-cmake">即使 CMake 已正确安装，也会显示 CMake 错误。 <span id="cmake-error-shows-even-though-cmake-is-properly-installed"></span><a class="headerlink" href="#cmake-cmake" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>当尝试使用  <em>make</em> 命令构建服务器或客户端时会出现此问题。即使 CMake 已安装、更新并添加到环境路径中。Visual Studio 版本之间可能存在冲突。</p>
+<p>只留下VS2019，其余的彻底删除。 </p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="error-c2440-c2672-compiler-version">Error C2440, C2672: compiler version. <span id="error-c2440-c2672-compiler-version"></span><a class="headerlink" href="#error-c2440-c2672-compiler-version" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>由于与其他 Visual Studio 或 Microsoft 编译器版本冲突，该构建未使用 2019 编译器。卸载这些并再次重建。  </p>
+<p>Visual Studio 不擅长摆脱自身。要从计算机中彻底清除 Visual Studio，请转到 <code>Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout</code> 并运行 <code>.\InstallCleanup.exe -full</code>。这可能需要管理员权限。  </p>
+<p>要保留其他 Visual Studio 版本，请通过添加以下行进行编辑 <code>%appdata%\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml</code> ： </p>
+<div class="highlight"><pre><span></span><code> &lt;VCProjectFileGenerator&gt;
+   &lt;Version&gt;VisualStudio2019&lt;/Version&gt;
+&lt;/VCProjectFileGenerator&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> &lt;WindowsPlatform&gt;
+   &lt;Compiler&gt;VisualStudio2019&lt;/Compiler&gt;
+&lt;/WindowsPlatform&gt;
+</code></pre></div>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="make-launch-windows">“make launch”在 Windows 上不起作用。 <span id="make-launch-is-not-working-on-windows"></span><a class="headerlink" href="#make-launch-windows" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>在构建安装过程中可能会拖出许多不同的问题，并像这样显现出来。以下是最可能的原因列表：</p>
+<ul>
+<li><strong>重新启动计算机。</strong> Windows 构建期间发生了很多事情。重新启动并确保所有内容均已正确更新。</li>
+<li><strong>运行虚幻引擎 4.26。</strong> 构建虚幻引擎时可能出现某些问题。运行编辑器并检查是否使用了 4.26 版本。 </li>
+<li><strong>下载资产。</strong> 如果没有视觉内容，服务器将无法运行。此步骤是强制性的。</li>
+<li><strong>Visual Studio 2019.</strong> 如果安装或最近卸载了其他版本的 Visual Studio，可能会出现冲突。要从计算机中彻底清除 Visual Studio，请转到 <code>Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout</code> 并运行 <code>.\InstallCleanup.exe -full</code>。  </li>
+<li><strong>删除 Carla 并再次克隆它。</strong> 以防万一出了问题。删除 Carla 并重新克隆或下载。</li>
+<li><strong>满足系统要求。</strong> Carla 需要大约 170GB 的磁盘空间和一个专用 GPU（或至少一个 6GB）才能运行。</li>
+</ul>
+<p>系统显示与 Carla 冲突的其他特定原因可能会发生。请将这些内容发布到 <a href="https://github.com/carla-simulator/carla/discussions/">论坛</a> 上，以便团队可以更多地了解它们。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="make-libintl3dll-libiconv2dll">Make 缺少 libintl3.dll 或/和 libiconv2.dll。 <span id="make-is-missing-libintl3dll-orand-libiconv2dll"></span><a class="headerlink" href="#make-libintl3dll-libiconv2dll" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>下载 <a href="http://gnuwin32.sourceforge.net/downlinks/make-dep-zip.php">依赖项</a> 并将<code>bin</code>内容解压到<code>make</code>安装路径中。 </p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="modules-are-missing-or-built-with-a-different-engine-version">Modules are missing or built with a different engine version. <span id="modules-are-missing-or-built-with-a-different-engine-version"></span><a class="headerlink" href="#modules-are-missing-or-built-with-a-different-engine-version" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>单击 on <strong>Accept</strong> 以重建它们。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="pythonapicarladist">尽管成功输出消息，但在<code>PythonAPI/carla</code>中没有<code>dist</code>文件夹。  <span id="there-is-no-dist-folder-in-pythonapicarla-despite-a-successful-output-message"></span><a class="headerlink" href="#pythonapicarladist" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>在 Windows 中， <code>make PythonAPI</code> 命令可能会返回一条消息，表明 Python API 安装成功，但实际上并未成功。如果看到此输出后目录 <code>PythonAPI/carla</code> 中没有 <code>dist</code> 文件夹，请查看上面的命令输出。很可能发生了错误，需要在更正错误并运行 <code>make clean</code> 后重试构建。 </p>
+</blockquote>
+<h6 id="osm2odr-visualstudio">osm2odr-visualstudio为空，或者拷贝过去的目录不对 <span id="osm2odr_is_null"></span><a class="headerlink" href="#osm2odr-visualstudio" title="Permanent link">&para;</a></h6>
+<p><div class="highlight"><pre><span></span><code>CMake Error: The current CMakeCache.txt directory D:/work/workspace/carla/Build/osm2odr-visualstudio/CMakeCache.txt is different than the directory d:/work/buffer/carla/Build/osm2odr-visualstudio where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>CMake<span class="w"> </span>Error:<span class="w"> </span>The<span class="w"> </span><span class="nb">source</span><span class="w"> </span>directory<span class="w"> </span><span class="s2">&quot;D:/work/workspace/carla/Build/osm2odr-visualstudio/x64&quot;</span><span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>appear<span class="w"> </span>to<span class="w"> </span>contain<span class="w"> </span>CMakeLists.txt.
+</code></pre></div></p>
+<blockquote>
+<p>删除<code>carla\Build\osm2odr-visualstudio\CMakeCache.txt</code></p>
+</blockquote>
+<h6 id="_7">类型转换不对 <span id="type_conversion_error"></span><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h6>
+<blockquote>
+<div class="highlight"><pre><span></span><code>carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Vehicle/CustomTerrainPhysicsComponent.cpp<span class="o">(</span><span class="m">1161</span><span class="o">)</span>:<span class="w"> </span>error<span class="w"> </span>C2440:<span class="w"> </span>“static_cast”:<span class="w"> </span>无法从“float”转换为“EDefResolutionType”
+</code></pre></div>
+<p>注释掉
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span><span class="nv">ChosenRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>static_cast&lt;EDefResolutionType&gt;<span class="o">(</span>Value<span class="o">)</span><span class="p">;</span><span class="w">  </span>//<span class="w"> </span>static_cast&lt;EDefResolutionType&gt;<span class="o">(</span>Value<span class="o">)</span>
+</code></pre></div>
+注意：注意vs2019专业版才有这个问题，vs2019社区版没有这个问题。</p>
+</blockquote>
+<h6 id="osm2odrlib">链接不到osm2odr.lib <span id="link_osm2odr_failed"></span><a class="headerlink" href="#osm2odrlib" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p><code>fatal error LNK1181: carla\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\lib\osm2odr.lib</code></p>
+<p>从其他地方拷贝过来。</p>
+</blockquote>
+<h6 id="_8">编译器的堆空间不足 <span id="heap_lack"></span><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>编译虚幻引擎4时，出现<code>C1060</code> 编译器的堆空间不足，说明机器的内存不够，可以参考<a href="https://ue5wiki.com/wiki/32770/">链接</a> 限制所使用的核心数（默认是使用所有核心数）。
+修改<code>Engine/Saved/UnrealBuildTool/BuildConfiguration.xml</code>中的<code>MaxProcessorCount</code>：
+<div class="highlight"><pre><span></span><code>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="w"> </span>?&gt;
+&lt;Configuration<span class="w"> </span><span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;https://www.unrealengine.com/BuildConfiguration&quot;</span>&gt;
+<span class="w">  </span>&lt;ParallelExecutor&gt;
+<span class="w">    </span>&lt;ProcessorCountMultiplier&gt;7&lt;/ProcessorCountMultiplier&gt;
+<span class="w">    </span>&lt;MaxProcessorCount&gt;7&lt;/MaxProcessorCount&gt;
+<span class="w">    </span>&lt;bStopCompilationAfterErrors&gt;true&lt;/bStopCompilationAfterErrors&gt;
+<span class="w">  </span>&lt;/ParallelExecutor&gt;
+&lt;/Configuration&gt;
+</code></pre></div></p>
+</blockquote>
+<hr />
+<h2 id="carla_3">运行 Carla<a class="headerlink" href="#carla_3" title="Permanent link">&para;</a></h2>
+<!-- ======================================================================= -->
+
+<h6 id="carla_0912sherror-while-loading-shared-libraries-libompso5">运行Carla_0.9.12.sh时候报错：error while loading shared libraries: libomp.so.5。 <span id="load_libraries"></span><a class="headerlink" href="#carla_0912sherror-while-loading-shared-libraries-libompso5" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>sudo apt-get install libomp5</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="fps">在虚幻编辑器中运行服务器时 FPS 速率较低。 <span id="low-fps-rate-when-running-the-server-in-unreal-editor"></span><a class="headerlink" href="#fps" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>虚幻4编辑器在失焦时会进入低性能模式。  </p>
+<p>转到“编辑-&gt;编辑器偏好设置-&gt;性能” （<code>Edit/Editor Preferences/Performance</code>），然后禁用“处于背景中时占用较少 CPU”选项。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="_9">无法运行脚本。 <span id="cant-run-a-script"></span><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>有些脚本有要求。这些列在名为 <strong>Requirements.txt</strong> 的文件中，与脚本本身位于同一路径中。请务必检查这些以便运行脚本。其中大多数可以通过简单的<code>pip</code>命令进行安装。</p>
+<p>有时在 Windows 上，脚本无法仅使用 <code>&gt; script_name.py</code> 运行。尝试添加. Try adding <code>&gt; python3 script_name.py</code>，并确保位于正确的目录中。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="_10">在虚幻编辑器中运行时连接到模拟器。 <span id="connect-to-the-simulator-while-running-within-unreal-editor"></span><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>单击“运行”（ <strong>Play</strong> ）并等待场景加载。此时，Python 客户端可以像独立模拟器一样连接到模拟器。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="carla_4">无法运行 Carla，无论是二进制还是源代码构建。 <span id="cant-run-carla-neither-binary-nor-source-build"></span><a class="headerlink" href="#carla_4" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>NVIDIA 驱动程序可能已过时。确保情况并非如此。如果问题仍未解决，请查看 <a href="https://github.com/carla-simulator/carla/discussions/">论坛</a> 并发布具体问题。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="importerror-dll-load-failed-the-specified-module-could-not-be-found">ImportError: DLL load failed: The specified module could not be found. <span id="importerror-dll-load-failed-the-specified-module-could-not-be-found"></span><a class="headerlink" href="#importerror-dll-load-failed-the-specified-module-could-not-be-found" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>所需的库之一尚未正确安装。作为解决方法，请转至 <code>carla\Build\zlib-source\build</code>并在脚本的路径中复制名为 <code>zlib.dll</code> 的文件。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="importerror-dll-load-failed-while-importing-libcarla-1-is-not-a-valid-win32-app">ImportError: DLL load failed while importing libcarla: %1 is not a valid Win32 app. <span id="importerror-dll-load-failed-while-importing-libcarla-1-is-not-a-valid-win32-app"></span><a class="headerlink" href="#importerror-dll-load-failed-while-importing-libcarla-1-is-not-a-valid-win32-app" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>32 位 Python 版本在尝试运行脚本时会产生冲突。卸载它并仅保留所需的 Python3 x64。</p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="importerror-no-module-named-carla">ImportError: No module named 'carla' <span id="importerror-no-module-named-carla"></span><a class="headerlink" href="#importerror-no-module-named-carla" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>出现此错误的原因是 Python 找不到 Carla 库。Carla 库包含在位于<code>PythonAPI/carla/dist</code>目录中的一个<code>.egg</code>文件中，所有示例脚本都将在此目录中查找它。该<code>.egg</code>文件遵循carla-<carla-version>-py<python-version>-<operating-system>.egg 命名法。
+</p>
+</blockquote>
+<p>!!! 重要
+    Carla 仅在 0.9.12 之前的版本中使用客户端库文件 <code>.egg</code>。如果您使用的是 0.9.12+，有多种方法可以使用/安装客户端库。如果您使用客户端库（<code>.whl</code> 或 PyPi 下载）的较新方法之一，本节中的信息将与您无关。</p>
+<pre><code>在 [__快速入门教程__](start_quickstart.md#carla-0912) 中阅读有关使用/安装客户端库的新方法的更多信息。
+</code></pre>
+<blockquote>
+<p>如果您使用的是打包版本的 Carla，则会有多个 <code>.egg</code> 文件，对应不同版本的 Python，具体取决于 Carla 的版本。确保您正在使用这些 Python 版本之一运行脚本。要检查默认的 Python 版本，请在命令行中键入以下内容：</p>
+<pre><code>  python3 --version
+  # 或者
+  python --version
+</code></pre>
+<p>如果您从源代码构建 Python，则该<code>.egg</code> 文件将根据系统上的默认 Python 版本构建。在 Linux 中，这将是返回的默认 Python 版本：</p>
+<pre><code>  /usr/bin/env python3 --version
+  # 或者如果你指定 ARGS="--python-version=2"
+  /usr/bin/env python2 --version
+</code></pre>
+<p>在 Windows 中，它将成为以下功能的默认 Python 版本：</p>
+<pre><code>  py -3 --version
+</code></pre>
+<p>确保您使用与您的 <code>.egg</code> 文件对应的 Python 版本运行脚本.egg。在 Linux 中，您可能还需要将 Python 路径设置为指向 Carla。为此，请运行以下命令：</p>
+<pre><code>  export PYTHONPATH=$PYTHONPATH:&lt;path/to/carla/&gt;/PythonAPI/carla/dist/&lt;your_egg_file&gt;
+  # 检查现在 Carla 是否能发现
+  python3 -c 'import carla;print("Success")'
+</code></pre>
+<p>请注意，虚拟环境或 Conda 等其他 Python 环境可能会使 Carla 的安装变得复杂。确保您已相应地设置 Python 默认值和路径。</p>
+</blockquote>
+<h6 id="runtimeerror-rpcrpc_error-during-call-in-function-apply_batch">RuntimeError: rpc::rpc_error during call in function apply_batch <span id="rpc_error"></span><a class="headerlink" href="#runtimeerror-rpcrpc_error-during-call-in-function-apply_batch" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>PythonAPI的版本要和Carla服务的版本一致，比如dev分支的代码编译得到的虚幻编辑器运行的场景也要用dev分支代码编译的PythonAPI进行连接。</p>
+</blockquote>
+<h6 id="valueerror-sticky_control-invalid-value-type">ValueError: sticky_control: invalid value type <span id="value_error"></span><a class="headerlink" href="#valueerror-sticky_control-invalid-value-type" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>客户端和服务端的PythonAPI版本不一致，在dev分支开发时会出现。</p>
+<p>解决：服务端是dev分支，PythonAPI也要使用在dev分支上编译的客户端。
+解决2：如果确认Simulator端和客户端版本一致，但是仍然报两者版本不一致的话，先卸载客户端，然后通过<code>pip install carla</code>安装官方版本，然后再卸载安装编译版本的*.whl文件即可。</p>
+</blockquote>
+<hr />
+<h2 id="_11">其他<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<!-- ======================================================================= -->
+
+<h6 id="fatal-error-versionh-has-been-modified-since-the-precompiled-header">Fatal error: 'version.h' has been modified since the precompiled header. <span id="fatal-error-versionh-has-been-modified-since-the-precompiled-header"></span><a class="headerlink" href="#fatal-error-versionh-has-been-modified-since-the-precompiled-header" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>由于 Linux 更新，这种情况时常发生。Makefile 中有一个针对此问题的特殊目标。虽然花了很长时间，但解决了问题： </p>
+<pre><code> make hard-clean
+ make CarlaUE4Editor
+</code></pre>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="carla_5">创建 Carla 的二进制版本。 <span id="create-a-binary-version-of-carla"></span><a class="headerlink" href="#carla_5" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>在 Linux 中，在项目文件夹中运行 <code>make package</code>。该包将包括项目和 Python API 模块。 </p>
+<p>或者，可以在虚幻编辑器中编译 Carla 的二进制版本。打开 CarlaUE4 项目，转到菜单 <code>File/Package Project</code>，然后选择一个平台。可能还要等一下。 </p>
+</blockquote>
+<!-- ======================================================================= -->
+
+<h6 id="linux-windows-carla">我可以在 Linux 计算机上打包适用于 Windows 的 Carla，反之亦然吗？ <span id="can-i-package-carla-for-windows-on-a-linux-machine-and-vice-versa"></span><a class="headerlink" href="#linux-windows-carla" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>虽然此功能适用于虚幻引擎，但在 Carla 中不可用。我们有许多不支持交叉编译的依赖项。</p>
+</blockquote>
+<!-- ======================================================================= -->
+<h6 id="carla_6">如何卸载 Carla 客户端库？ <span id="how-do-i-uninstall-the-carla-client-library"></span><a class="headerlink" href="#carla_6" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>如果您使用 <strong>pip/pip3</strong> 安装了客户端库，则应通过运行以下命令将其卸载： </p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python 3</span>
+pip3<span class="w"> </span>uninstall<span class="w"> </span>carla
+
+<span class="c1"># Python 2</span>
+pip<span class="w"> </span>uninstall<span class="w"> </span>carla
+</code></pre></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

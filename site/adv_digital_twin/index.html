@@ -1,0 +1,627 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Adv digital twin - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adv digital twin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#osm" class="md-nav__link">
+    <span class="md-ellipsis">
+      构建 OSM 渲染器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载并准备 OSM 地图数据
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="下载并准备 OSM 地图数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osm_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载 OSM 文件并在界面中导航
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openstreetmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenStreetMap 浏览器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序化场景生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="程序化场景生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      道路装饰
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      建筑物
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成地图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      保存地图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      后续步骤
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p>!!! 笔记
+    <strong>数字孪生工具</strong> 目前是一项 <strong>实验性功能</strong> ，现阶段尚未考虑投入生产。地图的某些部分可能未装饰或无纹理。因此它只能用于实验研究项目。</p>
+<h1 id="_1"><a href="https://carla.readthedocs.io/en/latest/adv_digital_twin/">数字孪生工具</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><img alt="digital_twin_pipeline" src="../img/pipeline.png" /></p>
+<ul>
+<li><a href="#build_osm_render"><strong>构建 OSM 渲染器</strong></a></li>
+<li><a href="#downloading-and-preparing-osm-map-data"><strong>下载并准备 OSM 地图数据</strong></a></li>
+<li><a href="#openstreetmap-browser"><strong>OpenStreetMap 浏览器</strong></a></li>
+<li><a href="#procedural-environment-generation"><strong>程序化环境生成</strong></a></li>
+<li><a href="#road_painting">道路装饰</a></li>
+<li><a href="#building">建筑物</a></li>
+<li><a href="#generate-the-map"><strong>生成地图</strong></a></li>
+<li><a href="#save-the-map"><strong>保存地图</strong></a></li>
+<li><a href="#following_step"><strong>后续步骤</strong></a></li>
+<li><a href="#analysis"><strong>分析</strong></a></li>
+<li><a href="#problems"><strong>问题</strong></a></li>
+<li><a href="../adv_localization/"><strong>本地化UE编辑器</strong></a></li>
+</ul>
+<p><strong>数字孪生工具</strong> 能够基于源自 <a href="https://www.openstreetmap.org">OpenStreetMap</a> (OSM) 服务的道路网络，以程序方式生成独特的三维环境。通过 Carla 虚幻引擎编辑器中的数字孪生工具界面，用户可以从 OSM 选择地图区域并下载道路网络作为新 Carla 地图的基础。然后，该工具用程序生成的三维建筑物填充道路之间的空间，这些建筑物会根据道路布局进行调整，从而创建具有高可变性的真实三维道路环境。</p>
+<iframe width="100%" height="400px" src="https://www.youtube.com/embed/gTutXdS2UkQ?si=hssM3YRCAjSIzdXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<h2 id="osm">构建 OSM 渲染器 <span id="build_osm_render"></span><a class="headerlink" href="#osm" title="Permanent link">&para;</a></h2>
+<p>如果您使用的是 Linux，则可以选择使用 Carla 界面中的 OSM 渲染器来导航已下载的大型 OSM 地图区域。您首先需要构建 OSM 渲染器。 在 Carla 根目录中运行 <code>make osmrenderer</code>。 您可能需要将 CMake 版本升级到 v3.2 或更高版本才能正常工作。这将在您的构建目录中创建两个名为 <code>libosmcout-source</code> 和 <code>libosmcout-build</code> 的文件夹。在继续构建 Carla 之前，您需要像这样 在目录中 <code>$CARLA_ROOT/Build/libosmcout-source/maps</code> 编辑文件 <code>Build.sh</code>，以确保找到可执行文件：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-x<span class="w"> </span>../Import/src/Import<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">importExe</span><span class="o">=</span>../Import/src/Import
+<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-x<span class="w"> </span>../debug/Import/Import<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">importExe</span><span class="o">=</span>../debug/Import/Import
+<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-x<span class="w"> </span>../build/Import/Import<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">importExe</span><span class="o">=</span>../build/Import/Import
+<span class="c1">###################  Add this line ####################</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-x<span class="w"> </span>../../libosmscout-build/Import/Import<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nv">importExe</span><span class="o">=</span>../../libosmscout-build/Import/Import
+<span class="c1">#######################################################</span>
+<span class="k">else</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Cannot find Import executable!&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p>然后继续按正常方式构建 Carla。Windows 用户无法选择使用 OSM 渲染器，必须直接使用 URL。</p>
+<h2 id="osm_1">下载并准备 OSM 地图数据 <span id="downloading-and-preparing-osm-map-data"></span><a class="headerlink" href="#osm_1" title="Permanent link">&para;</a></h2>
+<p><img alt="osm_website" src="../img/osm_export.png" /></p>
+<p>在网络浏览器中，转到 <a href="https:/www.openstreetmap.org">OpenStreetMap 网站</a> 并选择您要使用的地图区域。定义您的区域，然后将数据导出为 <code>.osm</code> 文件，或者您可以使用 URL，如下所述。或者，您可以使用基于 OpenStreetMap 服务的其他工具（例如 <a href="https://download.geofabrik.de/">GeoFabrik</a> ，它允许从 OSM 数据中提取特定的地图区域（例如州或领地）。</p>
+<p>有两种方法可以使用 OSM 数据。使用 URL 或下载 OSM 文件：</p>
+<h3 id="url">使用 URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<p>在 <a href="https:/www.openstreetmap.org">OpenStreetMap 网站</a> 中，导航到感兴趣的区域，然后按 <code>Export</code>，您可能还想使用 <code>Manually select a different area</code> 选项。然后，右键单击 <code>Overpass API</code> 并从上下文菜单中选择 <code>Copy link</code>。 您必须确保文件不大于 1 GB。获取此链接并将其粘贴到界面的 URL 字段中。</p>
+<h3 id="osm_2">下载 OSM 文件并在界面中导航<a class="headerlink" href="#osm_2" title="Permanent link">&para;</a></h3>
+<p>此选项仅适用于 Linux 用户。您可以下载更大区域的地图，例如整个州或领地，然后使用 Carla 中的 OSM 界面，使用箭头和缩放按钮导航地图。将所需的 OSM 数据区域下载为<code>.osm</code>文件。 然后将此文件放入 <code>{CARLA_ROOT}/Build/libosmcout-source/maps/</code> 文件夹中。打开此文件夹内的终端并运行以下命令：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">{</span>CARLA_ROOT<span class="o">}</span>/Build/libosmcout-source/maps/
+./build.sh<span class="w"> </span>&lt;path_to_osm_file&gt;
+</code></pre></div>
+<p>!!! 笔记
+    如果 OpenStreetMap 中的地图有错误或不精确，可以通过<a href="../adv_edit_openstreetmap/">编辑地图</a>进行改进。</p>
+<h2 id="openstreetmap">OpenStreetMap 浏览器 <span id="openstreetmap-browser"></span><a class="headerlink" href="#openstreetmap" title="Permanent link">&para;</a></h2>
+<p>如果左下角的“内容浏览器”未看到“Carla内容”，到中间下面的“视图选项”中选中“显示插件内容”</p>
+<p>要打开 OSM 浏览器，请打开<strong>内容浏览器</strong>并导航至 <code>CarlaTools内容/OnroadMapGenerator</code>。右键单击 <em>UW_OnRoadMainWidget</em> 并从上下文菜单中选择 <em>运行编辑工具空间（Launch Editor Utility Widget）</em> 。这将打开该工具的界面。</p>
+<p><img alt="osm_interface_open" src="../img/digital_twins_widget.png" /></p>
+<p>该界面允许浏览已从 OSM 数据库下载并烘焙的 OSM 地图区域。首先，您应该在界面的 <em>Select OSM Database</em> 字段中输入上一步中存储处理后的 OSM 数据的目录位置。如果您直接使用 URL，请将其粘贴到 <code>OSM URL</code> 字段中，在这种情况下您将无法使用导航器。</p>
+<p><img alt="osm_interface" src="../img/digital_twins_interface.png" /></p>
+<p>使用方向箭头和缩放图标导航地图并找到要转换为 Carla 地图的道路网的一部分。您在预览中看到的方形区域将是地图的范围。在字段中输入适当的名称 <code>File Name</code> 然后按 <em>Generate</em> 开始程序生成过程。地图生成过程可能需要几分钟，如果您使用的是大区域，则可能需要更长的时间。</p>
+<p>先启动Carla服务，然后运行以下脚本从<code>.osm</code>文件中加载场景：
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>src/util/config.py<span class="w"> </span>-x<span class="w"> </span>*.xodr
+</code></pre></div></p>
+<h2 id="_2">程序化场景生成 <span id="procedural-environment-generation"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">道路装饰 <span id="road_painting"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>该工具从 OSM 数据中提取道路网络作为地图的基础。路面装饰有逼真的表面不规则性、道路纹理和车道线、裂痕和轮胎印迹。</p>
+<p><img alt="road_markings" src="../img/road_surface.jpg" /></p>
+<h3 id="_4">建筑物 <span id="building"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>道路之间的空白区域填充有建筑物或开放区域，它们会调整其形状和尺寸以填充道路之间的空间。</p>
+<p><img alt="procedural_buildings" src="../img/procedural_building_generation.jpg" /></p>
+<p>程序生成工具从 OSM 数据中提取建筑物占地面积和高度信息，以生成具有相似尺寸的虚拟建筑物。详细的覆层用于模拟窗户、门和阳台。根据建筑面积的不同，采用不同的装修风格，最高的建筑为办公风格，较小的建筑根据建筑占地面积采用商业或住宅风格。</p>
+<p><img alt="procedural_cities" src="../img/digital_twins_vegetation.jpg" /></p>
+<p>在下一步中还将植被添加到人行道中以获取更多细节。</p>
+<p><img alt="residential_building_style" src="../img/digital_twins_buildings.jpg" />
+<em>数字孪生工具构建风格</em></p>
+<p>建筑物的风格多种多样，随机分布在整个城市，一个区域的建筑风格是根据从 OSM 数据中提取的建筑物的特征尺寸来选择的。</p>
+<h2 id="_5">生成地图 <span id="generate-the-map"></span><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>对于 2x2 km<sup>2</sup> 区域，生成步骤大约需要 10 分钟，较大的区域将需要更长的时间。生成过程完成后，您可以在虚幻引擎编辑器中检查三维地图。</p>
+<h2 id="_6">保存地图 <span id="save-the-map"></span><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>如果您对生成的地图感到满意，则可以按 <em>Save Map</em> 按钮保存地图。 <strong>此步骤将花费大量时间</strong>，可能需要一个多小时，也可能需要几个小时。完成此步骤后，您应该准备让计算机运行几个小时。完成此步骤后，将可以通过虚幻引擎编辑器或通过 Carla API 使用该地图，就像任何其他地图一样。</p>
+<h2 id="_7">后续步骤 <span id="following_step"></span><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>添加光源（天光）、<a href="https://github.com/carla-simulator/carla/blob/dev/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Traffic/RoutePlanner.cpp">路线规划器</a> 、构建场景。</p>
+<h2 id="_8">分析 <span id="analysis"></span><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><code>UOpenDriveToMap::GenerateTile()</code>生成每一个瓦片，调用<code>GenerateAll()</code>函数，进行 道路网格、车道线、生成点、地形、数目位置、生成完成等步骤。</p>
+<h2 id="_9">问题 <span id="problems"></span><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><code>carla\Unreal\CarlaUE4\Plugins\CarlaTools\Source\CarlaTools\Private\OpenDriveToMap.cpp</code>改为生成一个瓦片地图的函数，生成后的名字为<code>{NAME}_Tile_0_0</code>。
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>ExecuteTileCommandlet<span class="o">()</span><span class="p">;</span>
+GenerateTile<span class="o">()</span><span class="p">;</span>
+</code></pre></div>
+原因：
+生成瓦片的命令行程序位于<code>Unreal\CarlaUE4\Plugins\CarlaTools\Source\CarlaTools\Private\Commandlet\GenerateTileCommandlet.cpp</code>。</p>
+<p>移除<code>void UOpenDriveToMap::GenerateTile()</code>函数中的<code>// RemoveFromRoot();</code>语句，该语句清理FilePath变量导致下一次瓦片生成时FilePath变量乱码的问题，可以解决大地图只生成一个瓦片的问题。</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p>参考：UE 中的 <a href="../ue/ue_commandlet/">Commandlet</a> 解读。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

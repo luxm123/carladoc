@@ -1,0 +1,541 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>DReyeVR custom actors - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dreyevr-custom-actors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DReyeVR custom actors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what" class="md-nav__link">
+    <span class="md-ellipsis">
+      What?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-3d-bounding-boxes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: 3D Bounding Boxes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-gaze-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Gaze lines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-debug-trails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Debug trails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dreyevr-custom-actors">DReyeVR custom actors<a class="headerlink" href="#dreyevr-custom-actors" title="Permanent link">&para;</a></h1>
+<h2 id="what">What?<a class="headerlink" href="#what" title="Permanent link">&para;</a></h2>
+<p>We are often interested in spawning arbitrary "AR-like" (Augmented reality) elements in the simulator at runtime that can be completely recorded and reenacted without hassle. </p>
+<h3 id="example-3d-bounding-boxes">Example: 3D Bounding Boxes<a class="headerlink" href="#example-3d-bounding-boxes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>With a translucent (Opacity &lt; 1) material we can simply create an elongated Cube actor and overlay it over any extent as a simple BBOX indicator.<ul>
+<li>We can have the actor track the extent, so it can follow a vehicle/pedestrian/anything and not interfere with physics at all (physics simulation is disabled).</li>
+<li>Psst! this is actually already mostly implemented (but disabled) in the code, check out the <a href="./#bounding-box-example">example at the bottom</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="example-gaze-lines">Example: Gaze lines<a class="headerlink" href="#example-gaze-lines" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If you want to draw the eye gaze rays in realtime (without using <code>DrawDebugLine</code>, which is editor-only), you can simply use an elongated cube as a "ray" from the user gaze origin to the world-space gaze target.</li>
+</ul>
+<h3 id="example-debug-trails">Example: Debug trails<a class="headerlink" href="#example-debug-trails" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Similar to the debug path in Carla, spawning a trail of dynamic spheres can be useful to draw AR-like guidelines in the world and help direct drivers through the map.</li>
+</ul>
+<h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Having each "CustomActor" be its own entity (not necessarily tied to the EgoVehicle/EgoSensor) allows it to be recorded with the CARLA recorder easily and without modifying the core DReyeVR data. This is important when we want to change the API of the recorder (which happens quite often) but don't want to lose data from previous experiments that have data recordings (in binary format) that we can't modify easily.</li>
+<li>Abstracting the "CustomActor"s gives us plenty of flexibility for manipulating the actors in the simulator at runtime and allows for new interesting scenarios to be performed easily without worry of recording/replay.</li>
+</ol>
+<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
+<p>Using these CustomActors is designed to be straightforward and cooperate with UE4/Carla's notion of <a href="https://docs.unrealengine.com/5.0/en-US/API/Runtime/Engine/GameFramework/AActor/">AActors</a>. You can see how we define all the core data for these actors (and what gets recorded/replayed) in <a href="../../Carla/Sensor/DReyeVRData.h"><code>DReyeVRData.h</code></a><code>::CustomActorData</code></p>
+<p>We have several basic 3D shapes ready for simple CustomActor usage. Theoretically you can use any static mesh. To access these types (or add your own) you should check out the references in <a href="../../Carla/Actor/DReyeVRCustomActor.h"><code>DReyeVRCustomActor.h</code></a>:
+<div class="highlight"><pre><span></span><code><span class="cp">#define MAT_OPAQUE &quot;Material&#39;/Game/DReyeVR/Custom/OpaqueParamMaterial.OpaqueParamMaterial&#39;&quot;</span>
+<span class="cp">#define MAT_TRANSLUCENT &quot;Material&#39;/Game/DReyeVR/Custom/TranslucentParamMaterial.TranslucentParamMaterial&#39;&quot;</span>
+<span class="cp">#define SM_SPHERE &quot;StaticMesh&#39;/Engine/BasicShapes/Sphere.Sphere&#39;&quot;</span>
+<span class="cp">#define SM_CUBE &quot;StaticMesh&#39;/Engine/BasicShapes/Cube.Cube&#39;&quot;</span>
+<span class="cp">#define SM_CONE &quot;StaticMesh&#39;/Engine/BasicShapes/Cone.Cone&#39;&quot;</span>
+
+<span class="c1">// add a new string literal here</span>
+<span class="cp">#define SM_CUSTOM_MESH &quot;StaticMesh&#39;/Path/To/Your/StaticMesh.StaticMesh&#39;&quot;</span>
+</code></pre></div></p>
+<h2 id="spawn-a-custom-actor">Spawn a custom actor<a class="headerlink" href="#spawn-a-custom-actor" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Carla/Actor/DReyeVRCustomActor.h&quot;</span>
+<span class="p">...</span>
+<span class="c1">// example parameters, you can change these to whavever you&#39;d like</span>
+<span class="n">FString</span><span class="w"> </span><span class="n">PathToSM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SM_CUBE</span><span class="p">;</span>
+<span class="n">FString</span><span class="w"> </span><span class="n">PathToMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAT_TRANSLUCENT</span><span class="p">;</span>
+<span class="n">FString</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;NewActorName&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// every actor needs a unique name!</span>
+<span class="n">UWorld</span><span class="w"> </span><span class="o">*</span><span class="n">World</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">();</span>
+<span class="n">ADReyeVRCustomActor</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ADReyeVRCustomActor</span><span class="o">::</span><span class="n">CreateNew</span><span class="p">(</span><span class="n">PathToSM</span><span class="p">,</span><span class="w"> </span><span class="n">PathToMaterial</span><span class="p">,</span><span class="w"> </span><span class="n">World</span><span class="p">,</span><span class="w"> </span><span class="n">Name</span><span class="p">);</span>
+</code></pre></div>
+<p>Implementation wise, the custom actors are all managed by a "global" table (<code>static std::unordered_map&lt;std::string, class ADReyeVRCustomActor *&gt;</code>) that indexes the actors by their <code>Name</code> therefore it is critical that they all have unique names. This is often easy to do when spawning many since UE4 <code>AActor</code>s themselves have unique names enumerated by their spawn order. To further understand how we use the global table, check out <code>ADReyeVRCustomActor::ActiveCustomActors</code> in <a href="../../Carla/Actor/DReyeVRCustomActor.h"><code>DReyevRCustomActor.h</code></a></p>
+<h2 id="activatedeactivate-a-custom-actor">Activate/deactivate a custom actor<a class="headerlink" href="#activatedeactivate-a-custom-actor" title="Permanent link">&para;</a></h2>
+<p>To activate (see in the world) simply run
+<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="o">-&gt;</span><span class="n">Activate</span><span class="p">();</span>
+</code></pre></div>
+This will ensure every tick of this actor will be recorded with the Carla recorder. </p>
+<p>Similarly, to deactivate the actor (disable visibility, recording, and tick function) do:
+<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+</code></pre></div></p>
+<p>You can check whether or not an actor is "active" with <code>A-&gt;IsActive()</code>. While true (the actor is active) the actor will automatically be recorded in the CARLA recorder which will allow replaying without hassle. </p>
+<h2 id="update-a-custom-actor">Update a custom actor<a class="headerlink" href="#update-a-custom-actor" title="Permanent link">&para;</a></h2>
+<p>These methods come from the UE4 <code>AActor</code> base class, which our class inherits from and extends. 
+<div class="highlight"><pre><span></span><code><span class="c1">// resize the actor</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">SetActorScale3D</span><span class="p">(</span><span class="n">FVector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">));</span>
+
+<span class="c1">// move the actor</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">SetActorLocation</span><span class="p">(</span><span class="n">FVector</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">// rotate the actor</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">SetActorRotation</span><span class="p">(</span><span class="n">FRotator</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+</code></pre></div></p>
+<p>Assuming you are using one of the param-materials we provide for you, you can also modify the material parameters and have them take effect in realtime:
+<div class="highlight"><pre><span></span><code><span class="c1">// change vector properties</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">BaseColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLinearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// RGBA</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">Emissive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">FLinearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// RGBA</span>
+
+<span class="c1">// change scalar properties</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">Metallic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.f</span><span class="p">;</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">Specular</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.15f</span><span class="p">;</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">Roughness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.f</span><span class="p">;</span>
+<span class="n">A</span><span class="o">-&gt;</span><span class="n">MaterialParams</span><span class="p">.</span><span class="n">Anisotropy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Note that in order to use the <code>Opacity</code> property, the material needs to have a translucent blend mode. So far we only have two material types, opaque and translucent, each with their own set of available properties as follows:
+| OpaqueParamMaterial | TranslucentParamMaterial |
+| --- | --- |
+| <img alt="OpaqueMaterial" src="../../Figures/Actor/OpaqueParamMaterial.jpg" /> | <img alt="OpaqueMaterial" src="../../Figures/Actor/TranslucentParamMaterial.jpg" /> |</p>
+<h2 id="bounding-box-example">Bounding Box Example<a class="headerlink" href="#bounding-box-example" title="Permanent link">&para;</a></h2>
+<p>As an example of the CustomActor bounding boxes in action, checkout <a href="../../DReyeVR/LevelScript.cpp"><code>LevelScript.cpp::DrawBBoxes</code></a> where some simple logic for drawing translucent bounding boxes is held (coloured based on distance to EgoVehicle). To enable this function, you'll need to manually enable it by removing the <code>#if 0</code> and corresponding <code>#endif</code> around the function body.</p>
+<p>Here is what it might look like in action:</p>
+<p><img alt="BboxExample" src="../../Figures/Actor/Bbox.jpg" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../../../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>

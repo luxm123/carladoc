@@ -1,0 +1,632 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>自定义地图：天气和景观 - CARLA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CARLA Documentation" class="md-header__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CARLA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              自定义地图：天气和景观
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CARLA Documentation" class="md-nav__button md-logo" aria-label="CARLA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CARLA Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenHUTB/carla_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/streaming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      天气定制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="天气定制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bp_sky" class="md-nav__link">
+    <span class="md-ellipsis">
+      天空蓝图 BP_Sky
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bp_weather" class="md-nav__link">
+    <span class="md-ellipsis">
+      天气蓝图 BP_Weather
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加序列化网格
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="添加序列化网格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bp_repspline" class="md-nav__link">
+    <span class="md-ellipsis">
+      BP_RepSpline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bp_spline" class="md-nav__link">
+    <span class="md-ellipsis">
+      BP_Spline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bp_wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      BP_Wall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bp_splinepoweline" class="md-nav__link">
+    <span class="md-ellipsis">
+      BP_SplinePoweLine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      下一步
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1"><a href="https://carla.readthedocs.io/en/latest/tuto_M_custom_weather_landscape/">自定义地图：天气和景观</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Carla 提供了多个蓝图，可帮助您轻松创建地图的默认天气设置，并使用序列化网格（例如路灯、电线等）填充景观。</p>
+<p>本指南将解释每个蓝图的位置以及如何使用和配置它们。</p>
+<ul>
+<li><a href="#weather-customization"><strong>天气定制</strong></a><ul>
+<li><a href="#bp_sky">BP_Sky</a></li>
+<li><a href="#bp_weather">BP_Weather</a></li>
+</ul>
+</li>
+<li><a href="#add-serial-meshes"><strong>序列化网格</strong></a><ul>
+<li><a href="#bp_repspline">BP_RepSpline</a></li>
+<li><a href="#bp_spline">BP_Spline</a></li>
+<li><a href="#bp_wall">BP_Wall</a></li>
+<li><a href="#bp_splinepoweline">BP_SplinePoweLine</a></li>
+</ul>
+</li>
+<li><a href="#next-steps"><strong>下一步</strong></a></li>
+</ul>
+<p>!!! 重要
+    本教程仅适用于使用源代码构建并有权访问虚幻编辑器的用户。</p>
+<hr />
+<h2 id="_2">天气定制 <span id="weather-customization"></span><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>本节介绍如何在设置地图的默认天气之前尝试不同的天气参数，以及在对设置感到满意后如何为地图配置默认天气参数。</p>
+<h3 id="bp_sky">天空蓝图 BP_Sky <span id="bp_sky"></span><a class="headerlink" href="#bp_sky" title="Permanent link">&para;</a></h3>
+<p><a href="https://bitbucket.org/carla-simulator/carla-content/src/master/Blueprints/Weather/BP_Sky.uasset">蓝图<code>BP_Sky</code></a> 对于为地图带来光线和天气是必要的。在决定默认天气参数之前，它还可以用于测试不同的天气配置。</p>
+<p><code>BP_Sky</code> 蓝图可能已经加载到您的地图中。如果没有，您可以通过<code>Content/Carla/Blueprints/Weather</code>将其拖到场景中来添加它。</p>
+<p>要尝试不同的天气参数，请转到 <code>BP_Sky</code> 参与者的 <em>细节(Details)</em> 面板，然后使用 <em>参数(Parameters)</em> 部分中的值。</p>
+<p>!!! 重要
+    如果场景中加载了多个 <code>BP_Sky</code> 蓝图，天气将会重复，从而产生不良结果，例如，有两个太阳。</p>
+<h3 id="bp_weather">天气蓝图 BP_Weather <span id="bp_weather"></span><a class="headerlink" href="#bp_weather" title="Permanent link">&para;</a></h3>
+<p>地图的默认天气在天气蓝图<code>BP_Weather</code>中定义。此蓝图允许设置的参数和 Python API 相同。<a href="../python_api/#carlaweatherparameters">此处</a> 描述了这些参数。</p>
+<p>要设置地图的默认天气：</p>
+<p><strong>1. 打开 <code>BP_Weather</code> 蓝图。</strong> </p>
+<p>在 <em>内容浏览器</em> 中，导航至 <code>Content/Carla/Blueprints/Weather</code> 并双击 <code>BP_Weather</code> 。</p>
+<p><strong>2. 添加您的城镇。</strong></p>
+<p>在<code>BP_Weather</code>窗口中间选中 <em>Default Weathers</em>，在 <em>细节(Details)</em> 面板中，转到  <em>Default Weathers</em> 部分并将您的城镇添加到数组中。</p>
+<p><strong>3. 配置默认天气参数。</strong></p>
+<p>对于每个天气参数，设置您想要的值。完成后，按 <em>编译(Compile)</em> ，然后按 <em>保存(Save)</em> 并关闭。</p>
+<p><img alt="bp_weather_pic" src="../img/map_customization/BP_Weather.jpg" /><br></p>
+<div style="text-align: center">
+<i>包含每个 Carla 地图的默认天气参数的数组。打开 Town10HD_Opt。</i></div>
+<p><br></p>
+<p>天气的具体实现请参考 <a href="../modules/Weather/">链接</a> 。</p>
+<hr />
+<h2 id="_3">添加序列化网格 <span id="add-serial-meshes"></span><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>有四种蓝图可用于添加沿一个方向对齐的道具，例如墙壁、电线、路灯。这些蓝图使用一系列沿贝塞尔曲线分布的网格。每一个都以相同的方式初始化：</p>
+<p><strong>1.  初始化序列。</strong></p>
+<p>将蓝图拖到场景中。您将看到一个元素位于贝塞尔曲线的起点，并有两个节点标记开始和结束。</p>
+<p><strong>2. 定义路径。</strong></p>
+<p>选择元素的方向箭头，然后按 <strong>Alt</strong>  键，同时将元素向您想要移动的方向拖动。这将创建一个可用于定义曲线的新元素。拖动时，曲线的每个节点上或每次<code>Alt</code>拖动时按下时都会出现一个新网格，具体取决于蓝图。</p>
+<p><strong>3. 定制图案。</strong></p>
+<p>以下部分将描述每个蓝图可用的不同自定义参数。</p>
+<h3 id="bp_repspline">BP_RepSpline <span id="bp_repspline"></span><a class="headerlink" href="#bp_repspline" title="Permanent link">&para;</a></h3>
+<p>蓝图<code>BP_RepSpline</code>可在 <code>Carla/Blueprints/LevelDesign</code> 中找到。它用于沿着贝塞尔曲线定义的路径添加 <strong>单个</strong> 元素。</p>
+<p>序列化是通过以下值自定义的：</p>
+<ul>
+<li><em>Distance between</em> — 设置元素之间的距离。</li>
+<li><em>Offset rotation</em> — 为不同轴设置固定旋转。</li>
+<li><em>Random rotation</em> — 设置不同轴的随机旋转范围。</li>
+<li><em>Offset translation</em> — 设置沿不同轴的一系列随机位置。</li>
+<li><em>Max Number of Meshes</em> — 设置将放置在曲线节点之间的元素的最大数量。</li>
+<li><em>World aligned ZY</em> — 如果选择此选项，元素将相对于世界轴垂直对齐。</li>
+<li><em>EndPoint</em> — 如果选择此选项，将在曲线的终点节点添加一个元素。</li>
+<li><em>Collision enabled</em> — 设置为网格启用的碰撞类型。</li>
+</ul>
+<p><img alt="bp_repspline_pic" src="../img/map_customization/BP_Repspline.jpg" /></p>
+<div style="text-align: right"><i>BP_RepSpline 示例。</i></div>
+
+<h3 id="bp_spline">BP_Spline <span id="bp_spline"></span><a class="headerlink" href="#bp_spline" title="Permanent link">&para;</a></h3>
+<p>蓝图<code>BP_Spline</code>可在 <code>Carla/Blueprints/LevelDesign</code> 中找到。它添加严格遵循贝塞尔曲线定义的路径的连接元素。网格将扭曲以适应创建的路径。</p>
+<p>可以使用以下值自定义蓝图：</p>
+<ul>
+<li><em>Gap distance</em> — 在元素之间添加间隔。</li>
+</ul>
+<p><img alt="bp_spline_pic" src="../img/map_customization/BP_Spline.jpg" /></p>
+<div style="text-align: right"><i>BP_Spline example.</i></div>
+
+<h3 id="bp_wall">BP_Wall <span id="bp_wall"></span><a class="headerlink" href="#bp_wall" title="Permanent link">&para;</a></h3>
+<p>蓝图<code>BP_Wall</code>可在 <code>Carla/Blueprints/LevelDesign</code> 中找到。它沿着贝塞尔曲线定义的路径添加连接的元素。网格不会扭曲以适应曲线，但会考虑节点。</p>
+<ul>
+<li><em>Distance between</em> — 设置元素之间的距离。</li>
+<li><em>Vertically aligned</em> — 如果选择此选项，元素将相对于世界轴垂直对齐。</li>
+<li><em>Scale offset</em> — 缩放网格的长度以完善元素之间的连接。</li>
+</ul>
+<p><img alt="bp_wall_pic" src="../img/map_customization/BP_Wall.jpg" /></p>
+<div style="text-align: right"><i>BP_Wall 实例。</i></div>
+
+<h3 id="bp_splinepoweline">BP_SplinePoweLine <span id="bp_splinepoweline"></span><a class="headerlink" href="#bp_splinepoweline" title="Permanent link">&para;</a></h3>
+<p><strong>BP_SplinePoweLine</strong> 蓝图可在 <code>Carla/Static/Pole/PoweLine</code> 中找到。它沿着贝塞尔曲线定义的路径添加 <strong>电线杆(electricity poles)</strong>，并将它们 <strong>与电线连接起来</strong>。</p>
+<p>为了提供多样性，您可以为蓝图提供一系列电力线网格来填充路径。去做这个：</p>
+<ol>
+<li>在 <em>Content Browser</em> 中双击 <strong>BP_SplinePoweLine</strong> 蓝图。</li>
+<li>在 <em>Details</em> 面板中，转到 <em>Default</em> 部分。</li>
+<li>展开 <em>Array Meshes</em> 并根据您的需要添加或更改它。</li>
+<li>点击 <em>Compile</em> ，然后保存并关闭窗口。</li>
+</ol>
+<p><img alt="bp_splinepowerline_pic" src="../img/map_customization/BP_Splinepowerline.jpg" /></p>
+<div style="text-align: right"><i>BP_SplinePowerLine example.</i></div>
+
+<p>要改变电源线的线张力：</p>
+<ol>
+<li>在编辑器场景中选择蓝图参与者，然后转到  <em>Details</em> 面板。</li>
+<li>转到 <em>Default</em> 部分。</li>
+<li>调整张力 <em>Tension</em> 中的值。 <code>0</code> 表示线条将是直的。</li>
+</ol>
+<p>增加电线数量：</p>
+<ol>
+<li>在 <em>内容浏览器</em> 中，双击其中一个杆网格。</li>
+<li>转到 <em>Socket Manager</em> 面板。</li>
+<li>配置现有套接字或通过单击 <em>Create Socket</em> 添加新套接字。插座是代表电源线连接点的空网格。在两极之间从插座到插座创建电线。</li>
+</ol>
+<p><img alt="bp_powerline_socket_pic" src="../img/map_customization/BP_Splinepowerline_Sockets.jpg" /></p>
+<div style="text-align: right"><i>BP_SplinePowerLine 套接字的可视化。</i></div>
+<p><br></p>
+<p>!!! 重要
+    各极之间的插座数量及名称应一致。否则，可能会出现可视化问题。</p>
+<hr />
+<h2 id="_4">下一步  <span id="next-steps"></span><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>使用以下工具和指南继续自定义您的地图：</p>
+<ul>
+<li><a href="../tuto_M_custom_layers/">在地图中实现子关卡。</a></li>
+<li><a href="../tuto_M_custom_add_tl/">添加和配置交通灯和标志。</a></li>
+<li><a href="../tuto_M_custom_buildings/">使用程序化构建工具添加建筑物。</a></li>
+<li><a href="../tuto_M_custom_road_painter/">使用道路画家工具自定义道路。</a></li>
+<li><a href="./#add-serial-meshes">使用序列化网格自定义景观。</a></li>
+</ul>
+<p>完成定制后，您可以 <a href="../tuto_M_generate_pedestrian_navigation/">生成行人导航信息</a> 。</p>
+<hr />
+<p>如果您对流程有任何疑问，可以在 <a href="https://github.com/carla-simulator/carla/discussions">论坛</a> 中提问。</p>
+<div class="build-buttons">
+<p>
+<a href="https://github.com/carla-simulator/carla/discussions" target="_blank" class="btn btn-neutral" title="Go to the CARLA forum">
+Carla 论坛</a>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="../js/umlconvert.js"></script>
+      
+    
+  </body>
+</html>
