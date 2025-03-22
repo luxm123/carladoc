@@ -13,7 +13,7 @@ repo_url: https://github.com/OpenHUTB/carla_doc
 edit_uri: edit/master/docs/
 
 theme:
-  name: readthedocs
+  name: material
   sticky_navigation: True
   navigation_depth: 3
   features:
@@ -58,14 +58,22 @@ nav:
 #- 贡献: '#_11'
 #- 其他: '#_12'
 #- 参考: '#_13'
+site_name: CARLA Documentation
+nav:
+  - Home: index.md
+  - Modules:
+      - Streaming: modules/streaming.md
 
 # - mdx_math 用于行内公式显示
 markdown_extensions:
-  - admonition
-  - mdx_math
-  - pymdownx.superfences:
-      custom_fences: [
-         { name: flow, class: uml-flowchart }
-        ,{ name: sequence, class: uml-sequence-diagram }
-        ,{ name: mermaid, class: mermaid }
-      ]
+  - pymdownx.superfences  # 直接支持 Mermaid
+  - pymdownx.arithmatex
+  - pymdownx.superfences
+  - pymdownx.extra
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+  - attr_list
+
+
