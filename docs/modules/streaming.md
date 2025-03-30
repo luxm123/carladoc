@@ -1,8 +1,6 @@
-<span id="streaming"></span>
-[什么是 Streaming？](#streaming-intro)
 
 
-
+<h1><a href="#什么是-streaming">什么是 Streaming?</a></h1>
 
 - [结构化设计](#结构化设计)
 ## [架构](#架构)
@@ -14,7 +12,6 @@
 - [缓存管理](#缓存管理)
 - [流优化](#流优化)
 - [配置管理](#配置管理)
-
 
 ## [使用Streaming](#使用streaming)
 - [数据输入与输出](#数据输入与输出)
@@ -34,18 +31,14 @@
 
 
 
-
-<span id="streaming-intro"></span>
-## 什么是 Streaming？
-
-
+# [什么是 Streaming?](#什么是-streaming)
 
 **Streaming** 是 **CARLA 仿真环境中的流式数据传输模块**，负责 **服务器端创建数据流、客户端订阅流，并进行高效的数据传输**。  
 该模块适用于 **实时传感器数据传输、分布式仿真、远程数据处理** 等应用场景，并支持 **TCP/UDP、同步/异步模式、多客户端订阅** 等功能，确保仿真数据能够高效传输到多个订阅客户端。
 
 
+## 结构化设计
 
-## [结构化设计](#结构化设计)
 结构化设计是一种 **模块化的软件架构方法**，通过 **高内聚、低耦合的方式** 组织系统，使其更易维护和扩展。
 
 Streaming 组件采用 **结构化设计**，通过 **模块化拆分**，将数据流管理、客户端订阅和传输机制解耦，提高了系统的 **可扩展性** 和 **维护性**。
@@ -64,14 +57,13 @@ Streaming 组件采用 **结构化设计**，通过 **模块化拆分**，将数
 
 
 
-
 # [架构](#架构)
 
 ## [概述](#概述)
 
-
-![Streaming Flowchart](img/streaming_flowchart.png)
-
+<p align="center">
+  <img src="/img/streaming_flowchart.png" alt="Streaming流程图" width="600">
+</p>
 
 
 
@@ -85,9 +77,7 @@ Streaming 组件采用 **结构化设计**，通过 **模块化拆分**，将数
 
 
 
-
 ## [数据流管理](#数据流管理)
-
 
 Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**、**流量控制** 和 **访问权限管理**，确保数据流的稳定性和可靠性。
 
@@ -105,7 +95,6 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
 - **流控制** 预防网络拥塞，动态调整数据传输速率，确保客户端稳定接收数据。
 - **访问控制** 通过 `Token` 机制限制数据流权限，防止未授权访问。
 - **异步并发机制** 使用 `Boost.Asio` 进行线程管理，提高系统吞吐能力，支持多个客户端同时订阅数据流。
-
 
 
 ## [事件驱动](#事件驱动)
@@ -127,7 +116,6 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
 
 4. **事件回调机制**  
    - `Boost.Asio` 的 `io_context.run()` 负责驱动整个事件循环，确保所有 I/O 事件（读、写、连接）都能 **异步执行**，不会阻塞主线程，提高系统吞吐量。
-
 
 ## [流式计算](#流式计算)
 
@@ -152,7 +140,6 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
 
 - **数据序列化**：
   - `Token.h` 结合 `MsgPack` 进行数据序列化，提升传输效率，支持跨平台数据交互。
-
 
 ## [异步处理](#异步处理)
 
@@ -187,7 +174,6 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
    - boost::asio::ip::tcp::resolver 解析域名，支持 **跨网段通信**。
 
 
-
 ## [缓存管理](#缓存管理)
 
 `streaming` 模块中的 **缓存管理（Buffer Management）** 旨在优化数据的存储和传输，减少 I/O 操作，提高系统吞吐量。
@@ -220,7 +206,6 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
 
 
 
-
 ## [流优化](#流优化)
 
 `streaming` 模块中的 **流优化（Stream Optimization）** 主要关注数据流的管理和调度，以提升传输效率、减少延迟，并优化系统的整体吞吐量。
@@ -243,13 +228,11 @@ Streaming 组件的 **数据流管理** 主要关注 **数据的高效传输**�
 - **线程池和异步传输** 提高了流的并发能力，减少阻塞，提高吞吐量。
 
 
-
 ## [配置管理](#配置管理)
 
 ## **概述**
 
 `streaming` 模块用于在服务器和客户端之间建立高效的数据流通信，依赖 `boost::asio` 进行网络传输，并使用 `carla::ThreadPool` 进行线程管理。现介绍该模块的配置方式，包括网络端口设置、线程池管理和依赖项安装等。
-
 
 
 ## **环境要求**
@@ -272,7 +255,6 @@ sudo apt-get install libmsgpack-dev
 ```bash
 vcpkg install boost-asio msgpack
 ```
-
 
 
 ## **配置项**
@@ -314,7 +296,6 @@ server.GetLocalEndpoint();
 client.Subscribe(token, [](auto msg) { std::cout << msg << std::endl; });
 ```
 
-
 ### **2. 线程池管理**
 
 服务器和客户端使用 `carla::ThreadPool` 进行并发调度。
@@ -337,7 +318,6 @@ server.AsyncRun(4);
 client.AsyncRun(4);
 ```
 
-
 ### **3. 超时设置**
 
 服务器支持超时机制，防止连接长时间无响应。
@@ -345,7 +325,6 @@ client.AsyncRun(4);
 ```cpp
 server.SetTimeout(time_duration);
 ```
-
 
 ## **示例配置**
 
@@ -397,7 +376,6 @@ int main() {
 ```
 
 
-
 ## **总结**
 
 - `streaming` 模块提供 **灵活的网络配置**，支持 **本地和远程端点**。
@@ -409,11 +387,9 @@ int main() {
 
 
 
-
 # [使用 Streaming](#使用-streaming)
 
 Streaming 组件用于在服务器和客户端之间进行高效的数据流传输。它依赖 `boost::asio` 进行网络通信，并使用 `carla::ThreadPool` 进行线程管理。
-
 
 
 ## [数据输入与输出](#数据输入与输出)
@@ -434,7 +410,6 @@ client.Subscribe(my_token, [](auto msg) {
     std::cout << "收到数据: " << msg << std::endl; 
 });
 ```
-
 
 
 ## [创建 Streaming 实例](#创建-streaming-实例)
@@ -461,7 +436,6 @@ client.Subscribe(my_token, [](auto msg) {
     std::cout << "收到消息：" << msg << std::endl;
 });
 ```
-
 
 
 ## [配置流式任务](#配置流式任务)
@@ -493,7 +467,6 @@ client.AsyncRun(4); // 以 4 个线程运行
 server.SetTimeout(boost::posix_time::seconds(10)); // 设置 10 秒超时
 ```
 
-
 ## [停止 Streaming](#停止-streaming)
 
 Streaming 组件在 **服务器关闭时会自动停止**，但手动管理资源可确保所有订阅的客户端和服务器任务都正常释放。
@@ -519,9 +492,7 @@ server.CloseStream(1); // 关闭流 ID 为 1 的数据流
 client.apply_batch([carla::command::DestroyActor(x) for x in client_list]);
 ```
 
-
 **注意：关闭 Streaming 服务器后，所有仍然订阅的客户端将无法接收新的数据。如果不主动销毁客户端，它们仍然存在，只是无法获取新的流数据。**
-
 
 **补充说明**
 > - 使用 `server.SetTimeout(x)` 设置超时参数，防止长时间挂起。
@@ -531,12 +502,9 @@ client.apply_batch([carla::command::DestroyActor(x) for x in client_list]);
 
 
 
-
 # [运行模式](#运行模式)
 
-
 ## [Streaming 服务器端和客户端](#streaming-服务器端和客户端)
-
 
 ### 概述
 Streaming 模块采用客户端-服务器 (Client-Server) 架构，服务器端 `Server` 负责创建和管理数据流，客户端 `Client` 负责订阅流并接收数据。  
@@ -591,7 +559,6 @@ private:
 carla::streaming::Server server(8080);
 server.Run();  // 运行服务器
 ```
-
 
 ### 客户端（Client）
 `Client` 主要功能：
@@ -650,7 +617,6 @@ client.Run();
 // clientThread.detach();
 ```
 
-
 ## [多客户端并发](#多客户端并发)
 
 ### 概述
@@ -669,7 +635,6 @@ client1.Subscribe(token, callback);
 client2.Subscribe(token, callback);
 client3.Subscribe(token, callback);
 ```
-
 
 ## [多Streaming任务](#多Streaming任务)
 
@@ -691,7 +656,6 @@ Stream stream1 = server.MakeStream(); // 通过服务器创建第一个流
 Stream stream2 = server.MakeStream(); // 通过服务器创建第二个流
 
 ```
-
 
 ## [端点配置与多地址支持](#端点配置与多地址支持)
 
@@ -719,13 +683,11 @@ server.Run();
 
 ```
 
-
 ## 总结
 - Streaming 服务器和客户端实现高效的数据传输，支持同步/异步模式。
 - 服务器支持多客户端并发，多个客户端可订阅同一流，数据并行分发。
 - 服务器支持多个 Streaming 任务，每个任务由 `Token` 识别，客户端可分别订阅不同流。
 - 服务器和客户端支持灵活的端点配置，允许自定义 IP 地址、端口，适用于不同的网络环境。
-
 
 
 # [其他模式](#其他模式)
@@ -781,3 +743,5 @@ void UnSubscribe(const Token &token) {
 ```
 
 这些机制确保了服务器和多个客户端之间的高效数据传输，并允许多个客户端同时订阅同一个数据流，从而实现多端点 Streaming。
+
+
